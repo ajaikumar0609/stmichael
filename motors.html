@@ -106,7 +106,6 @@ nav.on{background:rgba(6,8,12,.93);backdrop-filter:blur(16px);border-bottom:1px 
   position:relative;min-height:100vh;
   display:grid;grid-template-columns:1fr 1fr;
   align-items:center;gap:0;overflow:hidden;
-  padding:120px 5% 100px;
 }
 
 /* Blueprint grid */
@@ -137,8 +136,8 @@ nav.on{background:rgba(6,8,12,.93);backdrop-filter:blur(16px);border-bottom:1px 
 }
 @keyframes scan{0%,100%{top:20%;opacity:.3}50%{top:80%;opacity:.8}}
 
-.hero-left{position:relative;z-index:2}
-.hero-right{position:relative;z-index:2;display:flex;align-items:center;justify-content:center}
+.hero-left{position:relative;z-index:2;padding:120px 5% 100px 10%;}
+.hero-right{position:relative;z-index:2;height:100%;min-height:100vh;overflow:hidden}
 
 .h-eyebrow{
   display:inline-flex;align-items:center;gap:10px;
@@ -215,9 +214,8 @@ nav.on{background:rgba(6,8,12,.93);backdrop-filter:blur(16px);border-bottom:1px 
 
 /* Tractor visual */
 .tractor-wrap{
-  position:relative;width:130%;max-width:900px;
-  right: -10%; /* Shift it right slightly to accommodate the larger size */
-  animation:fu .9s .1s var(--expo) both
+  position:absolute;inset:0;
+  width:100%;height:100%;
 }
 .tractor-glow-behind{
   position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
@@ -226,8 +224,8 @@ nav.on{background:rgba(6,8,12,.93);backdrop-filter:blur(16px);border-bottom:1px 
   filter:blur(40px);z-index:0
 }
 .tractor-main{
-  width:100%;height:auto;position:relative;z-index:1;
-  animation:tf 5s ease-in-out infinite
+  width:100%;height:100%;position:absolute;inset:0;z-index:1;
+  object-fit:cover;object-position:center;
 }
 @keyframes tf{0%,100%{transform:translateY(0) rotate(-.5deg)}50%{transform:translateY(-12px) rotate(.5deg)}}
 
@@ -749,9 +747,9 @@ footer{background:#040608;border-top:1px solid var(--border);padding:56px 5% 28p
 
   <div class="hero-right">
     <div class="tractor-wrap">
-      <div class="tractor-glow-behind"></div>
+      
       <!-- Premium CSS tractor SVG -->
-      <img class="tractor-main" src="motors/mainmotorpic.png" alt="St. Michael Motors Tractor" style="max-width: 100%; height: auto;" />
+      <img class="tractor-main" src="motors/mainmotorpic.png" alt="St. Michael Motors Tractor" />
 
       <!-- Floating spec tags -->
       <div class="tractor-spec-tag" style="top:15%;right:0">
