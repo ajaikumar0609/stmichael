@@ -4542,6 +4542,26 @@ function playStoryVid() {
     console.error('Video play failed:', err);
   });
 }
+
+/* ─── VIDEO AUTO-PAUSE ON SCROLL ─── */
+const videoObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    const vid = entry.target;
+    if (!entry.isIntersecting) {
+      if (!vid.paused) {
+        vid.pause();
+        vid.dataset.wasPlaying = "true";
+      }
+    } else {
+      if (vid.dataset.wasPlaying === "true" || vid.autoplay) {
+        vid.play().catch(e => console.log('Autoplay prevented:', e));
+        vid.dataset.wasPlaying = "false";
+      }
+    }
+  });
+}, { threshold: 0.05 });
+
+document.querySelectorAll('video').forEach(vid => videoObserver.observe(vid));
 </script>
 </body>
 </html>
