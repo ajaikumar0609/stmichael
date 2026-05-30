@@ -138,6 +138,20 @@ nav.on{background:rgba(6,8,12,.93);backdrop-filter:blur(16px);border-bottom:1px 
 
 .hero-left{position:relative;z-index:2;padding:120px 5% 100px 10%;}
 .hero-right{position:relative;z-index:2;height:100%;min-height:100vh;overflow:hidden}
+.hero-right::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(to right, var(--bg0) 0%, transparent 35%);
+  z-index: 2;
+  pointer-events: none;
+}
+.hero-right::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(to bottom, rgba(6,18,36,0.85) 0%, transparent 25%, transparent 80%, var(--bg0) 100%);
+  z-index: 2;
+  pointer-events: none;
+}
 
 .h-eyebrow{
   display:inline-flex;align-items:center;gap:10px;
@@ -226,6 +240,7 @@ nav.on{background:rgba(6,8,12,.93);backdrop-filter:blur(16px);border-bottom:1px 
 .tractor-main{
   width:100%;height:100%;position:absolute;inset:0;z-index:1;
   object-fit:cover;object-position:center;
+  filter: brightness(0.8) saturate(1.1);
 }
 @keyframes tf{0%,100%{transform:translateY(0) rotate(-.5deg)}50%{transform:translateY(-12px) rotate(.5deg)}}
 
@@ -752,18 +767,9 @@ footer{background:#040608;border-top:1px solid var(--border);padding:56px 5% 28p
       <img class="tractor-main" src="motors/mainmotorpic.png" alt="St. Michael Motors Tractor" />
 
       <!-- Floating spec tags -->
-      <div class="tractor-spec-tag" style="top:15%;right:0">
-        <span class="tst-val">50 HP</span>
-        <span class="tst-label">Engine Power</span>
-      </div>
-      <div class="tractor-spec-tag" style="bottom:25%;left:0">
-        <span class="tst-val">4WD</span>
-        <span class="tst-label">Drive System</span>
-      </div>
-      <div class="tractor-spec-tag" style="top:50%;right:0">
-        <span class="tst-val">2000 Kg</span>
-        <span class="tst-label">Lift Capacity</span>
-      </div>
+      
+      
+      
     </div>
   </div>
 
