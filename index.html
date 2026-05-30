@@ -3670,8 +3670,8 @@ footer {
   </div>
 
   <!-- Full-width brand film video -->
-  <div class="about-brand-video-wrap reveal reveal-delay-1">
-    <video autoplay muted loop playsinline>
+  <div class="about-brand-video-wrap reveal reveal-delay-1" onclick="const v = this.querySelector('video'); v.muted = !v.muted; if(v.muted){v.setAttribute('muted', '');}else{v.removeAttribute('muted');}">
+    <video autoplay muted loop playsinline controls>
       <source src="videos/Building Industries.mp4" type="video/mp4">
     </video>
     <div class="about-brand-video-overlay"></div>
