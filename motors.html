@@ -114,13 +114,13 @@ nav.on{background:rgba(6,8,12,.93);backdrop-filter:blur(16px);border-bottom:1px 
 .hero::before {
   content: '';
   position: absolute; inset: 0;
-  background: linear-gradient(to right, rgba(6,18,36,0.95) 0%, rgba(6,18,36,0.6) 45%, transparent 100%);
+  background: linear-gradient(to right, rgba(6,18,36,0.4) 0%, transparent 60%);
   z-index: 1; pointer-events: none;
 }
 .hero::after {
   content: '';
   position: absolute; inset: 0;
-  background: linear-gradient(to bottom, rgba(6,18,36,0.85) 0%, transparent 20%, transparent 80%, var(--bg0) 100%);
+  background: linear-gradient(to bottom, transparent 0%, transparent 80%, var(--bg0) 100%);
   z-index: 1; pointer-events: none;
 }
 
@@ -152,7 +152,7 @@ nav.on{background:rgba(6,8,12,.93);backdrop-filter:blur(16px);border-bottom:1px 
 }
 @keyframes scan{0%,100%{top:20%;opacity:.3}50%{top:80%;opacity:.8}}
 
-.hero-left{position:relative;z-index:2;padding:120px 5% 100px 5%; max-width: 650px;}
+.hero-left{position:relative;z-index:2;margin:120px 5% 100px 5%;padding:50px;max-width:650px;background:rgba(6,18,36,0.35);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,0.1);border-radius:20px;box-shadow:0 30px 60px rgba(0,0,0,0.4);}
 .hero-right{display:none;}
 .hero-right::before {
   content: '';
@@ -649,7 +649,7 @@ footer{background:#040608;border-top:1px solid var(--border);padding:56px 5% 28p
 ════════════════════════════════════ */
 @media(max-width:1024px){
   .hero{padding:120px 5% 100px}
-  .hero-left{width:100%;min-width:0;padding:120px 5% 100px}
+  .hero-left{width:auto;min-width:0;margin:100px 5% 60px;padding:30px}
   .hero-right{display:none}
   .about{grid-template-columns:1fr;gap:48px}
   .about-img-grid{display:none}
