@@ -71,13 +71,8 @@ nav{
 }
 nav.on{background:rgba(6,8,12,.93);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
 
-.nav-brand{text-decoration:none;display:flex;align-items:center;gap:14px}
-.nav-brand-mark{
-  width:40px;height:40px;border-radius:50%;
-  border:1.5px solid var(--gold);
-  display:flex;align-items:center;justify-content:center;flex-shrink:0
-}
-.nav-brand-mark svg{width:20px;height:20px;fill:var(--gold)}
+.nav-brand{text-decoration:none;display:flex;align-items:center;gap:12px}
+.nav-brand-logo{width:40px;height:40px;border-radius:50%;object-fit:cover;flex-shrink:0}
 .nav-brand-copy{display:flex;flex-direction:column;line-height:1}
 .nav-brand-name{font-family:var(--f-display);font-size:14px;font-weight:600;color:var(--t1);letter-spacing:.03em}
 .nav-brand-div{font-family:var(--f-mono);font-size:8px;letter-spacing:.16em;color:var(--gold-dim);text-transform:uppercase;margin-top:2px}
@@ -668,21 +663,48 @@ footer{background:#040608;border-top:1px solid var(--border);padding:56px 5% 28p
   .rb-item{flex:0 0 50%;border-bottom:1px solid var(--border)}
 }
 @media(max-width:640px){
+  /* nav */
   .nav-links{display:none}
   .nav-actions{display:none}
   .nav-ham{display:flex}
-  .hero{grid-template-columns:1fr !important}
-  .hero-left{margin:80px 4% 100px;padding:24px;max-width:100%}
-  .h-trust{flex-direction:column;gap:10px}
-  .h-trust-item{width:100%}
-  .h-ribbon{position:relative;bottom:auto}
+  .nav-brand-div{display:none}
+  .nav-brand-name{font-size:13px}
+  .nav-brand-logo{width:34px;height:34px}
+
+  /* hero — full bleed, no glass card */
+  .hero{grid-template-columns:1fr !important;min-height:100svh;align-items:flex-start}
+  .hero::before{background:linear-gradient(to bottom,rgba(6,18,36,.65) 0%,rgba(6,18,36,.45) 60%,transparent 100%)}
+  .hero-left{
+    margin:0;padding:100px 24px 40px;max-width:100%;
+    background:none;border:none;box-shadow:none;backdrop-filter:none;-webkit-backdrop-filter:none;
+    border-radius:0;
+  }
+  .h-eyebrow{font-size:8px;letter-spacing:.14em;padding:5px 12px}
+  .h-title{font-size:clamp(52px,14vw,72px);line-height:.9}
+  .h-title .sm{font-size:.32em;letter-spacing:.14em}
+  .h-sub{font-size:11px;letter-spacing:.08em;margin:16px 0 10px}
+  .h-desc{font-size:14px;line-height:1.7;margin-bottom:28px}
+  .h-ctas{flex-direction:column;gap:10px}
+  .btn-hero-p,.btn-hero-s,.btn-hero-t{
+    width:100%;justify-content:center;padding:15px 24px;font-size:11px
+  }
+  .h-trust{flex-direction:column;gap:8px;margin-top:28px;padding-top:24px}
+  .h-trust-item{width:100%;padding:10px 14px}
+
+  /* ribbon */
+  .h-ribbon{position:relative;bottom:auto;grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--border)}
+  .rb-item{flex:none;border-right:1px solid var(--border);padding:14px 12px}
+  .rb-item:nth-child(2n){border-right:none}
+  .rb-item:last-child:nth-child(odd){grid-column:1/-1;border-right:none}
+  .rb-num{font-size:22px}
+
+  /* content sections */
   .cat-grid,.veh-grid{grid-template-columns:1fr}
   .why-grid{grid-template-columns:1fr}
   .stats-inner{grid-template-columns:1fr 1fr}
   .parts-list{grid-template-columns:1fr}
   .form-row{grid-template-columns:1fr}
   .footer-top{grid-template-columns:1fr}
-  .rb-item{flex:0 0 100%}
   .gal-grid{grid-template-columns:1fr}
 }
 
@@ -765,9 +787,7 @@ footer{background:#040608;border-top:1px solid var(--border);padding:56px 5% 28p
 <!-- ════ NAV ════ -->
 <nav id="nav">
   <a class="nav-brand" href="#">
-    <div class="nav-brand-mark">
-      <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg>
-    </div>
+    <img src="../motors/logo/stlogo.png" alt="St. Michael Motors" class="nav-brand-logo"/>
     <div class="nav-brand-copy">
       <span class="nav-brand-name">St. Michael Motors</span>
       <span class="nav-brand-div">Agricultural & Automotive · Tirunelveli</span>
