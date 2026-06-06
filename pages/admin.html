@@ -1030,12 +1030,12 @@ document.querySelectorAll('.item-form').forEach(form => {
           headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${jwt}` },
           body: JSON.stringify({ filename: file.name, contentType: file.type }),
         });
-        if (!upRes.ok) throw new Error('Could not get upload URL');
+        if (!upRes.ok) { const e = await upRes.json().catch(()=>({})); throw new Error(e.error || 'Could not get upload URL'); }
         const { uploadUrl, imageUrl } = await upRes.json();
 
-        // 2. PUT image directly to S3
+        // 2. PUT image directly to Supabase
         const putRes = await fetch(uploadUrl, { method: 'PUT', headers: { 'Content-Type': file.type }, body: file });
-        if (!putRes.ok) throw new Error('Image upload to S3 failed');
+        if (!putRes.ok) throw new Error('Image upload failed: ' + await putRes.text().catch(()=>'unknown'));
         image_url = imageUrl;
       }
 
@@ -1304,10 +1304,10 @@ document.getElementById('edit-form').addEventListener('submit', async (e) => {
         headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${jwt}` },
         body: JSON.stringify({ filename: file.name, contentType: file.type }),
       });
-      if (!upRes.ok) throw new Error('Could not get upload URL');
+      if (!upRes.ok) { const e = await upRes.json().catch(()=>({})); throw new Error(e.error || 'Could not get upload URL'); }
       const { uploadUrl, imageUrl } = await upRes.json();
       const putRes = await fetch(uploadUrl, { method: 'PUT', headers: { 'Content-Type': file.type }, body: file });
-      if (!putRes.ok) throw new Error('Image upload failed');
+      if (!putRes.ok) throw new Error('Image upload failed: ' + await putRes.text().catch(()=>'unknown'));
       image_url = imageUrl;
     }
 
