@@ -17,19 +17,19 @@ function getPool() {
 let adminSeeded = false;
 async function ensureAdmin() {
   if (adminSeeded) return;
-  adminSeeded = true;
   if (!process.env.ADMIN_PASSWORD) return;
   const db = getPool();
-  const { rowCount } = await db.query('SELECT 1 FROM users WHERE is_active = true LIMIT 1');
-  if (rowCount === 0) {
-    const username = process.env.ADMIN_USERNAME || 'admin';
-    const hash     = await hashPassword(process.env.ADMIN_PASSWORD);
+  const username = (process.env.ADMIN_USERNAME || 'admin').trim().toLowerCase();
+  const { rows } = await db.query('SELECT id FROM users WHERE username = $1', [username]);
+  if (rows.length === 0) {
+    const hash = await hashPassword(process.env.ADMIN_PASSWORD);
     await db.query(
       `INSERT INTO users (username, password_hash, role)
        VALUES ($1, $2, 'admin') ON CONFLICT (username) DO NOTHING`,
       [username, hash]
     );
   }
+  adminSeeded = true;
 }
 
 module.exports = { getPool, ensureAdmin };
