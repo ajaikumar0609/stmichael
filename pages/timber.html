@@ -67,26 +67,7 @@ body {
   color: var(--ivory);
   font-family: var(--font-ui);
   overflow-x: hidden;
-  cursor: none;
 }
-
-/* ─── CUSTOM CURSOR ─── */
-#cursor {
-  position: fixed; width: 10px; height: 10px;
-  border-radius: 50%; background: var(--honey);
-  pointer-events: none; z-index: 9999;
-  transform: translate(-50%,-50%);
-  transition: width .25s var(--ease-expo), height .25s var(--ease-expo), background .2s;
-  mix-blend-mode: difference;
-}
-#cursor-ring {
-  position: fixed; width: 40px; height: 40px;
-  border-radius: 50%; border: 1px solid rgba(196,136,58,0.5);
-  pointer-events: none; z-index: 9998;
-  transform: translate(-50%,-50%);
-  transition: transform .12s, width .25s var(--ease-expo), height .25s var(--ease-expo);
-}
-body:has(a:hover) #cursor, body:has(button:hover) #cursor { width: 24px; height: 24px; }
 
 /* ─── NOISE GRAIN ─── */
 body::after {
@@ -171,9 +152,9 @@ nav.scrolled {
 
 .nav-hamburger {
   display: none; flex-direction: column; gap: 5px;
-  background: none; border: none; cursor: pointer;
+  background: none; border: none; cursor: pointer; padding: 6px;
 }
-.nav-hamburger span { width: 24px; height: 1.5px; background: var(--ivory2); }
+.nav-hamburger span { width: 24px; height: 1.5px; background: var(--honey); display: block; }
 
 /* ─── HERO ─── */
 .hero {
@@ -968,6 +949,7 @@ footer {
 /* ─── RESPONSIVE ─── */
 @media (max-width: 900px) {
   .nav-links { display: none; }
+  .nav-cta { display: none; }
   .nav-hamburger { display: flex; }
   .about-grid, .inquiry-grid { grid-template-columns: 1fr; gap: 48px; }
   .process-grid { grid-template-columns: 1fr 1fr; }
@@ -975,6 +957,8 @@ footer {
   .footer-top { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 600px) {
+  .nav-back { display: none; }
+  .nav-brand-text { display: none; }
   .section-pad { padding: 70px 5%; }
   .process-grid, .origins-grid, .applications-grid, .projects-grid { grid-template-columns: 1fr; }
   .products-grid { grid-template-columns: 1fr; }
@@ -985,24 +969,49 @@ footer {
   .hero-h1 { font-size: 2.8rem; }
 }
 
-/* ─── MOBILE MENU ─── */
-.mobile-menu {
-  display: none; position: fixed; inset: 0; z-index: 990;
-  background: rgba(5,8,15,0.98); flex-direction: column;
-  align-items: center; justify-content: center; gap: 32px;
+/* ─── MOBILE DRAWER ─── */
+.mob-drawer {
+  display: none; position: fixed; top: 0; right: 0;
+  width: min(300px, 85vw); height: 100vh;
+  background: rgba(5,8,15,0.97); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+  border-left: 1px solid rgba(196,136,58,0.15);
+  z-index: 1200; flex-direction: column;
+  padding: 80px 32px 40px; gap: 0;
+  transform: translateX(100%);
+  transition: transform .35s cubic-bezier(.4,0,.2,1);
 }
-.mobile-menu.open { display: flex; }
-.mobile-menu a {
-  font-family: var(--font-display); font-size: 1.8rem;
-  font-weight: 600; color: var(--ivory);
-  text-decoration: none; transition: color .2s;
+.mob-drawer.open { transform: translateX(0); }
+.mob-overlay {
+  display: none; position: fixed; inset: 0;
+  background: rgba(0,0,0,0.55); z-index: 1100;
+  opacity: 0; transition: opacity .35s;
 }
-.mobile-menu a:hover { color: var(--honey); }
-.mobile-menu-close {
-  position: absolute; top: 24px; right: 6%;
-  background: none; border: none; color: var(--ivory2);
-  font-size: 1.5rem; cursor: pointer;
+.mob-overlay.open { opacity: 1; }
+.mob-close {
+  position: absolute; top: 18px; right: 18px;
+  background: none; border: none; cursor: pointer;
+  width: 40px; height: 40px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: rgba(255,255,255,0.5); font-size: 1.3rem;
+  transition: color .2s, background .2s;
 }
+.mob-close:hover { color: #fff; background: rgba(255,255,255,0.08); }
+.mob-nav-link {
+  display: block; font-family: var(--font-display); font-size: 1rem; font-weight: 600;
+  text-decoration: none; color: rgba(240,234,216,0.75);
+  padding: 15px 0; border-bottom: 1px solid rgba(196,136,58,0.1);
+  transition: color .2s; letter-spacing: .03em;
+}
+.mob-nav-link:last-of-type { border-bottom: none; }
+.mob-nav-link:hover { color: var(--honey); }
+.mob-nav-cta {
+  display: block; margin-top: 28px; padding: 14px 24px;
+  background: var(--honey); color: var(--navy);
+  text-align: center; font-family: var(--font-mono); font-weight: 600;
+  text-decoration: none; font-size: .75rem; letter-spacing: .12em; text-transform: uppercase;
+  transition: opacity .2s;
+}
+.mob-nav-cta:hover { opacity: .88; }
 
 /* ═══════════════════════════════════════════════════════
    LIQUID GLASS SYSTEM — iOS / visionOS Glassmorphism
@@ -1361,17 +1370,15 @@ nav.scrolled {
 <div class="glass-pill glass-pill-4"></div>
 <div class="glass-pill glass-pill-5"></div>
 
-<div id="cursor"></div>
-<div id="cursor-ring"></div>
-
-<!-- MOBILE MENU -->
-<div class="mobile-menu" id="mobileMenu">
-  <button class="mobile-menu-close" id="menuClose">✕</button>
-  <a href="#products" onclick="closeMobile()">Products</a>
-  <a href="#origins" onclick="closeMobile()">Import Origins</a>
-  <a href="#projects" onclick="closeMobile()">Projects</a>
-  <a href="#inquiry" onclick="closeMobile()">Get Quote</a>
-  <a href="/">St. Michael Group ↗</a>
+<!-- MOBILE DRAWER -->
+<div class="mob-overlay" id="mobOverlay"></div>
+<div class="mob-drawer" id="mobDrawer">
+  <button class="mob-close" id="mobClose">&#x2715;</button>
+  <a href="#products" class="mob-nav-link">Products</a>
+  <a href="#origins" class="mob-nav-link">Import Origins</a>
+  <a href="#projects" class="mob-nav-link">Projects</a>
+  <a href="/" class="mob-nav-link" style="color:rgba(196,136,58,.7);font-size:.9rem">&#x2191; St. Michael Group</a>
+  <a href="#inquiry" class="mob-nav-cta">Request Quote</a>
 </div>
 
 <!-- NAV -->
@@ -1402,7 +1409,7 @@ nav.scrolled {
   <button class="nav-cta" onclick="document.getElementById('inquiry').scrollIntoView({behavior:'smooth'})">
     Request Quote
   </button>
-  <button class="nav-hamburger" id="menuOpen">
+  <button class="nav-hamburger" id="mobHam" aria-label="Menu">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -2237,34 +2244,42 @@ nav.scrolled {
 </footer>
 
 <script>
-/* ─── CURSOR ─── */
-const cursor = document.getElementById('cursor');
-const ring   = document.getElementById('cursor-ring');
-let mx = 0, my = 0, rx = 0, ry = 0;
-document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
-(function animate() {
-  cursor.style.left = mx + 'px'; cursor.style.top = my + 'px';
-  rx += (mx - rx) * 0.12; ry += (my - ry) * 0.12;
-  ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
-  requestAnimationFrame(animate);
-})();
-
 /* ─── NAV SCROLL ─── */
 const nav = document.getElementById('mainNav');
 window.addEventListener('scroll', () => {
   nav.classList.toggle('scrolled', window.scrollY > 40);
 });
 
-/* ─── MOBILE MENU ─── */
-document.getElementById('menuOpen').addEventListener('click', () => {
-  document.getElementById('mobileMenu').classList.add('open');
-});
-document.getElementById('menuClose').addEventListener('click', () => {
-  document.getElementById('mobileMenu').classList.remove('open');
-});
-function closeMobile() {
-  document.getElementById('mobileMenu').classList.remove('open');
-}
+/* ─── MOBILE DRAWER ─── */
+(function(){
+  const ham=document.getElementById('mobHam');
+  const drawer=document.getElementById('mobDrawer');
+  const overlay=document.getElementById('mobOverlay');
+  const closeBtn=document.getElementById('mobClose');
+  function openDrawer(){
+    drawer.style.display='flex';
+    overlay.style.display='block';
+    requestAnimationFrame(function(){
+      drawer.classList.add('open');
+      overlay.classList.add('open');
+      document.body.style.overflow='hidden';
+    });
+  }
+  function closeDrawer(){
+    drawer.classList.remove('open');
+    overlay.classList.remove('open');
+    document.body.style.overflow='';
+    drawer.addEventListener('transitionend',function h(){
+      drawer.style.display='none';
+      overlay.style.display='none';
+      drawer.removeEventListener('transitionend',h);
+    });
+  }
+  ham.addEventListener('click',openDrawer);
+  overlay.addEventListener('click',closeDrawer);
+  closeBtn.addEventListener('click',closeDrawer);
+  drawer.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeDrawer));
+})();
 
 /* ─── SCROLL REVEAL ─── */
 const revealEls = document.querySelectorAll('.reveal');

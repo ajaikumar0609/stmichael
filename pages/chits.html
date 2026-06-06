@@ -32,13 +32,8 @@
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;overflow-x:hidden}
-body{background:var(--navy);color:var(--ivory);font-family:var(--font-body);overflow-x:hidden;cursor:none}
+body{background:var(--navy);color:var(--ivory);font-family:var(--font-body);overflow-x:hidden}
 body::after{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='512' height='512' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");pointer-events:none;z-index:9000;opacity:.5}
-
-/* CURSOR */
-#cursor{position:fixed;width:10px;height:10px;border-radius:50%;background:var(--gold);pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .25s var(--ease),height .25s var(--ease);mix-blend-mode:difference}
-#cursor-ring{position:fixed;width:40px;height:40px;border-radius:50%;border:1px solid rgba(212,175,55,.4);pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:left .1s,top .1s}
-body:has(a:hover) #cursor,body:has(button:hover) #cursor{width:22px;height:22px}
 
 /* ANIMATIONS */
 @keyframes fadeUp{from{opacity:0;transform:translateY(32px)}to{opacity:1;transform:translateY(0)}}
@@ -65,7 +60,7 @@ nav.scrolled{background:rgba(5,8,15,.95);backdrop-filter:blur(20px);border-botto
 .nav-links a:hover,.nav-links a.active{color:var(--gold)}
 .nav-cta{border:1px solid rgba(212,175,55,.35);padding:8px 20px;border-radius:2px;font-family:var(--font-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold)!important;text-decoration:none;transition:all .2s!important}
 .nav-cta:hover{background:var(--gold)!important;color:var(--navy)!important}
-.nav-ham{display:none;background:none;border:none;cursor:none;flex-direction:column;gap:5px;padding:4px}
+.nav-ham{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;padding:4px}
 .nav-ham span{display:block;width:24px;height:1px;background:var(--gold)}
 
 /* SHARED */
@@ -76,7 +71,7 @@ nav.scrolled{background:rgba(5,8,15,.95);backdrop-filter:blur(20px);border-botto
 .s-body{font-family:var(--font-body);font-size:16px;line-height:1.85;color:var(--ivory3)}
 .s-body strong{color:var(--ivory);font-weight:600}
 .s-div{width:72px;height:1px;background:linear-gradient(to right,transparent,var(--gold),transparent);margin:20px 0}
-.btn-gold{background:var(--gold);color:var(--navy);padding:14px 36px;font-family:var(--font-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;border-radius:2px;font-weight:600;transition:all .25s var(--ease);display:inline-flex;align-items:center;gap:8px;border:none;cursor:none}
+.btn-gold{background:var(--gold);color:var(--navy);padding:14px 36px;font-family:var(--font-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;border-radius:2px;font-weight:600;transition:all .25s var(--ease);display:inline-flex;align-items:center;gap:8px;border:none;cursor:pointer}
 .btn-gold:hover{background:var(--gold-pale);transform:translateY(-2px)}
 .btn-ghost{border:1px solid rgba(212,175,55,.4);color:var(--gold);padding:14px 36px;font-family:var(--font-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;border-radius:2px;transition:all .25s;display:inline-flex;align-items:center;gap:8px}
 .btn-ghost:hover{background:rgba(212,175,55,.08);transform:translateY(-2px)}
@@ -231,7 +226,7 @@ nav.scrolled{background:rgba(5,8,15,.95);backdrop-filter:blur(20px);border-botto
 .plans-header{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:52px}
 /* Plan filter tabs */
 .plan-tabs{display:inline-flex;align-items:center;border:1px solid rgba(26,58,122,.3);border-radius:2px;padding:4px;background:rgba(11,31,58,.6);backdrop-filter:blur(12px);margin-bottom:32px}
-.p-tab{font-family:var(--font-mono);font-size:9px;letter-spacing:.16em;text-transform:uppercase;padding:9px 20px;border:none;border-radius:1px;color:var(--ivory3);background:transparent;cursor:none;transition:all .25s var(--ease)}
+.p-tab{font-family:var(--font-mono);font-size:9px;letter-spacing:.16em;text-transform:uppercase;padding:9px 20px;border:none;border-radius:1px;color:var(--ivory3);background:transparent;cursor:pointer;transition:all .25s var(--ease)}
 .p-tab.active{background:var(--gold);color:var(--navy);font-weight:600}
 .p-tab:not(.active):hover{color:var(--gold)}
 
@@ -272,7 +267,7 @@ nav.scrolled{background:rgba(5,8,15,.95);backdrop-filter:blur(20px);border-botto
   border-top:1px solid rgba(26,58,122,.2);
 }
 .plan-selector{display:flex;gap:4px;margin-bottom:40px;flex-wrap:wrap}
-.ps-btn{font-family:var(--font-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;padding:12px 28px;border:1px solid rgba(26,58,122,.35);color:var(--ivory3);background:transparent;cursor:none;transition:all .25s;border-radius:1px}
+.ps-btn{font-family:var(--font-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;padding:12px 28px;border:1px solid rgba(26,58,122,.35);color:var(--ivory3);background:transparent;cursor:pointer;transition:all .25s;border-radius:1px}
 .ps-btn.active{border-color:var(--gold);color:var(--gold);background:rgba(212,175,55,.08)}
 .ps-btn:hover:not(.active){border-color:rgba(212,175,55,.3);color:var(--ivory)}
 .plan-detail-content{display:none}
@@ -310,9 +305,9 @@ nav.scrolled{background:rgba(5,8,15,.95);backdrop-filter:blur(20px);border-botto
 .calc-field{margin-bottom:24px}
 .calc-label{font-family:var(--font-mono);font-size:9px;letter-spacing:.16em;color:var(--gold-dim);text-transform:uppercase;margin-bottom:8px;display:flex;justify-content:space-between}
 .calc-label span{color:var(--gold)}
-.calc-slider{-webkit-appearance:none;appearance:none;width:100%;height:2px;background:rgba(26,58,122,.4);border-radius:2px;outline:none;cursor:none}
-.calc-slider::-webkit-slider-thumb{-webkit-appearance:none;width:16px;height:16px;border-radius:50%;background:var(--gold);cursor:none;border:2px solid var(--navy)}
-.calc-select{width:100%;background:var(--navy3);border:1px solid rgba(26,58,122,.25);color:var(--ivory);font-family:var(--font-body);font-size:15px;padding:12px 16px;outline:none;border-radius:1px;cursor:none}
+.calc-slider{-webkit-appearance:none;appearance:none;width:100%;height:2px;background:rgba(26,58,122,.4);border-radius:2px;outline:none;cursor:pointer}
+.calc-slider::-webkit-slider-thumb{-webkit-appearance:none;width:16px;height:16px;border-radius:50%;background:var(--gold);cursor:pointer;border:2px solid var(--navy)}
+.calc-select{width:100%;background:var(--navy3);border:1px solid rgba(26,58,122,.25);color:var(--ivory);font-family:var(--font-body);font-size:15px;padding:12px 16px;outline:none;border-radius:1px;cursor:pointer}
 .calc-select:focus{border-color:rgba(212,175,55,.4)}
 .calc-result{background:linear-gradient(135deg,var(--navy3),var(--navy2));border:1px solid rgba(212,175,55,.2);padding:36px}
 .cr-title{font-family:var(--font-mono);font-size:9px;letter-spacing:.16em;color:var(--gold-dim);text-transform:uppercase;margin-bottom:20px}
@@ -380,19 +375,44 @@ footer{background:var(--navy);border-top:1px solid rgba(26,58,122,.2);padding:64
   .process-steps::before{display:none}
 }
 @media(max-width:640px){
-  .nav-links{display:none}.nav-ham{display:flex}
+  .nav-links{display:none}
+  .nav-cta{display:none}
+  .nav-ham{display:flex;cursor:pointer}
   .stats-inner{flex-wrap:wrap}.si{min-width:50%}
   .form-row{grid-template-columns:1fr}
   .footer-inner{grid-template-columns:1fr}
   .plan-info-strip{flex-direction:column;gap:1px}
   .interest-card{grid-template-columns:1fr 1fr}
 }
+
+/* MOBILE DRAWER */
+.mob-drawer{display:none;position:fixed;top:0;right:0;width:min(300px,85vw);height:100vh;background:rgba(5,8,20,0.97);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-left:1px solid rgba(212,175,55,0.15);z-index:1200;flex-direction:column;padding:80px 32px 40px;gap:0;transform:translateX(100%);transition:transform .35s cubic-bezier(.4,0,.2,1);}
+.mob-drawer.open{transform:translateX(0)}
+.mob-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.55);z-index:1100;opacity:0;transition:opacity .35s;}
+.mob-overlay.open{opacity:1}
+.mob-close{position:absolute;top:18px;right:18px;background:none;border:none;cursor:pointer;width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.5);font-size:1.3rem;transition:color .2s,background .2s;}
+.mob-close:hover{color:#fff;background:rgba(255,255,255,0.08)}
+.mob-nav-link{display:block;font-family:var(--font-display);font-size:1rem;font-weight:600;text-decoration:none;color:rgba(255,255,255,0.75);padding:15px 0;border-bottom:1px solid rgba(212,175,55,0.1);transition:color .2s;letter-spacing:.03em;}
+.mob-nav-link:last-of-type{border-bottom:none}
+.mob-nav-link:hover{color:var(--gold)}
+.mob-nav-cta{display:block;margin-top:28px;padding:14px 24px;background:var(--gold);color:var(--navy);text-align:center;font-family:var(--font-display);font-weight:700;text-decoration:none;border-radius:2px;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;transition:opacity .2s;}
+.mob-nav-cta:hover{opacity:.88}
 </style>
 </head>
 <body>
 
-<div id="cursor"></div>
-<div id="cursor-ring"></div>
+<!-- MOBILE DRAWER -->
+<div class="mob-overlay" id="mobOverlay"></div>
+<div class="mob-drawer" id="mobDrawer">
+  <button class="mob-close" id="mobClose">&#x2715;</button>
+  <a href="#about" class="mob-nav-link">About</a>
+  <a href="#plans" class="mob-nav-link">Plans</a>
+  <a href="#plan-details" class="mob-nav-link">Plan Details</a>
+  <a href="#calculator" class="mob-nav-link">Calculator</a>
+  <a href="#contact" class="mob-nav-link">Contact</a>
+  <a href="/" class="mob-nav-link" style="color:rgba(212,175,55,.7);font-size:.9rem">&#x2191; Group</a>
+  <a href="#contact" class="mob-nav-cta">Join Now</a>
+</div>
 
 <!-- ════ NAV ════ -->
 <nav id="nav">
@@ -412,7 +432,7 @@ footer{background:var(--navy);border-top:1px solid rgba(26,58,122,.2);padding:64
     <li><a href="/" style="color:var(--gold-dim)">↑ Group</a></li>
   </ul>
   <a href="#contact" class="nav-cta">Join Now</a>
-  <button class="nav-ham" aria-label="Menu"><span></span><span></span><span></span></button>
+  <button class="nav-ham" id="mobHam" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
 
 <!-- ════ HERO ════ -->
@@ -985,12 +1005,8 @@ footer{background:var(--navy);border-top:1px solid rgba(26,58,122,.2);padding:64
 </footer>
 
 <script>
-// Cursor
-const cur=document.getElementById('cursor'),ring=document.getElementById('cursor-ring');
-document.addEventListener('mousemove',e=>{
-  cur.style.left=e.clientX+'px';cur.style.top=e.clientY+'px';
-  setTimeout(()=>{ring.style.left=e.clientX+'px';ring.style.top=e.clientY+'px';},80);
-});
+// Mobile Drawer
+(function(){const ham=document.getElementById('mobHam'),drawer=document.getElementById('mobDrawer'),overlay=document.getElementById('mobOverlay'),closeBtn=document.getElementById('mobClose');function openD(){drawer.style.display='flex';overlay.style.display='block';requestAnimationFrame(function(){drawer.classList.add('open');overlay.classList.add('open');document.body.style.overflow='hidden';});}function closeD(){drawer.classList.remove('open');overlay.classList.remove('open');document.body.style.overflow='';drawer.addEventListener('transitionend',function h(){drawer.style.display='none';overlay.style.display='none';drawer.removeEventListener('transitionend',h);});}ham.addEventListener('click',openD);overlay.addEventListener('click',closeD);closeBtn.addEventListener('click',closeD);drawer.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeD));})();
 
 // Nav scroll
 window.addEventListener('scroll',()=>{

@@ -38,13 +38,9 @@
 
 *,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; overflow-x: hidden; }
-body { background: var(--navy); color: var(--ivory); font-family: var(--f-body); overflow-x: hidden; cursor: none; }
+body { background: var(--navy); color: var(--ivory); font-family: var(--f-body); overflow-x: hidden; }
 
 body::after { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.68' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='512' height='512' filter='url(%23n)' opacity='.032'/%3E%3C/svg%3E"); pointer-events: none; z-index: 9000; opacity: .8; }
-
-#c, #cr { position: fixed; pointer-events: none; z-index: 9999; transform: translate(-50%,-50%); }
-#c  { width: 8px; height: 8px; border-radius: 50%; background: var(--gold); }
-#cr { width: 38px; height: 38px; border-radius: 50%; border: 1px solid rgba(212,175,55,.4); z-index: 9998; transition: width .25s var(--expo), height .25s var(--expo); }
 
 /* ── NAV ── */
 nav { position: fixed; top: 0; left: 0; right: 0; z-index: 800; height: 70px; display: flex; align-items: center; justify-content: space-between; padding: 0 6%; transition: background .4s, backdrop-filter .4s; }
@@ -62,7 +58,7 @@ nav.on { background: rgba(6,18,36,.95); backdrop-filter: blur(16px); border-bott
 .nav-back:hover { color: var(--gold) !important; }
 .nav-cta { background: var(--gold); color: var(--navy); padding: 8px 20px; border-radius: 2px; font-family: var(--f-head); font-size: 11px; font-weight: 700; letter-spacing: .06em; text-decoration: none; transition: all .2s; }
 .nav-cta:hover { background: var(--gold-lt); transform: translateY(-1px); }
-.nav-ham { display: none; background: none; border: none; cursor: none; flex-direction: column; gap: 5px; }
+.nav-ham { display: none; background: none; border: none; cursor: pointer; flex-direction: column; gap: 5px; }
 .nav-ham span { display: block; width: 22px; height: 1px; background: var(--gold); }
 
 /* ── HERO ── */
@@ -179,10 +175,10 @@ nav.on { background: rgba(6,18,36,.95); backdrop-filter: blur(16px); border-bott
 .field-input, .field-select, .field-textarea { background: rgba(255,255,255,.03); border: 1px solid var(--border); padding: 12px 16px; color: var(--ivory); font-family: var(--f-body); font-size: 14px; outline: none; border-radius: 2px; transition: border-color .2s; width: 100%; }
 .field-input::placeholder, .field-textarea::placeholder { color: rgba(90,104,120,.5); }
 .field-input:focus, .field-select:focus, .field-textarea:focus { border-color: var(--border-g); }
-.field-select { cursor: none; color: rgba(90,104,120,.8); }
+.field-select { cursor: pointer; color: rgba(90,104,120,.8); }
 .field-select option { background: var(--navy2); color: var(--ivory); }
 .field-textarea { min-height: 110px; resize: vertical; }
-.btn-send { background: var(--gold); color: var(--navy); border: none; padding: 14px 32px; font-family: var(--f-head); font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; cursor: none; border-radius: 2px; transition: all .25s; align-self: flex-start; }
+.btn-send { background: var(--gold); color: var(--navy); border: none; padding: 14px 32px; font-family: var(--f-head); font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; cursor: pointer; border-radius: 2px; transition: all .25s; align-self: flex-start; }
 .btn-send:hover { background: var(--gold-lt); transform: translateY(-2px); }
 .form-ok { display: none; padding: 12px 16px; background: rgba(37,211,102,.07); border: 1px solid rgba(37,211,102,.2); border-radius: 2px; color: #6EDFA0; font-family: var(--f-mono); font-size: 11px; letter-spacing: .06em; }
 .contact-info { display: flex; flex-direction: column; gap: 0; }
@@ -238,14 +234,36 @@ footer { background: #030608; border-top: 1px solid var(--border); padding: 56px
   .form-row { grid-template-columns: 1fr; }
   .footer-top { grid-template-columns: 1fr; }
   nav .nav-links { display: none; }
-  .nav-ham { display: flex; }
+  .nav-cta { display: none; }
+  .nav-ham { display: flex; cursor: pointer; }
 }
+
+/* ── MOBILE DRAWER ── */
+.mob-drawer{display:none;position:fixed;top:0;right:0;width:min(300px,85vw);height:100vh;background:rgba(6,12,24,0.97);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-left:1px solid rgba(212,175,55,0.15);z-index:1200;flex-direction:column;padding:80px 32px 40px;gap:0;transform:translateX(100%);transition:transform .35s cubic-bezier(.4,0,.2,1);}
+.mob-drawer.open{transform:translateX(0)}
+.mob-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.55);z-index:1100;opacity:0;transition:opacity .35s;}
+.mob-overlay.open{opacity:1}
+.mob-close{position:absolute;top:18px;right:18px;background:none;border:none;cursor:pointer;width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.5);font-size:1.3rem;transition:color .2s,background .2s;}
+.mob-close:hover{color:#fff;background:rgba(255,255,255,0.08)}
+.mob-nav-link{display:block;font-family:var(--f-head);font-size:1rem;font-weight:600;text-decoration:none;color:rgba(255,255,255,0.75);padding:15px 0;border-bottom:1px solid rgba(212,175,55,0.1);transition:color .2s;letter-spacing:.03em;}
+.mob-nav-link:last-of-type{border-bottom:none}
+.mob-nav-link:hover{color:var(--gold)}
+.mob-nav-cta{display:block;margin-top:28px;padding:14px 24px;background:var(--gold);color:var(--navy);text-align:center;font-family:var(--f-head);font-weight:700;text-decoration:none;border-radius:2px;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;transition:opacity .2s;}
+.mob-nav-cta:hover{opacity:.88}
 </style>
 </head>
 <body>
 
-<div id="c"></div>
-<div id="cr"></div>
+<!-- MOBILE DRAWER -->
+<div class="mob-overlay" id="mobOverlay"></div>
+<div class="mob-drawer" id="mobDrawer">
+  <button class="mob-close" id="mobClose">&#x2715;</button>
+  <a href="#projects" class="mob-nav-link">Projects</a>
+  <a href="#about" class="mob-nav-link">About</a>
+  <a href="#contact" class="mob-nav-link">Contact</a>
+  <a href="/" class="mob-nav-link" style="color:rgba(212,175,55,.7);font-size:.9rem">&#x2190; Group Home</a>
+  <a href="#contact" class="mob-nav-cta">Get a Quote</a>
+</div>
 
 <!-- FLOAT WA -->
 <a href="https://wa.me/919384009999" target="_blank" class="float-wa" aria-label="WhatsApp">
@@ -270,7 +288,7 @@ footer { background: #030608; border-top: 1px solid var(--border); padding: 56px
     <li><a href="/" class="nav-back">← Group Home</a></li>
   </ul>
   <a href="#contact" class="nav-cta">Get a Quote</a>
-  <button class="nav-ham" id="ham" aria-label="Menu">
+  <button class="nav-ham" id="mobHam" aria-label="Menu">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -616,11 +634,8 @@ footer { background: #030608; border-top: 1px solid var(--border); padding: 56px
 </footer>
 
 <script>
-/* CURSOR */
-const c=document.getElementById('c'),cr=document.getElementById('cr');
-let mx=0,my=0,rx=0,ry=0;
-document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;c.style.left=mx+'px';c.style.top=my+'px';});
-(function tick(){rx+=(mx-rx)*.11;ry+=(my-ry)*.11;cr.style.left=rx+'px';cr.style.top=ry+'px';requestAnimationFrame(tick);})();
+/* MOBILE DRAWER */
+(function(){const ham=document.getElementById('mobHam'),drawer=document.getElementById('mobDrawer'),overlay=document.getElementById('mobOverlay'),closeBtn=document.getElementById('mobClose');function openD(){drawer.style.display='flex';overlay.style.display='block';requestAnimationFrame(function(){drawer.classList.add('open');overlay.classList.add('open');document.body.style.overflow='hidden';});}function closeD(){drawer.classList.remove('open');overlay.classList.remove('open');document.body.style.overflow='';drawer.addEventListener('transitionend',function h(){drawer.style.display='none';overlay.style.display='none';drawer.removeEventListener('transitionend',h);});}ham.addEventListener('click',openD);overlay.addEventListener('click',closeD);closeBtn.addEventListener('click',closeD);drawer.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeD));})();
 
 /* NAV SCROLL */
 window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('on',window.scrollY>50));
