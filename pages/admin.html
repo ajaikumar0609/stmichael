@@ -1026,7 +1026,7 @@ document.querySelectorAll('.item-form').forEach(form => {
         status.textContent = 'Uploading image…';
         const upRes = await fetch(`${API}/api/upload`, {
           method: 'POST',
-          headers: { 'Content-Type': file.type, 'Authorization': `Bearer ${jwt}`, 'x-filename': file.name },
+          headers: { 'Content-Type': file.type, 'Authorization': `Bearer ${jwt}`, 'x-filename': encodeURIComponent(file.name) },
           body: file,
         });
         if (!upRes.ok) { const e = await upRes.json().catch(()=>({})); throw new Error(e.error || 'Upload failed'); }
@@ -1295,7 +1295,7 @@ document.getElementById('edit-form').addEventListener('submit', async (e) => {
       status.textContent = 'Uploading image…';
       const upRes = await fetch(`${API}/api/upload`, {
         method: 'POST',
-        headers: { 'Content-Type': file.type, 'Authorization': `Bearer ${jwt}`, 'x-filename': file.name },
+        headers: { 'Content-Type': file.type, 'Authorization': `Bearer ${jwt}`, 'x-filename': encodeURIComponent(file.name) },
         body: file,
       });
       if (!upRes.ok) { const e = await upRes.json().catch(()=>({})); throw new Error(e.error || 'Upload failed'); }

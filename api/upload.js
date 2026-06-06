@@ -15,7 +15,7 @@ const handler = withCors(async (req, res) => {
   }
 
   const contentType = req.headers['content-type'] || 'application/octet-stream';
-  const filename    = req.headers['x-filename'] || 'upload';
+  const filename    = decodeURIComponent(req.headers['x-filename'] || 'upload');
   const ext         = (filename.split('.').pop() || '').toLowerCase().replace(/[^a-z0-9]/g, '') || 'bin';
   const key         = `uploads/${randomUUID()}.${ext}`;
 
