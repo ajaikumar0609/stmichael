@@ -852,9 +852,15 @@ html, body { height: 100%; background: var(--navy); color: var(--ivory); font-fa
           <textarea id="edit-description" rows="3" placeholder="Description"></textarea>
         </div>
         <div class="f-group">
-          <label>Image URL (leave blank to keep existing)</label>
-          <input type="text" id="edit-image-url" placeholder="https://..."/>
+          <label>Photo (leave empty to keep existing)</label>
+          <div class="upload-zone" id="edit-upload-zone" style="margin-top:4px;">
+            <input type="file" id="edit-image-file" accept="image/*"/>
+            <div class="upload-icon" id="edit-upload-icon">📷</div>
+            <div class="upload-hint" id="edit-upload-hint">Drag & drop or <strong>click to upload</strong></div>
+            <img class="preview-img" id="edit-preview-img" alt="preview"/>
+          </div>
         </div>
+        <input type="hidden" id="edit-image-url"/>
       </div>
       <div class="modal-actions">
         <button type="submit" class="btn-save">Save Changes</button>
@@ -1215,8 +1221,24 @@ function openEditModal(btn) {
   document.getElementById('edit-title').value       = btn.dataset.title;
   document.getElementById('edit-subtitle').value    = btn.dataset.subtitle;
   document.getElementById('edit-description').value = btn.dataset.description;
-  document.getElementById('edit-image-url').value   = btn.dataset.image;
+  document.getElementById('edit-image-url').value   = btn.dataset.image || '';
   document.getElementById('edit-status').textContent = '';
+  // Reset file input
+  document.getElementById('edit-image-file').value = '';
+  const preview = document.getElementById('edit-preview-img');
+  const icon    = document.getElementById('edit-upload-icon');
+  const hint    = document.getElementById('edit-upload-hint');
+  if (btn.dataset.image) {
+    preview.src = btn.dataset.image;
+    preview.style.display = 'block';
+    icon.style.display = 'none';
+    hint.style.display = 'none';
+  } else {
+    preview.src = '';
+    preview.style.display = 'none';
+    icon.style.display = '';
+    hint.style.display = '';
+  }
   document.getElementById('edit-modal').classList.add('open');
 }
 
@@ -1230,6 +1252,34 @@ document.getElementById('edit-modal').addEventListener('click', e => {
   if (e.target === document.getElementById('edit-modal')) closeEditModal();
 });
 
+// Wire up edit upload zone file input
+(function() {
+  const zone  = document.getElementById('edit-upload-zone');
+  const input = document.getElementById('edit-image-file');
+  const preview = document.getElementById('edit-preview-img');
+  const icon    = document.getElementById('edit-upload-icon');
+  const hint    = document.getElementById('edit-upload-hint');
+
+  function showPreview(file) {
+    const url = URL.createObjectURL(file);
+    preview.src = url;
+    preview.style.display = 'block';
+    icon.style.display = 'none';
+    hint.style.display = 'none';
+  }
+
+  input.addEventListener('change', () => { if (input.files[0]) showPreview(input.files[0]); });
+  zone.addEventListener('dragover', e => { e.preventDefault(); zone.classList.add('drag'); });
+  zone.addEventListener('dragleave', () => zone.classList.remove('drag'));
+  zone.addEventListener('drop', e => {
+    e.preventDefault(); zone.classList.remove('drag');
+    const file = e.dataTransfer.files[0];
+    if (!file) return;
+    input.files = e.dataTransfer.files;
+    showPreview(file);
+  });
+})();
+
 document.getElementById('edit-form').addEventListener('submit', async (e) => {
   e.preventDefault();
   const id          = document.getElementById('edit-id').value;
@@ -1237,14 +1287,30 @@ document.getElementById('edit-form').addEventListener('submit', async (e) => {
   const title       = document.getElementById('edit-title').value || null;
   const subtitle    = document.getElementById('edit-subtitle').value || null;
   const description = document.getElementById('edit-description').value || null;
-  const image_url   = document.getElementById('edit-image-url').value || null;
   const status      = document.getElementById('edit-status');
+  const saveBtn     = e.target.querySelector('.btn-save');
 
-  const saveBtn = e.target.querySelector('.btn-save');
   saveBtn.disabled = true; saveBtn.textContent = 'Saving…';
   status.textContent = '';
 
   try {
+    let image_url = document.getElementById('edit-image-url').value || null;
+
+    const file = document.getElementById('edit-image-file').files[0];
+    if (file) {
+      status.textContent = 'Uploading image…';
+      const upRes = await fetch(`${API}/api/upload-url`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${jwt}` },
+        body: JSON.stringify({ filename: file.name, contentType: file.type }),
+      });
+      if (!upRes.ok) throw new Error('Could not get upload URL');
+      const { uploadUrl, imageUrl } = await upRes.json();
+      const putRes = await fetch(uploadUrl, { method: 'PUT', headers: { 'Content-Type': file.type }, body: file });
+      if (!putRes.ok) throw new Error('Image upload failed');
+      image_url = imageUrl;
+    }
+
     const res = await fetch(`${API}/api/items/${id}`, {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${jwt}` },
