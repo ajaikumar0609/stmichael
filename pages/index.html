@@ -191,14 +191,82 @@ nav.scrolled {
 .nav-menu-btn {
   display: none;
   background: none; border: none;
-  cursor: none;
+  cursor: pointer;
   flex-direction: column; gap: 5px;
   padding: 4px;
+  z-index: 1201;
+  position: relative;
 }
 .nav-menu-btn span {
-  display: block; width: 24px; height: 1px;
+  display: block; width: 24px; height: 2px;
   background: var(--gold);
   transition: all .3s;
+  transform-origin: center;
+}
+.nav-menu-btn.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-menu-btn.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.nav-menu-btn.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* Mobile drawer */
+.mob-drawer {
+  display: none;
+  position: fixed;
+  top: 0; right: 0;
+  width: min(320px, 85vw);
+  height: 100vh;
+  background: rgba(5,8,20,0.97);
+  backdrop-filter: blur(24px);
+  border-left: 1px solid rgba(200,169,110,0.15);
+  z-index: 1200;
+  flex-direction: column;
+  padding: 90px 40px 40px;
+  gap: 0;
+  transform: translateX(100%);
+  transition: transform .35s cubic-bezier(.4,0,.2,1);
+}
+.mob-drawer.open { transform: translateX(0); }
+.mob-drawer ul { list-style: none; display: flex; flex-direction: column; gap: 0; }
+.mob-drawer ul li { border-bottom: 1px solid rgba(200,169,110,0.08); }
+.mob-drawer ul li a {
+  display: block;
+  padding: 18px 0;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--ivory3);
+  text-decoration: none;
+  transition: color .2s, padding-left .2s;
+}
+.mob-drawer ul li a:hover, .mob-drawer ul li a:active { color: var(--gold); padding-left: 8px; }
+.mob-drawer .mob-admin {
+  margin-top: 32px;
+  display: block;
+  text-align: center;
+  padding: 14px 24px;
+  border: 1px solid rgba(200,169,110,0.35);
+  border-radius: 2px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--gold);
+  text-decoration: none;
+  transition: all .2s;
+}
+.mob-drawer .mob-admin:hover { background: var(--gold); color: var(--navy); }
+.mob-overlay {
+  display: none;
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.55);
+  z-index: 1199;
+  opacity: 0;
+  transition: opacity .35s;
+}
+.mob-overlay.open { opacity: 1; }
+@media (max-width: 960px) {
+  .mob-drawer { display: flex; }
+  .mob-overlay { display: block; }
 }
 
 /* ─── HERO ─── */
@@ -3667,9 +3735,21 @@ footer {
     <li><a href="#contact">Contact</a></li>
     <li><a href="/admin" class="nav-admin">Admin Login</a></li>
   </ul>
-  <button class="nav-menu-btn" aria-label="Menu">
+  <button class="nav-menu-btn" id="menuBtn" aria-label="Menu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
+</nav>
+
+<div class="mob-overlay" id="mobOverlay"></div>
+<nav class="mob-drawer" id="mobDrawer" aria-label="Mobile navigation">
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#companies">Companies</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#leadership">Leadership</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="/admin" class="mob-admin">Admin Login</a>
 </nav>
 
 <!-- ═══ HERO — LUXURY ROYAL EDITION ═══ -->
@@ -5231,6 +5311,30 @@ const ft = document.getElementById('flagsTrack');
 window.addEventListener('scroll',()=>{
   document.getElementById('nav').classList.toggle('scrolled',window.scrollY>60);
 });
+
+/* ─── MOBILE MENU ─── */
+(function(){
+  const btn = document.getElementById('menuBtn');
+  const drawer = document.getElementById('mobDrawer');
+  const overlay = document.getElementById('mobOverlay');
+  function openMenu(){
+    btn.classList.add('open');
+    drawer.classList.add('open');
+    overlay.classList.add('open');
+    btn.setAttribute('aria-expanded','true');
+    document.body.style.overflow='hidden';
+  }
+  function closeMenu(){
+    btn.classList.remove('open');
+    drawer.classList.remove('open');
+    overlay.classList.remove('open');
+    btn.setAttribute('aria-expanded','false');
+    document.body.style.overflow='';
+  }
+  btn.addEventListener('click', ()=> btn.classList.contains('open') ? closeMenu() : openMenu());
+  overlay.addEventListener('click', closeMenu);
+  drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+})();
 
 /* ─── REVEAL ON SCROLL ─── */
 const obs = new IntersectionObserver(entries=>{
