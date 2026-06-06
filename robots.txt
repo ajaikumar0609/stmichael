@@ -2,4 +2,4 @@ User-agent: *
 Disallow: /admin
 Allow: /
 
-Sitemap: https://www.stmichaelgroup.com/sitemap.xml
+Sitemap: https://www.stmichaelgroupofcompanies.com/sitemap.xml
