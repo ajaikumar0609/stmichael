@@ -24,7 +24,7 @@ module.exports = withCors(async (req, res) => {
     `${supabaseUrl}/storage/v1/object/upload/sign/${bucket}/${key}`,
     {
       method:  'POST',
-      headers: { Authorization: `Bearer ${serviceKey}`, 'Content-Type': 'application/json' },
+      headers: { Authorization: `Bearer ${serviceKey}`, apikey: serviceKey, 'Content-Type': 'application/json' },
       body:    JSON.stringify({ upsert: true }),
     }
   );
