@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>St. Michael Chits Pvt Ltd | Government Registered Chit Fund | Palayankottai</title>
+<meta name="description" content="St. Michael Chits Pvt Ltd — Government registered chit fund. Transparent, trusted, and secure investment plans from ₹1 Lakh to ₹10 Lakhs. CIN: U64990TN2025PTC177047."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600;1,700&family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,800;0,14..32,900;1,14..32,300;1,14..32,400&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --navy:  #061224;
+  --navy2: #0B1F3A;
+  --navy3: #0E2A4D;
+  --navy4: #14365E;
+  --gold:  #D4AF37;
+  --gold-pale:#F0DA8C;
+  --gold-dim: #A88A2C;
+  --green: #2ECC71;
+  --green-dim:rgba(46,204,113,.15);
+  --ivory: #F8F6F1;
+  --ivory2:#E8E1D2;
+  --ivory3:#B5AC97;
+  --blue-sky:#4A88D8;
+  --font-display:'Cinzel','Playfair Display',Georgia,serif;
+  --font-serif:'Playfair Display',Georgia,serif;
+  --font-body:'Inter',-apple-system,sans-serif;
+  --font-mono:'DM Mono',monospace;
+  --ease:cubic-bezier(.16,1,.3,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{background:var(--navy);color:var(--ivory);font-family:var(--font-body);overflow-x:hidden;cursor:none}
+body::after{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='512' height='512' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");pointer-events:none;z-index:9000;opacity:.5}
+
+/* CURSOR */
+#cursor{position:fixed;width:10px;height:10px;border-radius:50%;background:var(--gold);pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .25s var(--ease),height .25s var(--ease);mix-blend-mode:difference}
+#cursor-ring{position:fixed;width:40px;height:40px;border-radius:50%;border:1px solid rgba(212,175,55,.4);pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:left .1s,top .1s}
+body:has(a:hover) #cursor,body:has(button:hover) #cursor{width:22px;height:22px}
+
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(32px)}to{opacity:1;transform:translateY(0)}}
+@keyframes gridShift{0%{background-position:0 0}100%{background-position:80px 80px}}
+@keyframes coinFloat{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-20px) rotate(5deg)}}
+@keyframes orbFloat{0%,100%{transform:translate(0,0)}50%{transform:translate(40px,25px)}}
+@keyframes scrollPulse{0%,100%{opacity:.4}50%{opacity:1}}
+@keyframes shimmer{0%{opacity:.6}50%{opacity:1}100%{opacity:.6}}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.reveal.up{opacity:1;transform:translateY(0)}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}.d5{transition-delay:.5s}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0 6%;height:64px;display:flex;align-items:center;justify-content:space-between;transition:background .4s}
+nav.scrolled{background:rgba(5,8,15,.95);backdrop-filter:blur(20px);border-bottom:1px solid rgba(212,175,55,.1)}
+.nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.nav-logo-img{height:46px;width:46px;border-radius:50%;object-fit:cover;border:1px solid rgba(212,175,55,.25)}
+.nav-logo-name{font-family:var(--font-display);font-size:16px;font-weight:700;color:var(--gold);letter-spacing:.04em;line-height:1;display:block}
+.nav-logo-tag{font-family:var(--font-mono);font-size:8px;letter-spacing:.16em;color:var(--gold-dim);text-transform:uppercase;display:block}
+.nav-links{display:flex;gap:28px;list-style:none;align-items:center}
+.nav-links a{font-family:var(--font-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ivory3);text-decoration:none;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--gold)}
+.nav-cta{border:1px solid rgba(212,175,55,.35);padding:8px 20px;border-radius:2px;font-family:var(--font-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold)!important;text-decoration:none;transition:all .2s!important}
+.nav-cta:hover{background:var(--gold)!important;color:var(--navy)!important}
+.nav-ham{display:none;background:none;border:none;cursor:none;flex-direction:column;gap:5px;padding:4px}
+.nav-ham span{display:block;width:24px;height:1px;background:var(--gold)}
+
+/* SHARED */
+.s-mono{font-family:var(--font-mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.s-mono::before{content:'';display:inline-block;width:32px;height:1px;background:var(--blue-sky);opacity:.5}
+.s-h2{font-family:var(--font-display);font-size:clamp(26px,3.4vw,50px);font-weight:700;line-height:1.05;color:var(--ivory);letter-spacing:-.01em}
+.s-h2 em{font-style:italic;color:var(--gold)}
+.s-body{font-family:var(--font-body);font-size:16px;line-height:1.85;color:var(--ivory3)}
+.s-body strong{color:var(--ivory);font-weight:600}
+.s-div{width:72px;height:1px;background:linear-gradient(to right,transparent,var(--gold),transparent);margin:20px 0}
+.btn-gold{background:var(--gold);color:var(--navy);padding:14px 36px;font-family:var(--font-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;border-radius:2px;font-weight:600;transition:all .25s var(--ease);display:inline-flex;align-items:center;gap:8px;border:none;cursor:none}
+.btn-gold:hover{background:var(--gold-pale);transform:translateY(-2px)}
+.btn-ghost{border:1px solid rgba(212,175,55,.4);color:var(--gold);padding:14px 36px;font-family:var(--font-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;border-radius:2px;transition:all .25s;display:inline-flex;align-items:center;gap:8px}
+.btn-ghost:hover{background:rgba(212,175,55,.08);transform:translateY(-2px)}
+
+/* ════ HERO ════ */
+.hero{
+  position:relative;min-height:100vh;
+  display:flex;align-items:center;
+  overflow:hidden;padding:100px 6% 120px;
+  background:var(--navy);
+}
+.hero-bg{
+  position:absolute;inset:0;
+  background:url('../chitimg/mainpic.png') center/cover no-repeat;
+  z-index:0;
+}
+.hero-bg::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(
+    to right,
+    rgba(6,18,36,.97) 0%,
+    rgba(6,18,36,.85) 45%,
+    rgba(6,18,36,.45) 100%
+  );
+}
+.hero-grid{position:absolute;inset:0;z-index:1;background-image:linear-gradient(rgba(212,175,55,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(212,175,55,.04) 1px,transparent 1px);background-size:80px 80px;animation:gridShift 30s linear infinite}
+.hero-orb-1{position:absolute;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(212,175,55,.09) 0%,transparent 70%);top:-200px;left:-200px;filter:blur(100px);animation:orbFloat 18s ease-in-out infinite;z-index:1}
+.hero-orb-2{position:absolute;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(74,136,216,.07) 0%,transparent 70%);bottom:0;right:0;filter:blur(120px);animation:orbFloat 22s ease-in-out infinite reverse;z-index:1}
+.hero-slash{position:absolute;top:0;right:38%;width:1px;height:100%;background:linear-gradient(to bottom,transparent,rgba(212,175,55,.12) 30%,rgba(212,175,55,.12) 70%,transparent);transform:skewX(-8deg);z-index:1}
+.particles{position:absolute;inset:0;overflow:hidden;z-index:1}
+.particle{position:absolute;width:2px;height:2px;border-radius:50%;background:var(--gold);opacity:0;animation:fadeUp var(--dur,8s) var(--delay,0s) ease-in infinite}
+.hero-content{position:relative;z-index:3;max-width:680px}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:10px;margin-bottom:28px;animation:fadeUp .8s var(--ease) both}
+.h-eyebrow-line{width:40px;height:1px;background:linear-gradient(to right,transparent,var(--gold))}
+.h-eyebrow-text{font-family:var(--font-mono);font-size:10px;letter-spacing:.22em;color:var(--gold);text-transform:uppercase}
+.hero-title{font-family:var(--font-display);font-size:clamp(44px,6.5vw,92px);font-weight:700;line-height:.92;color:var(--ivory);letter-spacing:-.02em;animation:fadeUp .9s .08s var(--ease) both}
+.hero-title em{font-style:italic;color:var(--gold);display:block}
+.hero-title .sub{font-family:var(--font-display);font-size:clamp(18px,2.4vw,32px);font-weight:300;color:var(--ivory3);display:block;margin-top:8px;letter-spacing:.02em}
+.hero-divider{width:72px;height:1px;background:linear-gradient(to right,var(--gold),transparent);margin:28px 0;animation:fadeUp .9s .15s var(--ease) both}
+.hero-desc{font-family:var(--font-body);font-size:16px;line-height:1.8;color:var(--ivory3);max-width:560px;animation:fadeUp .9s .2s var(--ease) both}
+.hero-desc strong{color:var(--ivory);font-weight:600}
+.hero-ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:36px;animation:fadeUp .9s .28s var(--ease) both}
+.hero-badges{display:flex;gap:16px;flex-wrap:wrap;margin-top:36px;animation:fadeUp .9s .36s var(--ease) both}
+.h-badge{display:flex;align-items:center;gap:10px;padding:10px 16px;border:1px solid rgba(212,175,55,.2);background:rgba(212,175,55,.04);backdrop-filter:blur(8px)}
+.h-badge-icon{font-size:18px}
+.h-badge-label{font-family:var(--font-mono);font-size:8px;letter-spacing:.14em;color:var(--gold-dim);text-transform:uppercase;display:block}
+.h-badge-val{font-family:var(--font-body);font-size:13px;font-weight:600;color:var(--ivory);display:block}
+
+/* Coin visual — right side */
+.hero-visual{position:absolute;right:4%;top:50%;transform:translateY(-50%);z-index:3;display:flex;flex-direction:column;align-items:center;gap:16px}
+.coin-stack{position:relative;width:320px;height:400px}
+.coin{position:absolute;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gold-dim));box-shadow:0 4px 20px rgba(212,175,55,.3),inset 0 1px 0 rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:700;color:var(--navy);animation:coinFloat var(--d,5s) var(--dl,0s) ease-in-out infinite}
+.coin-1{width:160px;height:160px;font-size:28px;left:80px;bottom:0;z-index:5}
+.coin-2{width:120px;height:120px;font-size:20px;left:20px;bottom:120px;z-index:4;opacity:.85;--d:6s;--dl:.5s}
+.coin-3{width:100px;height:100px;font-size:16px;right:20px;bottom:100px;z-index:4;opacity:.75;--d:7s;--dl:1s}
+.coin-4{width:80px;height:80px;font-size:12px;left:100px;bottom:240px;z-index:3;opacity:.65;--d:5.5s;--dl:1.5s}
+.coin-5{width:60px;height:60px;font-size:10px;right:40px;bottom:220px;z-index:3;opacity:.55;--d:8s;--dl:.8s}
+.coin-glow{position:absolute;bottom:-20px;left:50%;transform:translateX(-50%);width:200px;height:40px;background:radial-gradient(ellipse,rgba(212,175,55,.2),transparent);filter:blur(8px)}
+.coin-ring{width:200px;height:200px;border-radius:50%;border:1px solid rgba(212,175,55,.15);position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);animation:spin 30s linear infinite}
+.coin-ring-2{width:280px;height:280px;border-radius:50%;border:1px solid rgba(212,175,55,.08);position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);animation:spin 45s linear infinite reverse}
+
+/* Hero ribbon */
+.hero-ribbon{position:absolute;bottom:0;left:0;right:0;z-index:3;background:rgba(6,18,36,.9);backdrop-filter:blur(20px);border-top:1px solid rgba(212,175,55,.1);display:flex}
+.rb{flex:1;padding:18px 24px;text-align:center;border-right:1px solid rgba(212,175,55,.06)}
+.rb:last-child{border-right:none}
+.rb-num{font-family:var(--font-display);font-size:26px;font-weight:700;color:var(--gold);line-height:1;display:block}
+.rb-label{font-family:var(--font-mono);font-size:9px;letter-spacing:.12em;color:var(--ivory3);text-transform:uppercase;margin-top:4px;display:block}
+
+/* Scroll ind */
+.scroll-ind{position:absolute;bottom:80px;left:6%;z-index:3;display:flex;flex-direction:column;align-items:center;gap:6px}
+.scroll-line{width:1px;height:44px;background:linear-gradient(to bottom,var(--gold),transparent);animation:scrollPulse 2s ease-in-out infinite}
+.scroll-txt{font-family:var(--font-mono);font-size:8px;letter-spacing:.18em;color:var(--gold-dim);text-transform:uppercase;writing-mode:vertical-lr}
+
+/* ════ GOVT BADGE STRIP ════ */
+.govt-strip{
+  background:linear-gradient(to right,rgba(46,204,113,.08),rgba(212,175,55,.08));
+  border-top:1px solid rgba(46,204,113,.2);
+  border-bottom:1px solid rgba(46,204,113,.2);
+  padding:20px 6%;
+  display:flex;align-items:center;justify-content:center;
+  gap:48px;flex-wrap:wrap;
+}
+.govt-item{display:flex;align-items:center;gap:12px}
+.govt-icon{font-size:24px}
+.govt-label{font-family:var(--font-mono);font-size:9px;letter-spacing:.16em;color:var(--green);text-transform:uppercase;display:block;margin-bottom:2px}
+.govt-val{font-family:var(--font-body);font-size:13px;color:var(--ivory);font-weight:600}
+.govt-sep{width:1px;height:40px;background:rgba(212,175,55,.15)}
+
+/* ════ ABOUT ════ */
+#about{
+  padding:96px 6%;
+  border-top:1px solid rgba(26,58,122,.2);
+  display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;
+  position:relative;overflow:hidden;
+}
+#about::before{
+  content:'';position:absolute;inset:0;
+  background:url('../chitimg/About Us.png') center right/cover no-repeat;
+  z-index:0;
+}
+#about::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(to right,rgba(6,18,36,.98) 50%,rgba(6,18,36,.70) 100%);
+  z-index:1;
+}
+#about>*{position:relative;z-index:2}
+.about-cards{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(212,175,55,.08);border:1px solid rgba(212,175,55,.1);margin-top:32px}
+.ac{padding:24px 20px;background:var(--navy2);transition:background .3s;position:relative;overflow:hidden}
+.ac:hover{background:var(--navy3)}
+.ac::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(to right,var(--gold),transparent)}
+.ac-icon{font-size:28px;display:block;margin-bottom:12px}
+.ac-title{font-family:var(--font-display);font-size:14px;font-weight:700;color:var(--ivory);margin-bottom:6px}
+.ac-desc{font-family:var(--font-body);font-size:13px;line-height:1.65;color:var(--ivory3)}
+.about-visual{display:flex;flex-direction:column;gap:20px}
+.cin-card{padding:32px;background:var(--navy3);border:1px solid rgba(212,175,55,.15);position:relative;overflow:hidden}
+.cin-card::before{content:'';position:absolute;top:-40px;right:-40px;width:120px;height:120px;border-radius:50%;background:radial-gradient(circle,rgba(212,175,55,.1),transparent)}
+.cin-label{font-family:var(--font-mono);font-size:9px;letter-spacing:.18em;color:var(--gold-dim);text-transform:uppercase;margin-bottom:8px;display:block}
+.cin-val{font-family:var(--font-mono);font-size:16px;color:var(--gold);font-weight:600;letter-spacing:.06em}
+.address-card{padding:32px;background:var(--navy3);border:1px solid rgba(26,58,122,.2)}
+.addr-row{display:flex;align-items:flex-start;gap:12px;margin-bottom:16px}
+.addr-row:last-child{margin-bottom:0}
+.addr-icon{font-size:16px;flex-shrink:0;margin-top:2px}
+.addr-label{font-family:var(--font-mono);font-size:8px;letter-spacing:.16em;color:var(--gold-dim);text-transform:uppercase;margin-bottom:4px;display:block}
+.addr-val{font-family:var(--font-body);font-size:14px;color:var(--ivory3);line-height:1.55}
+.addr-val a{color:var(--gold);text-decoration:none}
+.started-badge{display:inline-flex;align-items:center;gap:10px;padding:12px 20px;background:rgba(46,204,113,.08);border:1px solid rgba(46,204,113,.25);margin-top:8px}
+.started-dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 8px rgba(46,204,113,.5)}
+.started-text{font-family:var(--font-mono);font-size:10px;letter-spacing:.14em;color:var(--green);text-transform:uppercase}
+
+/* ════ WHY US ════ */
+#why{
+  padding:96px 6%;
+  background:var(--navy);
+  border-top:1px solid rgba(26,58,122,.2);
+}
+.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1px;background:rgba(26,58,122,.12);border:1px solid rgba(26,58,122,.12);margin-top:52px}
+.why-card{padding:40px 32px;background:var(--navy);transition:background .3s;position:relative;overflow:hidden}
+.why-card:hover{background:rgba(212,175,55,.03)}
+.why-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:2px;background:linear-gradient(to right,var(--gold),transparent)}
+.wi-n{position:absolute;top:14px;right:18px;font-family:var(--font-display);font-size:52px;font-weight:900;color:rgba(212,175,55,.05);line-height:1;pointer-events:none}
+.wi-icon{font-size:36px;display:block;margin-bottom:18px}
+.wi-title{font-family:var(--font-display);font-size:17px;font-weight:700;color:var(--ivory);margin-bottom:10px}
+.wi-desc{font-family:var(--font-body);font-size:14px;line-height:1.75;color:var(--ivory3)}
+.wi-tag{display:inline-block;margin-top:16px;font-family:var(--font-mono);font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(212,175,55,.22);padding:4px 10px}
+
+/* ════ CHIT PLANS OVERVIEW ════ */
+#plans{
+  padding:96px 6%;
+  background:var(--navy2);
+  border-top:1px solid rgba(26,58,122,.2);
+}
+.plans-header{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:52px}
+/* Plan filter tabs */
+.plan-tabs{display:inline-flex;align-items:center;border:1px solid rgba(26,58,122,.3);border-radius:2px;padding:4px;background:rgba(11,31,58,.6);backdrop-filter:blur(12px);margin-bottom:32px}
+.p-tab{font-family:var(--font-mono);font-size:9px;letter-spacing:.16em;text-transform:uppercase;padding:9px 20px;border:none;border-radius:1px;color:var(--ivory3);background:transparent;cursor:none;transition:all .25s var(--ease)}
+.p-tab.active{background:var(--gold);color:var(--navy);font-weight:600}
+.p-tab:not(.active):hover{color:var(--gold)}
+
+/* Main plans table */
+.plans-table-wrap{overflow-x:auto}
+.plans-table{width:100%;border-collapse:collapse;border:1px solid rgba(212,175,55,.12)}
+.plans-table thead tr{background:rgba(212,175,55,.12)}
+.plans-table th{font-family:var(--font-mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);padding:14px 16px;text-align:right;border-right:1px solid rgba(212,175,55,.08);white-space:nowrap;font-weight:400}
+.plans-table th:first-child{text-align:left}
+.plans-table td{font-family:var(--font-body);font-size:14px;color:var(--ivory3);padding:14px 16px;text-align:right;border-right:1px solid rgba(26,58,122,.15);border-top:1px solid rgba(26,58,122,.12);transition:background .2s}
+.plans-table td:first-child{color:var(--ivory);font-weight:700;font-size:15px;text-align:left;font-family:var(--font-display)}
+.plans-table tr:hover td{background:rgba(212,175,55,.04)}
+.plans-table .highlight td{background:rgba(212,175,55,.07)}
+.plans-table .highlight td:first-child{color:var(--gold)}
+.badge-pill{display:inline-block;font-family:var(--font-mono);font-size:7px;letter-spacing:.12em;text-transform:uppercase;padding:2px 8px;border-radius:1px;margin-left:6px}
+.badge-pop{background:var(--gold);color:var(--navy);font-weight:700}
+.badge-best{background:rgba(46,204,113,.2);color:var(--green);border:1px solid rgba(46,204,113,.3)}
+
+/* ════ PLAN DETAIL — HOW IT WORKS ════ */
+#how-it-works{
+  padding:96px 6%;
+  background:var(--navy);
+  border-top:1px solid rgba(26,58,122,.2);
+}
+.process-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:0;margin-top:52px;position:relative}
+.process-steps::before{content:'';position:absolute;top:48px;left:0;right:0;height:1px;background:linear-gradient(to right,transparent,rgba(212,175,55,.25),rgba(212,175,55,.25),transparent);z-index:0}
+.step{padding:0 24px;text-align:center;position:relative;z-index:1}
+.step-num{width:96px;height:96px;border-radius:50%;background:var(--navy2);border:1px solid rgba(212,175,55,.25);display:flex;align-items:center;justify-content:center;margin:0 auto 24px;font-family:var(--font-display);font-size:28px;font-weight:700;color:var(--gold);transition:background .3s,border-color .3s}
+.step:hover .step-num{background:rgba(212,175,55,.08);border-color:var(--gold)}
+.step-icon{font-size:36px}
+.step-title{font-family:var(--font-display);font-size:15px;font-weight:700;color:var(--ivory);margin-bottom:10px}
+.step-desc{font-family:var(--font-body);font-size:13px;line-height:1.65;color:var(--ivory3)}
+
+/* ════ DETAILED PLAN TABLES ════ */
+#plan-details{
+  padding:96px 6%;
+  background:var(--navy2);
+  border-top:1px solid rgba(26,58,122,.2);
+}
+.plan-selector{display:flex;gap:4px;margin-bottom:40px;flex-wrap:wrap}
+.ps-btn{font-family:var(--font-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;padding:12px 28px;border:1px solid rgba(26,58,122,.35);color:var(--ivory3);background:transparent;cursor:none;transition:all .25s;border-radius:1px}
+.ps-btn.active{border-color:var(--gold);color:var(--gold);background:rgba(212,175,55,.08)}
+.ps-btn:hover:not(.active){border-color:rgba(212,175,55,.3);color:var(--ivory)}
+.plan-detail-content{display:none}
+.plan-detail-content.active{display:block}
+.plan-info-strip{display:flex;gap:1px;background:rgba(212,175,55,.1);border:1px solid rgba(212,175,55,.12);margin-bottom:24px}
+.pis{flex:1;padding:20px 24px;background:var(--navy2);text-align:center}
+.pis-label{font-family:var(--font-mono);font-size:8px;letter-spacing:.16em;color:var(--gold-dim);text-transform:uppercase;margin-bottom:6px;display:block}
+.pis-val{font-family:var(--font-display);font-size:22px;font-weight:700;color:var(--gold)}
+.detail-table-wrap{overflow-x:auto;margin-bottom:24px}
+.detail-table{width:100%;border-collapse:collapse;border:1px solid rgba(212,175,55,.1);font-size:13px}
+.detail-table thead tr{background:rgba(212,175,55,.10)}
+.detail-table th{font-family:var(--font-mono);font-size:8px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);padding:12px 14px;text-align:right;border-right:1px solid rgba(212,175,55,.08);white-space:nowrap;font-weight:400}
+.detail-table th:first-child{text-align:center}
+.detail-table td{font-family:var(--font-body);font-size:13px;color:var(--ivory3);padding:11px 14px;text-align:right;border-right:1px solid rgba(26,58,122,.12);border-top:1px solid rgba(26,58,122,.1);transition:background .2s}
+.detail-table td:first-child{text-align:center;font-weight:700;color:var(--ivory3);font-family:var(--font-mono)}
+.detail-table tr:hover td{background:rgba(212,175,55,.04)}
+.detail-table .prize-col{color:var(--gold);font-weight:600}
+.detail-table .discount-col{color:var(--green)}
+.detail-table .highlight-row td{background:rgba(212,175,55,.08)!important}
+.interest-card{padding:28px 32px;background:var(--navy3);border:1px solid rgba(212,175,55,.15);display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:24px;align-items:center}
+.ic-item{}
+.ic-label{font-family:var(--font-mono);font-size:8px;letter-spacing:.14em;color:var(--gold-dim);text-transform:uppercase;margin-bottom:6px;display:block}
+.ic-val{font-family:var(--font-display);font-size:20px;font-weight:700;color:var(--ivory)}
+.ic-val.rate{color:var(--green);font-size:28px}
+.ic-note{font-family:var(--font-body);font-size:12px;color:var(--ivory3);margin-top:4px}
+
+/* ════ CALCULATOR ════ */
+#calculator{
+  padding:96px 6%;
+  background:var(--navy);
+  border-top:1px solid rgba(26,58,122,.2);
+}
+.calc-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;margin-top:48px}
+.calc-box{padding:40px;background:var(--navy2);border:1px solid rgba(212,175,55,.15)}
+.calc-field{margin-bottom:24px}
+.calc-label{font-family:var(--font-mono);font-size:9px;letter-spacing:.16em;color:var(--gold-dim);text-transform:uppercase;margin-bottom:8px;display:flex;justify-content:space-between}
+.calc-label span{color:var(--gold)}
+.calc-slider{-webkit-appearance:none;appearance:none;width:100%;height:2px;background:rgba(26,58,122,.4);border-radius:2px;outline:none;cursor:none}
+.calc-slider::-webkit-slider-thumb{-webkit-appearance:none;width:16px;height:16px;border-radius:50%;background:var(--gold);cursor:none;border:2px solid var(--navy)}
+.calc-select{width:100%;background:var(--navy3);border:1px solid rgba(26,58,122,.25);color:var(--ivory);font-family:var(--font-body);font-size:15px;padding:12px 16px;outline:none;border-radius:1px;cursor:none}
+.calc-select:focus{border-color:rgba(212,175,55,.4)}
+.calc-result{background:linear-gradient(135deg,var(--navy3),var(--navy2));border:1px solid rgba(212,175,55,.2);padding:36px}
+.cr-title{font-family:var(--font-mono);font-size:9px;letter-spacing:.16em;color:var(--gold-dim);text-transform:uppercase;margin-bottom:20px}
+.cr-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(212,175,55,.08);border:1px solid rgba(212,175,55,.08);margin-bottom:20px}
+.cr-item{padding:16px 20px;background:var(--navy3)}
+.cr-item-label{font-family:var(--font-mono);font-size:8px;letter-spacing:.14em;color:var(--ivory3);text-transform:uppercase;margin-bottom:6px;display:block}
+.cr-item-val{font-family:var(--font-display);font-size:20px;font-weight:700;color:var(--ivory)}
+.cr-item-val.gold{color:var(--gold)}
+.cr-item-val.green{color:var(--green)}
+.cr-disclaimer{font-family:var(--font-body);font-size:11px;color:var(--ivory3);opacity:.6;line-height:1.6}
+
+/* ════ STATS ════ */
+.stats-band{background:var(--gold);padding:0}
+.stats-inner{display:flex}
+.si{flex:1;padding:28px 24px;text-align:center;border-right:1px solid rgba(6,18,36,.1)}
+.si:last-child{border-right:none}
+.si-num{font-family:var(--font-display);font-size:34px;font-weight:700;color:var(--navy);line-height:1;display:block}
+.si-label{font-family:var(--font-mono);font-size:8px;letter-spacing:.14em;color:rgba(6,18,36,.65);text-transform:uppercase;margin-top:4px;display:block}
+
+/* ════ CONTACT ════ */
+#contact{
+  padding:96px 6%;
+  background:var(--navy2);
+  border-top:1px solid rgba(26,58,122,.2);
+}
+.contact-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:80px;align-items:start;margin-top:52px}
+.field{margin-bottom:18px}
+.field-label{display:block;font-family:var(--font-mono);font-size:9px;letter-spacing:.16em;color:var(--gold-dim);text-transform:uppercase;margin-bottom:7px}
+.field-input,.field-select{width:100%;background:var(--navy3);border:1px solid rgba(26,58,122,.25);color:var(--ivory);font-family:var(--font-body);font-size:15px;padding:13px 16px;outline:none;transition:border-color .25s;border-radius:1px}
+.field-input:focus,.field-select:focus{border-color:rgba(212,175,55,.4)}
+.field-input::placeholder{color:var(--ivory3);opacity:.5}
+textarea.field-input{resize:vertical;min-height:100px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.ci-item{display:flex;align-items:flex-start;gap:16px;margin-bottom:24px}
+.ci-icon{width:44px;height:44px;flex-shrink:0;background:var(--navy3);border:1px solid rgba(26,58,122,.3);display:flex;align-items:center;justify-content:center;font-size:18px}
+.ci-label{font-family:var(--font-mono);font-size:9px;letter-spacing:.14em;color:var(--gold);text-transform:uppercase;margin-bottom:4px;display:block}
+.ci-val{font-family:var(--font-body);font-size:14px;color:var(--ivory);line-height:1.6}
+.ci-val a{color:var(--gold);text-decoration:none}
+.manager-card{padding:24px;background:var(--navy3);border:1px solid rgba(212,175,55,.15);margin-top:24px;display:flex;align-items:center;gap:16px}
+.mgr-avatar{width:52px;height:52px;border-radius:50%;background:rgba(212,175,55,.1);border:1px solid rgba(212,175,55,.25);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:700;font-size:16px;color:var(--gold)}
+.mgr-name{font-family:var(--font-display);font-size:15px;font-weight:700;color:var(--ivory)}
+.mgr-role{font-family:var(--font-mono);font-size:9px;letter-spacing:.14em;color:var(--gold-dim);text-transform:uppercase;margin-top:2px}
+.mgr-phone{font-family:var(--font-body);font-size:13px;color:var(--ivory3);margin-top:4px}
+.mgr-phone a{color:var(--gold);text-decoration:none}
+
+/* ════ FOOTER ════ */
+footer{background:var(--navy);border-top:1px solid rgba(26,58,122,.2);padding:64px 6% 40px}
+.footer-inner{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px}
+.footer-logo-name{font-family:var(--font-display);font-size:18px;font-weight:700;color:var(--gold);letter-spacing:.04em;margin-bottom:6px}
+.footer-logo-tag{font-family:var(--font-mono);font-size:8px;letter-spacing:.16em;color:var(--gold-dim);text-transform:uppercase;margin-bottom:16px;display:block}
+.footer-desc{font-family:var(--font-body);font-size:13px;line-height:1.8;color:var(--ivory3)}
+.footer-col-title{font-family:var(--font-mono);font-size:9px;letter-spacing:.16em;color:var(--gold);text-transform:uppercase;margin-bottom:16px;display:block}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:10px}
+.footer-links a{font-family:var(--font-body);font-size:13px;color:var(--ivory3);text-decoration:none;transition:color .2s}
+.footer-links a:hover{color:var(--gold)}
+.footer-bottom{border-top:1px solid rgba(26,58,122,.15);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.footer-copy{font-family:var(--font-mono);font-size:10px;letter-spacing:.1em;color:var(--ivory3);text-transform:uppercase}
+.footer-back{font-family:var(--font-mono);font-size:10px;letter-spacing:.1em;color:var(--gold);text-decoration:none;text-transform:uppercase}
+
+/* RESPONSIVE */
+@media(max-width:1000px){
+  #about,.calc-grid,.contact-grid{grid-template-columns:1fr;gap:40px}
+  .hero-visual{display:none}
+  .footer-inner{grid-template-columns:1fr 1fr}
+  .process-steps::before{display:none}
+}
+@media(max-width:640px){
+  .nav-links{display:none}.nav-ham{display:flex}
+  .stats-inner{flex-wrap:wrap}.si{min-width:50%}
+  .form-row{grid-template-columns:1fr}
+  .footer-inner{grid-template-columns:1fr}
+  .plan-info-strip{flex-direction:column;gap:1px}
+  .interest-card{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+
+<!-- ════ NAV ════ -->
+<nav id="nav">
+  <a href="/" class="nav-logo">
+    <img src="../assets/logo.png" alt="St. Michael Group" class="nav-logo-img"/>
+    <div>
+      <span class="nav-logo-name">St. Michael Chits</span>
+      <span class="nav-logo-tag">Pvt Ltd · Government Registered</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#plans">Plans</a></li>
+    <li><a href="#plan-details">Plan Details</a></li>
+    <li><a href="#calculator">Calculator</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="/" style="color:var(--gold-dim)">↑ Group</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Join Now</a>
+  <button class="nav-ham" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- ════ HERO ════ -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-orb-1"></div>
+  <div class="hero-orb-2"></div>
+  <div class="hero-slash"></div>
+  <div class="particles" id="particles"></div>
+
+  <div class="hero-content">
+    <div class="hero-eyebrow">
+      <div class="h-eyebrow-line"></div>
+      <span class="h-eyebrow-text">Government Registered · CIN: U64990TN2025PTC177047</span>
+    </div>
+    <h1 class="hero-title">
+      St. Michael
+      <em>Chits</em>
+      <span class="sub">Pvt Ltd</span>
+    </h1>
+    <div class="hero-divider"></div>
+    <p class="hero-desc">
+      <strong>Arasu Angeekaaram Petradhu</strong> — Government approved chit fund company.
+      Transparent, trusted, and secure investment plans from ₹1 Lakh to ₹10 Lakhs.
+      Serving Tirunelveli and beyond since July 2025.
+    </p>
+    <div class="hero-ctas">
+      <a href="#plans" class="btn-gold">View All Plans →</a>
+      <a href="#calculator" class="btn-ghost">Calculate Returns</a>
+    </div>
+    <div class="hero-badges">
+      <div class="h-badge">
+        <span class="h-badge-icon">🏛️</span>
+        <div><span class="h-badge-label">Registered</span><span class="h-badge-val">Govt. of Tamil Nadu</span></div>
+      </div>
+      <div class="h-badge">
+        <span class="h-badge-icon">💰</span>
+        <div><span class="h-badge-label">Returns</span><span class="h-badge-val">Up to 11.43% p.a.</span></div>
+      </div>
+      <div class="h-badge">
+        <span class="h-badge-icon">📅</span>
+        <div><span class="h-badge-label">Plans From</span><span class="h-badge-val">10 to 25 Months</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-ind">
+    <div class="scroll-line"></div>
+    <span class="scroll-txt">Scroll</span>
+  </div>
+
+  <div class="hero-ribbon">
+    <div class="rb"><span class="rb-num">₹1L</span><span class="rb-label">Starting Chit Value</span></div>
+    <div class="rb"><span class="rb-num">10<span style="font-size:14px">mo</span></span><span class="rb-label">Shortest Plan</span></div>
+    <div class="rb"><span class="rb-num">30%</span><span class="rb-label">Max Discount Offered</span></div>
+    <div class="rb"><span class="rb-num">11.43%</span><span class="rb-label">Effective Rate p.a.</span></div>
+    <div class="rb"><span class="rb-num">2025</span><span class="rb-label">Established</span></div>
+  </div>
+</section>
+
+<!-- ════ GOVT STRIP ════ -->
+<div class="govt-strip">
+  <div class="govt-item">
+    <span class="govt-icon">✅</span>
+    <div><span class="govt-label">Government Approved</span><span class="govt-val">Arasu Angeekaaram Petradhu</span></div>
+  </div>
+  <div class="govt-sep"></div>
+  <div class="govt-item">
+    <span class="govt-icon">📋</span>
+    <div><span class="govt-label">CIN Number</span><span class="govt-val">U64990TN2025PTC177047</span></div>
+  </div>
+  <div class="govt-sep"></div>
+  <div class="govt-item">
+    <span class="govt-icon">🏛️</span>
+    <div><span class="govt-label">Registered Office</span><span class="govt-val">Chennai · Branch: Palayankottai</span></div>
+  </div>
+  <div class="govt-sep"></div>
+  <div class="govt-item">
+    <span class="govt-icon">📅</span>
+    <div><span class="govt-label">Established</span><span class="govt-val">July 2025</span></div>
+  </div>
+</div>
+
+<!-- ════ ABOUT ════ -->
+<section id="about">
+  <div>
+    <div class="s-mono reveal">About Us</div>
+    <h2 class="s-h2 reveal d1">Building Wealth.<br/><em>Transparently.</em></h2>
+    <div class="s-div reveal d2"></div>
+    <p class="s-body reveal d2">
+      <strong>St. Michael Chits Pvt Ltd</strong> is a Government of Tamil Nadu registered chit fund company, part of the St. Michael Group of Companies. We offer transparent, flexible, and secure chit fund plans that help individuals and families build financial security through disciplined savings.
+    </p>
+    <p class="s-body reveal d3" style="margin-top:14px">
+      Our chit fund model is structured for fairness — every subscriber gets the opportunity to access funds when they need it most, with competitive returns and full government compliance.
+    </p>
+    <div class="about-cards reveal d4">
+      <div class="ac"><span class="ac-icon">🏛️</span><div class="ac-title">Govt. Registered</div><div class="ac-desc">Fully registered with the Government of Tamil Nadu under the Chit Funds Act.</div></div>
+      <div class="ac"><span class="ac-icon">🔒</span><div class="ac-title">100% Secure</div><div class="ac-desc">Your investment is protected under government regulations and compliance framework.</div></div>
+      <div class="ac"><span class="ac-icon">💡</span><div class="ac-title">Transparent</div><div class="ac-desc">Clear monthly statements, open auction process, and full disclosure of all charges.</div></div>
+      <div class="ac"><span class="ac-icon">⚡</span><div class="ac-title">Fast Access</div><div class="ac-desc">Win the chit bid and access your funds quickly. Flexible instalment options available.</div></div>
+    </div>
+  </div>
+  <div class="about-visual reveal d2">
+    <div class="cin-card">
+      <span class="cin-label">Company Identification Number (CIN)</span>
+      <div class="cin-val">U64990TN2025PTC177047</div>
+      <div class="started-badge" style="margin-top:16px">
+        <div class="started-dot"></div>
+        <span class="started-text">Established July 2025 · Active</span>
+      </div>
+    </div>
+    <div class="address-card">
+      <div class="addr-row">
+        <span class="addr-icon">🏢</span>
+        <div>
+          <span class="addr-label">Registered Office</span>
+          <span class="addr-val">Temple Tower, No.672, Anna Salai, Nandanam, Chennai – 600 035</span>
+        </div>
+      </div>
+      <div class="addr-row">
+        <span class="addr-icon">📍</span>
+        <div>
+          <span class="addr-label">Branch Office</span>
+          <span class="addr-val">No.6E, St. Michael Complex, Sevalaperi Road, Palayankottai – 627 002</span>
+        </div>
+      </div>
+      <div class="addr-row">
+        <span class="addr-icon">📞</span>
+        <div>
+          <span class="addr-label">Contact</span>
+          <span class="addr-val"><a href="tel:04622572200">0462 2572200</a> · <a href="tel:9894918030">98949 18030</a></span>
+        </div>
+      </div>
+      <div class="addr-row">
+        <span class="addr-icon">🌐</span>
+        <div>
+          <span class="addr-label">Website</span>
+          <span class="addr-val"><a href="https://www.newmmcchitfund.com" target="_blank">www.newmmcchitfund.com</a></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ WHY US ════ -->
+<section id="why">
+  <div class="reveal">
+    <div class="s-mono">Why Choose Us</div>
+    <h2 class="s-h2">Why People <em>Trust</em><br/>St. Michael Chits</h2>
+  </div>
+  <div class="why-grid">
+    <div class="why-card reveal"><span class="wi-n">01</span><span class="wi-icon">🏛️</span><div class="wi-title">Government Registered</div><div class="wi-desc">Fully registered with the Govt. of Tamil Nadu under the Chit Funds Act. Your investment is legally protected and regulated.</div><span class="wi-tag">100% Compliant</span></div>
+    <div class="why-card reveal d1"><span class="wi-n">02</span><span class="wi-icon">💰</span><div class="wi-title">Attractive Returns</div><div class="wi-desc">Effective annual return of 11.43% — significantly better than many traditional savings instruments. Transparent calculation.</div><span class="wi-tag">11.43% p.a.</span></div>
+    <div class="why-card reveal d2"><span class="wi-n">03</span><span class="wi-icon">🔓</span><div class="wi-title">Early Fund Access</div><div class="wi-desc">Need funds urgently? Bid in the monthly auction and access your money early. Maximum 30% discount offered to winning bidder.</div><span class="wi-tag">30% Max Discount</span></div>
+    <div class="why-card reveal d3"><span class="wi-n">04</span><span class="wi-icon">📊</span><div class="wi-title">Flexible Plans</div><div class="wi-desc">Multiple chit values from ₹1 Lakh to ₹10 Lakhs, with durations of 10, 20, and 25 months. Weekly and monthly instalment options.</div><span class="wi-tag">9 Plans Available</span></div>
+    <div class="why-card reveal d4"><span class="wi-n">05</span><span class="wi-icon">🤝</span><div class="wi-title">Part of St. Michael Group</div><div class="wi-desc">Backed by the St. Michael Group of Companies — an established business conglomerate with 25+ years of trust across Tirunelveli.</div><span class="wi-tag">Trusted Group</span></div>
+    <div class="why-card reveal d5"><span class="wi-n">06</span><span class="wi-icon">📋</span><div class="wi-title">Transparent Process</div><div class="wi-desc">Open auction system, clear receipts for every payment, published instalment schedules, and full documentation for every subscriber.</div><span class="wi-tag">Open & Clear</span></div>
+  </div>
+</section>
+
+<!-- ════ CHIT PLANS OVERVIEW ════ -->
+<section id="plans">
+  <div class="plans-header reveal">
+    <div>
+      <div class="s-mono">Our Plans</div>
+      <h2 class="s-h2">Available <em>Chit Plans</em></h2>
+      <p class="s-body" style="margin-top:14px;max-width:560px">Choose from 9 flexible plans across three durations. Weekly and monthly instalment options available for every plan.</p>
+    </div>
+    <a href="#contact" class="btn-ghost reveal d2">Enquire Now →</a>
+  </div>
+
+  <div class="plan-tabs">
+    <button class="p-tab active" onclick="filterPlans('all',this)">All Plans</button>
+    <button class="p-tab" onclick="filterPlans('10',this)">10 Months</button>
+    <button class="p-tab" onclick="filterPlans('20',this)">20 Months</button>
+    <button class="p-tab" onclick="filterPlans('25',this)">25 Months</button>
+  </div>
+
+  <div class="plans-table-wrap reveal d1">
+    <table class="plans-table" id="plansTable">
+      <thead>
+        <tr>
+          <th style="text-align:left">Chit Value (சீட்டு தொகை)</th>
+          <th>Duration (மாதம்)</th>
+          <th>Weekly Instalment (வார தவனை)</th>
+          <th>Monthly Instalment (மாத தவனை)</th>
+          <th>Entry Fee (நுழைவு கட்டணம்)</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr data-months="10">
+          <td>₹1,00,000</td><td>10</td><td>₹2,500</td><td>₹10,000</td><td>₹200</td>
+          <td><a href="#contact" style="font-family:var(--font-mono);font-size:9px;letter-spacing:.12em;color:var(--gold);text-decoration:none;text-transform:uppercase">Join →</a></td>
+        </tr>
+        <tr data-months="10">
+          <td>₹2,00,000</td><td>10</td><td>₹5,000</td><td>₹20,000</td><td>₹400</td>
+          <td><a href="#contact" style="font-family:var(--font-mono);font-size:9px;letter-spacing:.12em;color:var(--gold);text-decoration:none;text-transform:uppercase">Join →</a></td>
+        </tr>
+        <tr data-months="20">
+          <td>₹1,00,000</td><td>20</td><td>₹1,250</td><td>₹5,000</td><td>₹200</td>
+          <td><a href="#contact" style="font-family:var(--font-mono);font-size:9px;letter-spacing:.12em;color:var(--gold);text-decoration:none;text-transform:uppercase">Join →</a></td>
+        </tr>
+        <tr data-months="20">
+          <td>₹2,00,000</td><td>20</td><td>₹2,500</td><td>₹10,000</td><td>₹400</td>
+          <td><a href="#contact" style="font-family:var(--font-mono);font-size:9px;letter-spacing:.12em;color:var(--gold);text-decoration:none;text-transform:uppercase">Join →</a></td>
+        </tr>
+        <tr data-months="20">
+          <td>₹3,00,000</td><td>20</td><td>₹3,750</td><td>₹15,000</td><td>₹600</td>
+          <td><a href="#contact" style="font-family:var(--font-mono);font-size:9px;letter-spacing:.12em;color:var(--gold);text-decoration:none;text-transform:uppercase">Join →</a></td>
+        </tr>
+        <tr data-months="20">
+          <td>₹5,00,000</td><td>20</td><td>₹6,250</td><td>₹25,000</td><td>₹1,000</td>
+          <td><a href="#contact" style="font-family:var(--font-mono);font-size:9px;letter-spacing:.12em;color:var(--gold);text-decoration:none;text-transform:uppercase">Join →</a></td>
+        </tr>
+        <tr class="highlight" data-months="20">
+          <td>₹10,00,000 <span class="badge-pill badge-pop">Popular</span></td><td>20</td><td>₹12,500</td><td>₹50,000</td><td>₹2,000</td>
+          <td><a href="#contact" style="font-family:var(--font-mono);font-size:9px;letter-spacing:.12em;color:var(--gold);text-decoration:none;text-transform:uppercase">Join →</a></td>
+        </tr>
+        <tr class="highlight" data-months="25">
+          <td>₹5,00,000 <span class="badge-pill badge-best">Best Value</span></td><td>25</td><td>₹5,000</td><td>₹20,000</td><td>₹1,000</td>
+          <td><a href="#contact" style="font-family:var(--font-mono);font-size:9px;letter-spacing:.12em;color:var(--gold);text-decoration:none;text-transform:uppercase">Join →</a></td>
+        </tr>
+        <tr data-months="25">
+          <td>₹10,00,000</td><td>25</td><td>₹10,000</td><td>₹40,000</td><td>₹2,000</td>
+          <td><a href="#contact" style="font-family:var(--font-mono);font-size:9px;letter-spacing:.12em;color:var(--gold);text-decoration:none;text-transform:uppercase">Join →</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="reveal d2" style="font-family:var(--font-mono);font-size:9px;letter-spacing:.12em;color:var(--ivory3);margin-top:16px;text-transform:uppercase">
+    * Company commission: 10 months – 25% | 20 months – 25% | 25 months – 5% only
+  </p>
+</section>
+
+<!-- ════ HOW IT WORKS ════ -->
+<section id="how-it-works">
+  <div class="reveal">
+    <div class="s-mono">The Process</div>
+    <h2 class="s-h2">How Chit <em>Funds Work</em></h2>
+    <p class="s-body" style="max-width:580px;margin-top:14px">A chit fund is a simple, time-tested savings instrument. Here's how the St. Michael Chits process works from registration to receiving your funds.</p>
+  </div>
+  <div class="process-steps">
+    <div class="step reveal">
+      <div class="step-num"><span class="step-icon">📝</span></div>
+      <div class="step-title">Register & Join</div>
+      <p class="step-desc">Choose your chit plan, complete the KYC process, and join a chit group with fellow subscribers.</p>
+    </div>
+    <div class="step reveal d1">
+      <div class="step-num"><span class="step-icon">💳</span></div>
+      <div class="step-title">Pay Instalments</div>
+      <p class="step-desc">Pay your fixed monthly (or weekly) instalment. Receive an official receipt for every payment made.</p>
+    </div>
+    <div class="step reveal d2">
+      <div class="step-num"><span class="step-icon">🔨</span></div>
+      <div class="step-title">Monthly Auction</div>
+      <p class="step-desc">Every month, subscribers bid for the chit amount. The person who bids the lowest discount wins the prize.</p>
+    </div>
+    <div class="step reveal d3">
+      <div class="step-num"><span class="step-icon">💰</span></div>
+      <div class="step-title">Receive Funds</div>
+      <p class="step-desc">The winner receives the chit amount minus the discount. Non-winners get a dividend share from the discount pool.</p>
+    </div>
+    <div class="step reveal d4">
+      <div class="step-num"><span class="step-icon">✅</span></div>
+      <div class="step-title">Cycle Completes</div>
+      <p class="step-desc">After all months are complete, every subscriber has received funds once. A win for every member.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ════ DETAILED PLAN TABLES ════ -->
+<section id="plan-details">
+  <div class="reveal">
+    <div class="s-mono">Plan Breakdown</div>
+    <h2 class="s-h2">Month-by-Month <em>Plan Details</em></h2>
+    <p class="s-body" style="max-width:580px;margin-top:14px">Detailed auction schedule showing instalment amounts, discounts, and prize amounts for each month across two featured plans.</p>
+  </div>
+
+  <div class="plan-selector" style="margin-top:40px">
+    <button class="ps-btn active" onclick="switchPlan('plan1L',this)">₹1,00,000 × 25 Months</button>
+    <button class="ps-btn" onclick="switchPlan('plan2L',this)">₹2,00,000 × 25 Months</button>
+  </div>
+
+  <!-- PLAN 1: ₹1,00,000 × 25 -->
+  <div id="plan1L" class="plan-detail-content active reveal d1">
+    <div class="plan-info-strip">
+      <div class="pis"><span class="pis-label">Chit Value</span><span class="pis-val">₹25,00,000</span></div>
+      <div class="pis"><span class="pis-label">Duration</span><span class="pis-val">25 Months</span></div>
+      <div class="pis"><span class="pis-label">Monthly Instalment</span><span class="pis-val">₹1,00,000</span></div>
+      <div class="pis"><span class="pis-label">Max Discount</span><span class="pis-val">30%</span></div>
+      <div class="pis"><span class="pis-label">Entry Fee</span><span class="pis-val">₹1,500</span></div>
+    </div>
+    <div class="detail-table-wrap">
+      <table class="detail-table">
+        <thead>
+          <tr>
+            <th>Month</th><th>Instalment (தவனை)</th><th class="discount-col">Discount (கசர்)</th><th>Total Discount</th><th class="prize-col">Prize Amount (பரிசு தொகை)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="highlight-row"><td>1</td><td>₹1,00,000</td><td class="discount-col">₹0</td><td>₹0</td><td class="prize-col">—</td></tr>
+          <tr><td>2</td><td>₹1,00,000</td><td class="discount-col">₹0</td><td>₹0</td><td class="prize-col">₹17,50,000</td></tr>
+          <tr><td>3</td><td>₹75,000</td><td class="discount-col">₹25,000</td><td>₹25,000</td><td class="prize-col">₹17,50,000</td></tr>
+          <tr><td>4</td><td>₹75,000</td><td class="discount-col">₹25,000</td><td>₹50,000</td><td class="prize-col">₹17,50,000</td></tr>
+          <tr><td>5</td><td>₹75,000</td><td class="discount-col">₹25,000</td><td>₹75,000</td><td class="prize-col">₹17,50,000</td></tr>
+          <tr><td>6</td><td>₹76,000</td><td class="discount-col">₹24,000</td><td>₹99,000</td><td class="prize-col">₹17,75,000</td></tr>
+          <tr><td>7</td><td>₹77,000</td><td class="discount-col">₹23,000</td><td>₹1,22,000</td><td class="prize-col">₹18,00,000</td></tr>
+          <tr><td>8</td><td>₹78,000</td><td class="discount-col">₹22,000</td><td>₹1,44,000</td><td class="prize-col">₹18,75,000</td></tr>
+          <tr><td>9</td><td>₹79,000</td><td class="discount-col">₹21,000</td><td>₹1,65,000</td><td class="prize-col">₹18,50,000</td></tr>
+          <tr><td>10</td><td>₹80,000</td><td class="discount-col">₹20,000</td><td>₹1,85,000</td><td class="prize-col">₹18,75,000</td></tr>
+          <tr><td>11</td><td>₹81,000</td><td class="discount-col">₹19,000</td><td>₹2,04,000</td><td class="prize-col">₹19,00,000</td></tr>
+          <tr><td>12</td><td>₹82,000</td><td class="discount-col">₹18,000</td><td>₹2,22,000</td><td class="prize-col">₹19,25,000</td></tr>
+          <tr><td>13</td><td>₹83,000</td><td class="discount-col">₹17,000</td><td>₹2,39,000</td><td class="prize-col">₹19,50,000</td></tr>
+          <tr><td>14</td><td>₹84,000</td><td class="discount-col">₹16,000</td><td>₹2,55,000</td><td class="prize-col">₹19,75,000</td></tr>
+          <tr><td>15</td><td>₹85,000</td><td class="discount-col">₹15,000</td><td>₹2,70,000</td><td class="prize-col">₹20,00,000</td></tr>
+          <tr><td>16</td><td>₹86,000</td><td class="discount-col">₹14,000</td><td>₹2,84,000</td><td class="prize-col">₹20,25,000</td></tr>
+          <tr><td>17</td><td>₹87,000</td><td class="discount-col">₹13,000</td><td>₹2,97,000</td><td class="prize-col">₹20,50,000</td></tr>
+          <tr><td>18</td><td>₹88,000</td><td class="discount-col">₹12,000</td><td>₹3,09,000</td><td class="prize-col">₹20,75,000</td></tr>
+          <tr><td>19</td><td>₹89,000</td><td class="discount-col">₹11,000</td><td>₹3,20,000</td><td class="prize-col">₹21,00,000</td></tr>
+          <tr><td>20</td><td>₹90,000</td><td class="discount-col">₹10,000</td><td>₹3,30,000</td><td class="prize-col">₹21,25,000</td></tr>
+          <tr><td>21</td><td>₹92,000</td><td class="discount-col">₹8,000</td><td>₹3,38,000</td><td class="prize-col">₹21,75,000</td></tr>
+          <tr><td>22</td><td>₹94,000</td><td class="discount-col">₹6,000</td><td>₹3,44,000</td><td class="prize-col">₹22,25,000</td></tr>
+          <tr><td>23</td><td>₹96,000</td><td class="discount-col">₹4,000</td><td>₹3,48,000</td><td class="prize-col">₹22,75,000</td></tr>
+          <tr><td>24</td><td>₹98,000</td><td class="discount-col">₹2,000</td><td>₹3,50,000</td><td class="prize-col">₹23,25,000</td></tr>
+          <tr class="highlight-row"><td>25</td><td>₹1,00,000</td><td class="discount-col">₹0</td><td>₹3,50,000</td><td class="prize-col">₹23,75,000</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="interest-card">
+      <div class="ic-item"><span class="ic-label">Total Amount Paid</span><div class="ic-val">₹21,50,000</div></div>
+      <div class="ic-item"><span class="ic-label">Total Discount (கசர்)</span><div class="ic-val">₹3,50,000</div></div>
+      <div class="ic-item"><span class="ic-label">Prize Amount</span><div class="ic-val">₹17,50,000</div></div>
+      <div class="ic-item"><span class="ic-label">Benefit Amount</span><div class="ic-val">₹4,00,000</div></div>
+      <div class="ic-item"><span class="ic-label">Effective Rate p.a.</span><div class="ic-val rate">11.43%</div><div class="ic-note">₹4,00,000 ÷ 12 ÷ ₹17,50,000 ÷ 24 × 100</div></div>
+    </div>
+  </div>
+
+  <!-- PLAN 2: ₹2,00,000 × 25 -->
+  <div id="plan2L" class="plan-detail-content reveal d1">
+    <div class="plan-info-strip">
+      <div class="pis"><span class="pis-label">Chit Value</span><span class="pis-val">₹50,00,000</span></div>
+      <div class="pis"><span class="pis-label">Duration</span><span class="pis-val">25 Months</span></div>
+      <div class="pis"><span class="pis-label">Monthly Instalment</span><span class="pis-val">₹2,00,000</span></div>
+      <div class="pis"><span class="pis-label">Max Discount</span><span class="pis-val">30%</span></div>
+      <div class="pis"><span class="pis-label">Entry Fee</span><span class="pis-val">₹2,500</span></div>
+    </div>
+    <div class="detail-table-wrap">
+      <table class="detail-table">
+        <thead>
+          <tr>
+            <th>Month</th><th>Instalment</th><th class="discount-col">Discount</th><th>Total Discount</th><th class="prize-col">Prize Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="highlight-row"><td>1</td><td>₹2,00,000</td><td class="discount-col">₹0</td><td>₹0</td><td class="prize-col">—</td></tr>
+          <tr><td>2</td><td>₹2,00,000</td><td class="discount-col">₹0</td><td>₹0</td><td class="prize-col">₹35,00,000</td></tr>
+          <tr><td>3</td><td>₹1,50,000</td><td class="discount-col">₹50,000</td><td>₹50,000</td><td class="prize-col">₹35,00,000</td></tr>
+          <tr><td>4</td><td>₹1,50,000</td><td class="discount-col">₹50,000</td><td>₹1,00,000</td><td class="prize-col">₹35,00,000</td></tr>
+          <tr><td>5</td><td>₹1,50,000</td><td class="discount-col">₹50,000</td><td>₹1,50,000</td><td class="prize-col">₹35,00,000</td></tr>
+          <tr><td>6</td><td>₹1,52,000</td><td class="discount-col">₹48,000</td><td>₹1,98,000</td><td class="prize-col">₹35,50,000</td></tr>
+          <tr><td>7</td><td>₹1,54,000</td><td class="discount-col">₹46,000</td><td>₹2,44,000</td><td class="prize-col">₹36,00,000</td></tr>
+          <tr><td>8</td><td>₹1,56,000</td><td class="discount-col">₹44,000</td><td>₹2,88,000</td><td class="prize-col">₹36,50,000</td></tr>
+          <tr><td>9</td><td>₹1,58,000</td><td class="discount-col">₹42,000</td><td>₹3,30,000</td><td class="prize-col">₹37,00,000</td></tr>
+          <tr><td>10</td><td>₹1,60,000</td><td class="discount-col">₹40,000</td><td>₹3,70,000</td><td class="prize-col">₹37,50,000</td></tr>
+          <tr><td>11</td><td>₹1,62,000</td><td class="discount-col">₹38,000</td><td>₹4,08,000</td><td class="prize-col">₹38,00,000</td></tr>
+          <tr><td>12</td><td>₹1,64,000</td><td class="discount-col">₹36,000</td><td>₹4,44,000</td><td class="prize-col">₹38,50,000</td></tr>
+          <tr><td>13</td><td>₹1,66,000</td><td class="discount-col">₹34,000</td><td>₹4,78,000</td><td class="prize-col">₹39,00,000</td></tr>
+          <tr><td>14</td><td>₹1,68,000</td><td class="discount-col">₹32,000</td><td>₹5,10,000</td><td class="prize-col">₹39,50,000</td></tr>
+          <tr><td>15</td><td>₹1,70,000</td><td class="discount-col">₹30,000</td><td>₹5,40,000</td><td class="prize-col">₹40,00,000</td></tr>
+          <tr><td>16</td><td>₹1,72,000</td><td class="discount-col">₹28,000</td><td>₹5,68,000</td><td class="prize-col">₹40,50,000</td></tr>
+          <tr><td>17</td><td>₹1,74,000</td><td class="discount-col">₹26,000</td><td>₹5,94,000</td><td class="prize-col">₹41,00,000</td></tr>
+          <tr><td>18</td><td>₹1,76,000</td><td class="discount-col">₹24,000</td><td>₹6,18,000</td><td class="prize-col">₹41,50,000</td></tr>
+          <tr><td>19</td><td>₹1,78,000</td><td class="discount-col">₹22,000</td><td>₹6,40,000</td><td class="prize-col">₹42,00,000</td></tr>
+          <tr><td>20</td><td>₹1,80,000</td><td class="discount-col">₹20,000</td><td>₹6,60,000</td><td class="prize-col">₹42,50,000</td></tr>
+          <tr><td>21</td><td>₹1,84,000</td><td class="discount-col">₹16,000</td><td>₹6,76,000</td><td class="prize-col">₹43,50,000</td></tr>
+          <tr><td>22</td><td>₹1,88,000</td><td class="discount-col">₹12,000</td><td>₹6,88,000</td><td class="prize-col">₹44,50,000</td></tr>
+          <tr><td>23</td><td>₹1,92,000</td><td class="discount-col">₹8,000</td><td>₹6,96,000</td><td class="prize-col">₹45,50,000</td></tr>
+          <tr><td>24</td><td>₹1,96,000</td><td class="discount-col">₹4,000</td><td>₹7,00,000</td><td class="prize-col">₹46,50,000</td></tr>
+          <tr class="highlight-row"><td>25</td><td>₹2,00,000</td><td class="discount-col">₹0</td><td>₹7,00,000</td><td class="prize-col">₹47,50,000</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="interest-card">
+      <div class="ic-item"><span class="ic-label">Total Amount Paid</span><div class="ic-val">₹43,00,000</div></div>
+      <div class="ic-item"><span class="ic-label">Total Discount (கசர்)</span><div class="ic-val">₹7,00,000</div></div>
+      <div class="ic-item"><span class="ic-label">Prize Amount</span><div class="ic-val">₹35,00,000</div></div>
+      <div class="ic-item"><span class="ic-label">Benefit Amount</span><div class="ic-val">₹8,00,000</div></div>
+      <div class="ic-item"><span class="ic-label">Effective Rate p.a.</span><div class="ic-val rate">11.43%</div><div class="ic-note">₹8,00,000 ÷ 12 ÷ ₹35,00,000 ÷ 24 × 100</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ CALCULATOR ════ -->
+<section id="calculator">
+  <div class="reveal">
+    <div class="s-mono">Tools</div>
+    <h2 class="s-h2">Chit Return <em>Calculator</em></h2>
+    <p class="s-body" style="max-width:540px;margin-top:14px">Estimate your returns based on the plan you choose and the month you bid for the chit prize.</p>
+  </div>
+  <div class="calc-grid">
+    <div class="calc-box reveal d1">
+      <div class="calc-field">
+        <div class="calc-label">Chit Value <span id="chitVal">₹1,00,000</span></div>
+        <input type="range" class="calc-slider" id="chitSlider" min="100000" max="1000000" step="100000" value="100000" oninput="calcChit()"/>
+      </div>
+      <div class="calc-field">
+        <div class="calc-label">Duration</div>
+        <select class="calc-select" id="durationSel" onchange="calcChit()">
+          <option value="10">10 Months</option>
+          <option value="20">20 Months</option>
+          <option value="25" selected>25 Months</option>
+        </select>
+      </div>
+      <div class="calc-field">
+        <div class="calc-label">Bid Month (when you win) <span id="bidMonthVal">Month 10</span></div>
+        <input type="range" class="calc-slider" id="bidSlider" min="2" max="25" step="1" value="10" oninput="calcChit()"/>
+      </div>
+      <div class="calc-field">
+        <div class="calc-label">Discount % Offered <span id="discountVal">20%</span></div>
+        <input type="range" class="calc-slider" id="discountSlider" min="0" max="30" step="1" value="20" oninput="calcChit()"/>
+      </div>
+      <a href="#contact" class="btn-gold" style="width:100%;justify-content:center;margin-top:8px">Join This Plan →</a>
+    </div>
+    <div class="calc-result reveal d2">
+      <div class="cr-title">Estimated Returns</div>
+      <div class="cr-grid">
+        <div class="cr-item"><span class="cr-item-label">Chit Value (Total)</span><div class="cr-item-val" id="cr-total">₹25,00,000</div></div>
+        <div class="cr-item"><span class="cr-item-label">Monthly Instalment</span><div class="cr-item-val" id="cr-instalment">₹1,00,000</div></div>
+        <div class="cr-item"><span class="cr-item-label">Prize You Receive</span><div class="cr-item-val gold" id="cr-prize">₹20,00,000</div></div>
+        <div class="cr-item"><span class="cr-item-label">Total You Pay</span><div class="cr-item-val" id="cr-paid">₹25,00,000</div></div>
+        <div class="cr-item"><span class="cr-item-label">Discount Saved</span><div class="cr-item-val green" id="cr-saved">₹5,00,000</div></div>
+        <div class="cr-item"><span class="cr-item-label">Effective Benefit</span><div class="cr-item-val green" id="cr-benefit">₹0</div></div>
+      </div>
+      <p class="cr-disclaimer">* This is an indicative estimate. Actual returns depend on auction outcomes, company commission (5% for 25-month plans), and applicable fees. Contact us for exact calculations.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ════ STATS BAND ════ -->
+<div class="stats-band">
+  <div class="stats-inner">
+    <div class="si reveal"><span class="si-num">9</span><span class="si-label">Plan Options</span></div>
+    <div class="si reveal d1"><span class="si-num">30%</span><span class="si-label">Max Discount</span></div>
+    <div class="si reveal d2"><span class="si-num">11.43%</span><span class="si-label">Effective p.a.</span></div>
+    <div class="si reveal d3"><span class="si-num">₹10L</span><span class="si-label">Largest Chit Value</span></div>
+    <div class="si reveal d4"><span class="si-num">2025</span><span class="si-label">Government Registered</span></div>
+  </div>
+</div>
+
+<!-- ════ CONTACT ════ -->
+<section id="contact">
+  <div class="reveal">
+    <div class="s-mono">Get In Touch</div>
+    <h2 class="s-h2">Join a <em>Chit Plan</em></h2>
+    <p class="s-body" style="max-width:560px;margin-top:14px">Fill in your details and our team will contact you with the right plan recommendation based on your savings goal.</p>
+  </div>
+  <div class="contact-grid">
+    <form class="reveal d1" onsubmit="return handleForm(event)">
+      <div class="form-row">
+        <div class="field"><label class="field-label">Full Name</label><input class="field-input" type="text" placeholder="Your name" required/></div>
+        <div class="field"><label class="field-label">Phone Number</label><input class="field-input" type="tel" placeholder="+91 98765 43210" required/></div>
+      </div>
+      <div class="form-row">
+        <div class="field"><label class="field-label">City / Town</label><input class="field-input" type="text" placeholder="Your location"/></div>
+        <div class="field"><label class="field-label">Occupation</label><input class="field-input" type="text" placeholder="e.g. Business, Salaried"/></div>
+      </div>
+      <div class="field"><label class="field-label">Plan of Interest</label>
+        <select class="field-select">
+          <option value="">Select a plan...</option>
+          <option>₹1,00,000 × 10 Months (₹10,000/month)</option>
+          <option>₹2,00,000 × 10 Months (₹20,000/month)</option>
+          <option>₹1,00,000 × 20 Months (₹5,000/month)</option>
+          <option>₹2,00,000 × 20 Months (₹10,000/month)</option>
+          <option>₹3,00,000 × 20 Months (₹15,000/month)</option>
+          <option>₹5,00,000 × 20 Months (₹25,000/month)</option>
+          <option>₹10,00,000 × 20 Months (₹50,000/month)</option>
+          <option>₹5,00,000 × 25 Months (₹20,000/month)</option>
+          <option>₹10,00,000 × 25 Months (₹40,000/month)</option>
+          <option>Not sure — please advise</option>
+        </select>
+      </div>
+      <div class="field"><label class="field-label">Instalment Preference</label>
+        <select class="field-select">
+          <option value="">Select...</option>
+          <option>Monthly Instalment</option>
+          <option>Weekly Instalment</option>
+        </select>
+      </div>
+      <div class="field"><label class="field-label">Message / Questions (Optional)</label><textarea class="field-input" placeholder="Any questions about the plans or how chit funds work..."></textarea></div>
+      <button type="submit" class="btn-gold" style="width:100%;justify-content:center;margin-top:8px">Submit Enquiry →</button>
+    </form>
+    <div class="reveal d2">
+      <div class="ci-item">
+        <div class="ci-icon">🏢</div>
+        <div><span class="ci-label">Registered Office</span><span class="ci-val">Temple Tower, No.672, Anna Salai, Nandanam, Chennai – 600 035</span></div>
+      </div>
+      <div class="ci-item">
+        <div class="ci-icon">📍</div>
+        <div><span class="ci-label">Branch Office</span><span class="ci-val">No.6E, St. Michael Complex, Sevalaperi Road, Palayankottai – 627 002</span></div>
+      </div>
+      <div class="ci-item">
+        <div class="ci-icon">📞</div>
+        <div><span class="ci-label">Phone</span><span class="ci-val"><a href="tel:04622572200">0462 2572200</a><br/><a href="tel:9894918030">98949 18030</a></span></div>
+      </div>
+      <div class="ci-item">
+        <div class="ci-icon">🌐</div>
+        <div><span class="ci-label">Website</span><span class="ci-val"><a href="https://www.newmmcchitfund.com" target="_blank">www.newmmcchitfund.com</a></span></div>
+      </div>
+      <div class="ci-item">
+        <div class="ci-icon">📋</div>
+        <div><span class="ci-label">CIN</span><span class="ci-val">U64990TN2025PTC177047</span></div>
+      </div>
+      <div class="manager-card">
+        <div class="mgr-avatar">SD</div>
+        <div>
+          <div class="mgr-name">S. Cherman Durai</div>
+          <div class="mgr-role">Divisional Manager</div>
+          <div class="mgr-phone"><a href="tel:9894906943">98949 06943</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ FOOTER ════ -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo-name">St. Michael Chits Pvt Ltd</div>
+      <span class="footer-logo-tag">Government Registered · CIN: U64990TN2025PTC177047</span>
+      <p class="footer-desc">Government approved chit fund company, part of the St. Michael Group of Companies. Transparent, secure, and trusted savings plans for individuals and families.</p>
+    </div>
+    <div>
+      <span class="footer-col-title">Our Plans</span>
+      <ul class="footer-links">
+        <li><a href="#plans">10-Month Plans</a></li>
+        <li><a href="#plans">20-Month Plans</a></li>
+        <li><a href="#plans">25-Month Plans</a></li>
+        <li><a href="#plan-details">Plan Breakdown</a></li>
+        <li><a href="#calculator">Return Calculator</a></li>
+      </ul>
+    </div>
+    <div>
+      <span class="footer-col-title">St. Michael Group</span>
+      <ul class="footer-links">
+        <li><a href="/">Group Home</a></li>
+        <li><a href="/motors">Motors & Tractors</a></li>
+        <li><a href="/timber">Timber & Sawmill</a></li>
+        <li><a href="/fisheries">Fisheries & Farms</a></li>
+        <li><a href="/#companies">All Divisions</a></li>
+      </ul>
+    </div>
+    <div>
+      <span class="footer-col-title">Contact</span>
+      <ul class="footer-links">
+        <li><a href="tel:04622572200">0462 2572200</a></li>
+        <li><a href="tel:9894918030">98949 18030</a></li>
+        <li><a href="#contact">Join a Plan</a></li>
+        <li><a href="https://www.newmmcchitfund.com" target="_blank">newmmcchitfund.com</a></li>
+        <li><a href="/#contact">Group Office</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2025 St. Michael Chits Pvt Ltd · All Rights Reserved · Government Registered</span>
+    <a href="#home" class="footer-back">↑ Back to Top</a>
+  </div>
+</footer>
+
+<script>
+// Cursor
+const cur=document.getElementById('cursor'),ring=document.getElementById('cursor-ring');
+document.addEventListener('mousemove',e=>{
+  cur.style.left=e.clientX+'px';cur.style.top=e.clientY+'px';
+  setTimeout(()=>{ring.style.left=e.clientX+'px';ring.style.top=e.clientY+'px';},80);
+});
+
+// Nav scroll
+window.addEventListener('scroll',()=>{
+  document.getElementById('nav').classList.toggle('scrolled',window.scrollY>40);
+},{passive:true});
+
+// Particles
+(()=>{
+  const c=document.getElementById('particles');
+  for(let i=0;i<18;i++){
+    const p=document.createElement('div');
+    p.className='particle';
+    p.style.cssText=`left:${Math.random()*60}%;--dur:${6+Math.random()*10}s;--delay:${Math.random()*8}s`;
+    c.appendChild(p);
+  }
+})();
+
+// Reveal
+const ro=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('up');});},{threshold:.10});
+document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
+
+// Plan filter
+function filterPlans(m,btn){
+  document.querySelectorAll('.p-tab').forEach(t=>t.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('#plansTable tbody tr').forEach(r=>{
+    const show=m==='all'||r.dataset.months===m;
+    r.style.display=show?'':'none';
+  });
+}
+
+// Plan detail switcher
+function switchPlan(id,btn){
+  document.querySelectorAll('.ps-btn').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('.plan-detail-content').forEach(c=>c.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById(id).classList.add('active');
+}
+
+// Chit Calculator
+function calcChit(){
+  const chitValue=+document.getElementById('chitSlider').value;
+  const duration=+document.getElementById('durationSel').value;
+  const bidMonth=+document.getElementById('bidSlider').value;
+  const discountPct=+document.getElementById('discountSlider').value;
+
+  document.getElementById('bidSlider').max=duration;
+  if(bidMonth>duration){document.getElementById('bidSlider').value=duration;}
+
+  const totalChit=chitValue*duration;
+  const monthlyInstalment=chitValue;
+  const prizeAmount=chitValue-Math.round(chitValue*(discountPct/100));
+  const totalPaid=monthlyInstalment*duration;
+  const discountSaved=Math.round(chitValue*(discountPct/100));
+  const benefit=prizeAmount - (monthlyInstalment*bidMonth);
+
+  document.getElementById('chitVal').textContent='₹'+chitValue.toLocaleString('en-IN');
+  document.getElementById('bidMonthVal').textContent='Month '+document.getElementById('bidSlider').value;
+  document.getElementById('discountVal').textContent=discountPct+'%';
+  document.getElementById('cr-total').textContent='₹'+totalChit.toLocaleString('en-IN');
+  document.getElementById('cr-instalment').textContent='₹'+monthlyInstalment.toLocaleString('en-IN');
+  document.getElementById('cr-prize').textContent='₹'+prizeAmount.toLocaleString('en-IN');
+  document.getElementById('cr-paid').textContent='₹'+totalPaid.toLocaleString('en-IN');
+  document.getElementById('cr-saved').textContent='₹'+discountSaved.toLocaleString('en-IN');
+  const b=prizeAmount-(monthlyInstalment*+document.getElementById('bidSlider').value);
+  document.getElementById('cr-benefit').textContent=(b>=0?'+':'')+'₹'+Math.abs(b).toLocaleString('en-IN');
+  document.getElementById('cr-benefit').style.color=b>=0?'var(--green)':'#e74c3c';
+}
+calcChit();
+
+// Form
+function handleForm(e){
+  e.preventDefault();
+  const btn=e.target.querySelector('button[type=submit]');
+  btn.textContent='✓ Enquiry Received — Our team will contact you soon!';
+  btn.style.background='var(--green)';
+  setTimeout(()=>{btn.textContent='Submit Enquiry →';btn.style.background='';e.target.reset();},4000);
+  return false;
+}
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const id=a.getAttribute('href').slice(1);
+    const el=document.getElementById(id);
+    if(el){e.preventDefault();window.scrollTo({top:el.offsetTop-64,behavior:'smooth'});}
+  });
+});
+</script>
+
+<script>
+(async () => {
+  const API = '';
+  try {
+    const res = await fetch(`${API}/api/items?page=chits`);
+    if (!res.ok) return;
+    const { items } = await res.json();
+    if (!items.length) return;
+    const grid = document.querySelector('.why-grid');
+    if (!grid) return;
+    const existing = grid.querySelectorAll('.why-card').length;
+    items.forEach((item, i) => {
+      const num = String(existing + i + 1).padStart(2, '0');
+      const card = document.createElement('div');
+      card.className = 'why-card reveal';
+      card.innerHTML = `
+        <span class="wi-n">${num}</span>
+        <span class="wi-icon">${item.metadata?.icon || '📋'}</span>
+        <div class="wi-title">${item.title||'Benefit'}</div>
+        ${item.description ? `<div class="wi-desc">${item.description}</div>` : ''}
+        ${item.subtitle ? `<span class="wi-tag">${item.subtitle}</span>` : ''}`;
+      grid.appendChild(card);
+    });
+    if (window._revealObserver) grid.querySelectorAll('.reveal:not(.up)').forEach(el => window._revealObserver.observe(el));
+    else grid.querySelectorAll('.reveal').forEach(el => el.classList.add('up'));
+  } catch(e) {}
+})();
+</script>
+
+<div style="text-align:center;padding:12px 0 18px;border-top:1px solid rgba(212,175,55,.08);margin-top:20px;">
+  <a href="/admin" style="font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(248,246,241,.2);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='rgba(212,175,55,.5)'" onmouseout="this.style.color='rgba(248,246,241,.2)'">
+    Admin
+  </a>
+</div>
+</body>
+</html>

@@ -1,0 +1,1417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>St. Michael Motors | Premium Agricultural & Automotive Solutions | Tirunelveli</title>
+<meta name="description" content="St. Michael Motors — Authorized Farmtrac & Escorts dealer. Tractors, farm equipment, genuine spare parts, EMI support. Ponnakkudi, Tirunelveli."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600;1,700&family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,800;0,14..32,900;1,14..32,300;1,14..32,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+/* ════════════════════════════════════
+   DESIGN TOKENS
+════════════════════════════════════ */
+:root {
+  /* Backgrounds (Navy Royal Edition) */
+  --bg0:   #061224;
+  --bg1:   #0B1F3A;
+  --bg2:   #0E2A4D;   
+  --bg3:   #14365E;
+  --bg4:   #1C4276;
+
+  /* Brand */
+  --gold:      #D4AF37;
+  --gold-lt:   #F4C542;
+  --gold-pale: #F0DA8C;
+  --gold-dim:  #A88A2C;
+  --silver:    #B8C4D4;
+  --silver-lt: #D8E0EC;
+  --blue-acc:  #4A88D8;
+  --blue-lt:   #8FB8F0;
+
+  /* Text */
+  --t1: #F8F6F1;
+  --t2: #E8E1D2;
+  --t3: #B5AC97;
+
+  /* UI */
+  --border:    rgba(200,210,230,.1);
+  --border-g:  rgba(212,175,55,.15);
+  --glow-g:    rgba(212,175,55,.08);
+
+  /* Fonts */
+  --f-display: 'Cinzel', serif;
+  --f-head:    'Playfair Display', serif;
+  --f-body:    'Plus Jakarta Sans', sans-serif;
+  --f-mono:    'DM Mono', monospace;
+
+  /* Motion */
+  --expo:  cubic-bezier(.16,1,.3,1);
+  --back:  cubic-bezier(.34,1.56,.64,1);
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{background:var(--bg0);color:var(--t1);font-family:var(--f-body);overflow-x:hidden;cursor:none}
+
+/* ── NOISE ── */
+body::after{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.68' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='512' height='512' filter='url(%23n)' opacity='.032'/%3E%3C/svg%3E");pointer-events:none;z-index:9000;opacity:.8}
+
+/* ── CURSOR ── */
+#c,#cr{position:fixed;pointer-events:none;z-index:9999;transform:translate(-50%,-50%)}
+#c{width:8px;height:8px;border-radius:50%;background:var(--gold)}
+#cr{width:38px;height:38px;border-radius:50%;border:1px solid rgba(201,168,76,.4);z-index:9998;transition:width .25s var(--expo),height .25s var(--expo)}
+
+/* ════════════════════════════════════
+   NAV
+════════════════════════════════════ */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:800;
+  height:70px;display:flex;align-items:center;
+  justify-content:space-between;padding:0 5%;
+  transition:background .4s,backdrop-filter .4s;
+}
+nav.on{background:rgba(6,8,12,.93);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+
+.nav-brand{text-decoration:none;display:flex;align-items:center;gap:14px}
+.nav-brand-mark{
+  width:40px;height:40px;border-radius:50%;
+  border:1.5px solid var(--gold);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0
+}
+.nav-brand-mark svg{width:20px;height:20px;fill:var(--gold)}
+.nav-brand-copy{display:flex;flex-direction:column;line-height:1}
+.nav-brand-name{font-family:var(--f-display);font-size:14px;font-weight:600;color:var(--t1);letter-spacing:.03em}
+.nav-brand-div{font-family:var(--f-mono);font-size:8px;letter-spacing:.16em;color:var(--gold-dim);text-transform:uppercase;margin-top:2px}
+
+.nav-links{display:flex;gap:28px;list-style:none;align-items:center}
+.nav-links a{font-family:var(--f-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--t2);text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--gold)}
+.nav-parent{font-size:9px !important;color:var(--gold-dim) !important;border-left:1px solid var(--border);padding-left:24px;margin-left:4px}
+.nav-parent:hover{color:var(--gold) !important}
+
+.nav-actions{display:flex;gap:10px;align-items:center}
+.btn-call{background:none;border:1px solid var(--border-g);color:var(--gold);padding:7px 18px;border-radius:2px;font-family:var(--f-mono);font-size:10px;letter-spacing:.1em;text-decoration:none;transition:all .2s;display:flex;align-items:center;gap:7px}
+.btn-call:hover{background:rgba(201,168,76,.08);border-color:var(--gold)}
+.btn-cta{background:var(--gold);color:var(--bg0);padding:8px 20px;border-radius:2px;font-family:var(--f-head);font-size:11px;font-weight:700;letter-spacing:.06em;text-decoration:none;transition:all .2s}
+.btn-cta:hover{background:var(--gold-lt);transform:translateY(-1px)}
+.nav-ham{display:none;background:none;border:none;cursor:none;flex-direction:column;gap:5px}
+.nav-ham span{display:block;width:22px;height:1px;background:var(--gold)}
+
+/* ════════════════════════════════════
+   HERO
+════════════════════════════════════ */
+.hero{
+  position:relative;min-height:100vh;
+  display:grid;grid-template-columns:1fr 1fr;
+  align-items:center;gap:0;overflow:hidden;
+  background-image:url("../motors/mainmotorpic.png");
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+}
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(to right, rgba(6,18,36,0.4) 0%, transparent 60%);
+  z-index: 1; pointer-events: none;
+}
+.hero::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(to bottom, transparent 0%, transparent 80%, var(--bg0) 100%);
+  z-index: 1; pointer-events: none;
+}
+
+/* Blueprint grid */
+.h-grid{
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(var(--border) 1px,transparent 1px),
+    linear-gradient(90deg,var(--border) 1px,transparent 1px);
+  background-size:80px 80px;
+  animation:gd 40s linear infinite
+}
+@keyframes gd{from{background-position:0 0}to{background-position:80px 80px}}
+
+/* Orbs */
+.h-orb{position:absolute;border-radius:50%;filter:blur(100px);pointer-events:none}
+.ho1{width:800px;height:800px;background:radial-gradient(circle,rgba(26,111,232,.1),transparent 70%);top:-200px;right:-100px;animation:of 16s ease-in-out infinite}
+.ho2{width:500px;height:500px;background:radial-gradient(circle,rgba(201,168,76,.07),transparent 70%);bottom:100px;left:5%;animation:of 20s ease-in-out infinite reverse}
+@keyframes of{0%,100%{transform:translate(0,0)}50%{transform:translate(25px,-18px)}}
+
+/* Diagonal slice */
+.h-slice{position:absolute;top:0;bottom:0;right:40%;width:2px;background:linear-gradient(to bottom,transparent,rgba(201,168,76,.12) 35%,rgba(201,168,76,.12) 65%,transparent);transform:skewX(-4deg)}
+
+/* Scan line */
+.h-scan{
+  position:absolute;left:0;right:0;height:1px;
+  background:linear-gradient(to right,transparent,rgba(26,111,232,.3),transparent);
+  animation:scan 8s ease-in-out infinite;top:30%
+}
+@keyframes scan{0%,100%{top:20%;opacity:.3}50%{top:80%;opacity:.8}}
+
+.hero-left{position:relative;z-index:2;margin:120px 5% 100px 5%;padding:50px;max-width:650px;background:rgba(6,18,36,0.25);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,0.1);border-radius:20px;box-shadow:0 30px 60px rgba(0,0,0,0.4);}
+.hero-right{display:none;}
+.hero-right::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(to right, var(--bg0) 0%, transparent 35%);
+  z-index: 2;
+  pointer-events: none;
+}
+.hero-right::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(to bottom, rgba(6,18,36,0.85) 0%, transparent 25%, transparent 80%, var(--bg0) 100%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.h-eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  background:rgba(201,168,76,.07);border:1px solid var(--border-g);
+  padding:6px 14px;border-radius:2px;margin-bottom:28px;
+  font-family:var(--f-mono);font-size:9px;letter-spacing:.18em;
+  color:var(--gold);text-transform:uppercase;
+  animation:fu .7s var(--expo) both
+}
+.h-dot{width:5px;height:5px;border-radius:50%;background:var(--gold);animation:pl 2.4s infinite}
+@keyframes pl{0%,100%{opacity:1}50%{opacity:.25}}
+@keyframes fu{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+
+.h-title{
+  font-family:var(--f-display);
+  font-size:clamp(44px,7vw,96px);
+  font-weight:700;line-height:.92;letter-spacing:-.01em;
+  color:var(--t1);
+  animation:fu .8s .07s var(--expo) both
+}
+.h-title .g{color:var(--gold)}
+.h-title .b{color:var(--blue-acc)}
+.h-title .sm{
+  display:block;font-size:.38em;font-weight:300;
+  color:var(--t2);letter-spacing:.18em;text-transform:uppercase;
+  font-family:var(--f-head);margin-bottom:8px
+}
+
+.h-sub{
+  font-family:var(--f-head);font-size:clamp(13px,1.4vw,17px);
+  font-weight:400;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--silver);margin:20px 0 14px;
+  animation:fu .8s .14s var(--expo) both
+}
+.h-desc{
+  font-size:15px;line-height:1.8;color:var(--t2);
+  max-width:480px;margin-bottom:40px;
+  animation:fu .8s .2s var(--expo) both
+}
+
+.h-ctas{display:flex;gap:12px;flex-wrap:wrap;animation:fu .8s .27s var(--expo) both}
+.btn-hero-p{
+  background:var(--gold);color:var(--bg0);padding:14px 32px;border-radius:2px;
+  font-family:var(--f-head);font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  text-decoration:none;transition:all .25s var(--expo);display:inline-flex;align-items:center;gap:8px
+}
+.btn-hero-p:hover{background:var(--gold-lt);transform:translateY(-2px);letter-spacing:.14em}
+.btn-hero-s{
+  border:1px solid var(--border-g);color:var(--gold);padding:14px 32px;border-radius:2px;
+  font-family:var(--f-head);font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+  text-decoration:none;transition:all .25s var(--expo);display:inline-flex;align-items:center;gap:8px
+}
+.btn-hero-s:hover{background:var(--glow-g);border-color:var(--gold);transform:translateY(-2px)}
+.btn-hero-t{
+  border:1px solid var(--border);color:var(--t2);padding:14px 24px;border-radius:2px;
+  font-family:var(--f-head);font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;
+  text-decoration:none;transition:all .25s var(--expo)
+}
+.btn-hero-t:hover{border-color:var(--border-g);color:var(--gold)}
+
+.h-trust{
+  display:flex;gap:16px;margin-top:40px;padding-top:32px;
+  border-top:1px solid var(--border);
+  animation:fu .8s .34s var(--expo) both;flex-wrap:wrap
+}
+.h-trust-item{
+  display:flex;align-items:center;gap:8px;
+  background:rgba(255,255,255,.03);border:1px solid var(--border);
+  padding:8px 14px;border-radius:2px;
+}
+.h-trust-icon{font-size:16px}
+.h-trust-label{font-family:var(--f-mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--t2)}
+.h-trust-val{font-family:var(--f-head);font-size:12px;font-weight:700;color:var(--t1);margin-top:1px}
+
+/* Tractor visual */
+.tractor-wrap{
+  position:absolute;inset:0;
+  width:100%;height:100%;
+}
+.tractor-glow-behind{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:400px;height:300px;border-radius:50%;
+  background:radial-gradient(ellipse,rgba(26,111,232,.18),transparent 70%);
+  filter:blur(40px);z-index:0
+}
+.tractor-main{
+  width:100%;height:100%;position:absolute;inset:0;z-index:1;
+  object-fit:contain;object-position:center;
+  filter: brightness(0.9) saturate(1.05);
+}
+@keyframes tf{0%,100%{transform:translateY(0) rotate(-.5deg)}50%{transform:translateY(-12px) rotate(.5deg)}}
+
+.tractor-spec-tag{
+  position:absolute;background:rgba(10,14,22,.9);
+  border:1px solid var(--border-g);padding:8px 14px;border-radius:2px;
+  backdrop-filter:blur(8px);z-index:3
+}
+.tst-val{font-family:var(--f-display);font-size:18px;font-weight:600;color:var(--gold);display:block;line-height:1}
+.tst-label{font-family:var(--f-mono);font-size:8px;letter-spacing:.12em;text-transform:uppercase;color:var(--t2)}
+
+/* Ribbon */
+.h-ribbon{
+  position:absolute;bottom:0;left:0;right:0;z-index:3;
+  border-top:1px solid var(--border);display:flex;
+  animation:fu .9s .42s var(--expo) both
+}
+.rb-item{flex:1;padding:16px 18px;text-align:center;border-right:1px solid var(--border);transition:background .25s}
+.rb-item:last-child{border-right:none}
+.rb-item:hover{background:var(--glow-g)}
+.rb-num{font-family:var(--f-display);font-size:26px;font-weight:600;color:var(--gold);display:block;line-height:1}
+.rb-label{font-family:var(--f-mono);font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:var(--t3);margin-top:5px;display:block}
+
+/* ════════════════════════════════════
+   SHARED
+════════════════════════════════════ */
+.sec-label{font-family:var(--f-mono);font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.sec-label::before{content:'';display:inline-block;width:28px;height:1px;background:var(--gold-dim)}
+.sec-h2{font-family:var(--f-display);font-size:clamp(36px,5vw,64px);font-weight:700;line-height:.96;letter-spacing:-.01em;color:var(--t1)}
+.sec-h2 em{font-style:normal;color:var(--gold)}
+.sec-h2 .light{font-weight:300;color:var(--t2)}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .8s var(--expo),transform .8s var(--expo)}
+.reveal.up{opacity:1;transform:none}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}.d5{transition-delay:.4s}
+
+/* ════════════════════════════════════
+   ABOUT
+════════════════════════════════════ */
+.about{
+  padding:100px 5%;background:var(--bg1);
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+  display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center
+}
+.about-body{font-size:16px;line-height:1.9;color:var(--t2);margin-top:22px}
+.about-body strong{color:var(--t1);font-weight:500}
+.about-cards{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);margin-top:36px}
+.ac{background:var(--bg1);padding:22px 20px;transition:background .25s}
+.ac:hover{background:var(--bg2)}
+.ac-icon{font-size:24px;margin-bottom:10px;display:block}
+.ac-title{font-family:var(--f-head);font-size:14px;font-weight:700;color:var(--t1);margin-bottom:5px;letter-spacing:.03em}
+.ac-desc{font-size:12px;color:var(--t2);line-height:1.6}
+.about-img-grid{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:220px 220px;gap:20px}
+.ai{position:relative;overflow:hidden;background:var(--bg3);border:1px solid rgba(255,255,255,0.08);border-radius:16px;display:flex;align-items:flex-end;padding:24px;box-shadow:0 12px 30px rgba(0,0,0,0.3);flex-direction:column;justify-content:flex-end;align-items:flex-start;}
+.ai img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.9;transition:opacity .4s,transform .6s var(--expo);}
+.ai:hover img{opacity:1;transform:scale(1.05)}
+.ai::after{content:'';position:absolute;inset:0;background:linear-gradient(to top, rgba(6,12,24,0.95) 0%, rgba(6,12,24,0.4) 40%, transparent 100%); pointer-events:none;}
+.ai-label{position:relative;z-index:1;font-family:var(--f-mono);font-size:10px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,0.9);}
+.ai-wide{grid-column:1/3}
+.ai-num{position:relative;z-index:1;font-family:var(--f-display);font-size:46px;font-weight:500;color:var(--gold);display:block;line-height:1;margin-bottom:6px;text-shadow: 0 4px 12px rgba(0,0,0,0.5);}
+
+/* ════════════════════════════════════
+   VEHICLE CATEGORIES
+════════════════════════════════════ */
+.categories{padding:100px 5%;background:var(--bg0)}
+.cat-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:56px}
+.cat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border)}
+
+.cat-card{
+  background:var(--bg0);padding:48px 36px;
+  position:relative;overflow:hidden;cursor:none;
+  transition:background .3s
+}
+.cat-card:hover{background:var(--bg1)}
+.cat-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .5s var(--expo)}
+.cat-card:hover::after{transform:scaleX(1)}
+
+.cat-num{font-family:var(--f-mono);font-size:9px;letter-spacing:.14em;color:rgba(201,168,76,.25);display:block;margin-bottom:24px}
+.cat-icon-wrap{margin-bottom:24px}
+.cat-icon-wrap svg{width:56px;height:56px}
+.cat-name{font-family:var(--f-display);font-size:28px;font-weight:700;color:var(--t1);margin-bottom:6px;letter-spacing:.01em;line-height:1}
+.cat-sub{font-family:var(--f-mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+.cat-desc{font-size:14px;line-height:1.7;color:var(--t2);margin-bottom:24px}
+.cat-items{display:flex;flex-direction:column;gap:7px;margin-bottom:28px}
+.ci{display:flex;align-items:center;gap:9px;font-size:13px;color:var(--t2)}
+.ci::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--gold);flex-shrink:0;opacity:.7}
+.cat-explore{
+  font-family:var(--f-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--gold);text-decoration:none;
+  display:inline-flex;align-items:center;gap:8px;
+  transition:gap .25s var(--expo)
+}
+.cat-explore:hover{gap:14px}
+.cat-arrow{transition:transform .25s var(--expo)}
+.cat-explore:hover .cat-arrow{transform:translateX(4px)}
+
+/* ════════════════════════════════════
+   FEATURED VEHICLES
+════════════════════════════════════ */
+.vehicles{padding:100px 5%;background:var(--bg1);border-top:1px solid var(--border)}
+.veh-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:56px}
+.veh-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border)}
+
+.veh-card{background:var(--bg1);overflow:hidden;cursor:none;transition:background .25s;display:flex;flex-direction:column}
+.veh-card:hover{background:var(--bg2)}
+
+.vc-visual{
+  height:260px;position:relative;overflow:hidden;
+  background:linear-gradient(135deg,var(--bg3) 0%,var(--bg2) 100%);
+  display:flex;align-items:center;justify-content:center;
+}
+.vc-visual::before{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,transparent 50%,rgba(6,8,12,.9));z-index:1}
+.vc-glow{position:absolute;inset:0;background:radial-gradient(circle at 50% 60%,rgba(26,111,232,.12),transparent 65%)}
+.vc-badge{position:absolute;top:14px;right:14px;z-index:3;background:var(--blue-acc);color:white;font-family:var(--f-mono);font-size:8px;letter-spacing:.1em;text-transform:uppercase;padding:3px 10px;border-radius:2px}
+.vc-num{position:absolute;top:14px;left:14px;z-index:3;font-family:var(--f-mono);font-size:9px;letter-spacing:.1em;color:rgba(201,168,76,.3)}
+.vc-svg{width:200px;height:160px;position:relative;z-index:2;filter:drop-shadow(0 12px 36px rgba(26,111,232,.4));transition:transform .5s var(--expo)}
+.veh-card:hover .vc-svg{transform:scale(1.05) translateY(-4px)}
+
+.vc-body{padding:24px;flex:1;display:flex;flex-direction:column}
+.vc-model{font-family:var(--f-mono);font-size:8px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-dim);margin-bottom:6px}
+.vc-name{font-family:var(--f-display);font-size:22px;font-weight:700;color:var(--t1);margin-bottom:4px;letter-spacing:.02em}
+.vc-hp{font-family:var(--f-head);font-size:32px;font-weight:800;color:var(--gold);line-height:1;margin-bottom:4px}
+.vc-hp span{font-size:12px;font-weight:400;color:var(--t2);letter-spacing:.06em}
+.vc-specs{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:16px 0;flex:1}
+.vs{background:rgba(255,255,255,.03);border:1px solid var(--border);padding:10px 12px;border-radius:2px}
+.vs-key{font-family:var(--f-mono);font-size:8px;letter-spacing:.1em;text-transform:uppercase;color:var(--t3)}
+.vs-val{font-family:var(--f-head);font-size:13px;font-weight:600;color:var(--t1);margin-top:2px}
+.vc-apps{font-size:12px;color:var(--t2);margin-bottom:20px;line-height:1.6}
+.vc-apps strong{color:var(--gold-dim)}
+.vc-actions{display:flex;gap:8px}
+.btn-vc-p{flex:1;background:var(--gold);color:var(--bg0);padding:10px;border-radius:2px;font-family:var(--f-head);font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;text-align:center;transition:all .2s}
+.btn-vc-p:hover{background:var(--gold-lt)}
+.btn-vc-s{flex:1;border:1px solid var(--border-g);color:var(--gold);padding:10px;border-radius:2px;font-family:var(--f-head);font-size:11px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;text-align:center;transition:all .2s}
+.btn-vc-s:hover{background:var(--glow-g)}
+
+/* ════════════════════════════════════
+   SHOWCASE / 360
+════════════════════════════════════ */
+.showcase{
+  padding:100px 5%;background:var(--bg0);
+  border-top:1px solid var(--border)
+}
+.showcase-inner{
+  display:grid;grid-template-columns:1fr 1fr;gap:80px;
+  margin-top:60px;align-items:center
+}
+.showcase-left{}
+.showcase-stage{
+  width:100%;aspect-ratio:4/3;
+  background:var(--bg2);border:1px solid var(--border);
+  position:relative;overflow:hidden;
+  display:flex;align-items:center;justify-content:center;
+}
+.showcase-stage img{width:100%;height:100%;object-fit:cover;opacity:.75}
+.showcase-stage::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(6,8,12,.5),transparent)}
+.ss-badge{
+  position:absolute;bottom:20px;left:20px;z-index:2;
+  background:rgba(6,8,12,.85);border:1px solid var(--border-g);
+  padding:10px 18px;backdrop-filter:blur(8px);
+}
+.ss-badge-val{font-family:var(--f-display);font-size:22px;font-weight:600;color:var(--gold);display:block;line-height:1}
+.ss-badge-label{font-family:var(--f-mono);font-size:8px;letter-spacing:.12em;text-transform:uppercase;color:var(--t3)}
+
+.showcase-thumbs{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;margin-top:3px}
+.ss-thumb{
+  height:90px;background:var(--bg3);border:1px solid var(--border);
+  overflow:hidden;cursor:none;position:relative
+}
+.ss-thumb img{width:100%;height:100%;object-fit:cover;opacity:.6;transition:opacity .3s}
+.ss-thumb:hover img{opacity:.9}
+.ss-thumb.active{border-color:var(--gold-dim)}
+
+.showcase-right{}
+.spec-table{display:flex;flex-direction:column;gap:0;margin-top:28px}
+.spec-row{display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-bottom:1px solid var(--border)}
+.spec-row:last-child{border-bottom:none}
+.spec-key{font-family:var(--f-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--t3)}
+.spec-val{font-family:var(--f-head);font-size:15px;font-weight:600;color:var(--t1)}
+.spec-val.gold{color:var(--gold)}
+.showcase-ctas{display:flex;gap:10px;margin-top:32px;flex-wrap:wrap}
+.btn-spec-p{background:var(--gold);color:var(--bg0);padding:13px 28px;border-radius:2px;font-family:var(--f-head);font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;transition:all .2s;display:flex;align-items:center;gap:8px}
+.btn-spec-p:hover{background:var(--gold-lt);transform:translateY(-1px)}
+.btn-spec-s{border:1px solid var(--border);color:var(--t2);padding:13px 24px;border-radius:2px;font-family:var(--f-head);font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;transition:all .2s}
+.btn-spec-s:hover{border-color:var(--border-g);color:var(--gold)}
+
+/* ════════════════════════════════════
+   WHY US
+════════════════════════════════════ */
+.why{padding:100px 5%;background:var(--bg1);border-top:1px solid var(--border)}
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);margin-top:56px}
+.why-item{background:var(--bg1);padding:36px 28px;position:relative;overflow:hidden;transition:background .25s}
+.why-item:hover{background:var(--bg2)}
+.why-item::before{content:attr(data-n);position:absolute;bottom:-10px;right:16px;font-family:var(--f-display);font-size:80px;font-weight:700;color:rgba(201,168,76,.04);line-height:1;pointer-events:none}
+.wi-icon{font-size:32px;margin-bottom:16px;display:block}
+.wi-title{font-family:var(--f-head);font-size:17px;font-weight:700;color:var(--t1);margin-bottom:8px}
+.wi-desc{font-size:14px;line-height:1.7;color:var(--t2)}
+.wi-tag{display:inline-block;margin-top:14px;font-family:var(--f-mono);font-size:8px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);border-bottom:1px solid rgba(201,168,76,.3);padding-bottom:1px}
+
+/* ════════════════════════════════════
+   STATS BAND
+════════════════════════════════════ */
+.stats-band{background:var(--gold);padding:0}
+.stats-inner{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:rgba(6,8,12,.12)}
+.si{padding:40px 20px;text-align:center;background:var(--gold);transition:background .2s}
+.si:hover{background:var(--gold-lt)}
+.si-num{font-family:var(--f-display);font-size:48px;font-weight:700;color:var(--bg0);display:block;line-height:1}
+.si-label{font-family:var(--f-mono);font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:rgba(6,8,12,.5);margin-top:8px;display:block}
+
+/* ════════════════════════════════════
+   SERVICE CENTER
+════════════════════════════════════ */
+.service{padding:100px 5%;background:var(--bg0);border-top:1px solid var(--border)}
+.service-layout{display:grid;grid-template-columns:1fr 1fr;gap:80px;margin-top:60px;align-items:center}
+.service-services{display:flex;flex-direction:column;gap:0}
+.srv{
+  display:flex;gap:20px;align-items:flex-start;padding:22px 20px;
+  border:1px solid var(--border);border-bottom:none;
+  background:var(--bg0);transition:all .25s;cursor:default
+}
+.srv:last-child{border-bottom:1px solid var(--border)}
+.srv:hover{background:var(--bg1);border-color:var(--border-g)}
+.srv-icon{width:42px;height:42px;flex-shrink:0;background:rgba(201,168,76,.07);border:1px solid var(--border-g);display:flex;align-items:center;justify-content:center;font-size:18px;transition:background .25s}
+.srv:hover .srv-icon{background:rgba(201,168,76,.14)}
+.srv-title{font-family:var(--f-head);font-size:15px;font-weight:700;color:var(--t1);margin-bottom:5px}
+.srv-desc{font-size:13px;color:var(--t2);line-height:1.6}
+
+.service-visual{display:flex;flex-direction:column;gap:3px}
+.sv-main{height:300px;background:var(--bg2);border:1px solid var(--border);position:relative;overflow:hidden;display:flex;align-items:flex-end;padding:20px}
+.sv-main img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.7}
+.sv-main::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(6,8,12,.7),transparent)}
+.sv-main-label{position:relative;z-index:1;font-family:var(--f-head);font-size:13px;font-weight:600;color:var(--t1);letter-spacing:.04em;text-transform:uppercase}
+.sv-row{display:grid;grid-template-columns:1fr 1fr;gap:3px}
+.sv-sub{height:120px;background:var(--bg3);border:1px solid var(--border);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.sv-sub img{width:100%;height:100%;object-fit:cover;opacity:.55}
+.sv-sub-label{position:absolute;bottom:10px;left:12px;z-index:2;font-family:var(--f-mono);font-size:8px;letter-spacing:.1em;text-transform:uppercase;color:rgba(201,168,76,.6)}
+
+/* ════════════════════════════════════
+   SPARE PARTS
+════════════════════════════════════ */
+.spares{padding:100px 5%;background:var(--bg1);border-top:1px solid var(--border)}
+.spares-layout{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;margin-top:60px}
+.spares-text{font-size:16px;line-height:1.85;color:var(--t2);margin-top:20px}
+.spares-text strong{color:var(--t1);font-weight:500}
+.parts-list{margin-top:36px;display:grid;grid-template-columns:1fr 1fr;gap:3px}
+.part-row{
+  display:flex;align-items:center;gap:12px;
+  padding:14px 16px;background:var(--bg2);
+  border:1px solid var(--border);transition:all .25s
+}
+.part-row:hover{background:var(--bg3);border-color:var(--border-g)}
+.part-icon{font-size:20px;flex-shrink:0}
+.part-name{font-family:var(--f-head);font-size:13px;font-weight:600;color:var(--t1)}
+.part-note{font-size:11px;color:var(--t2);margin-top:1px}
+
+.spares-promo{
+  background:var(--bg2);border:1px solid var(--border-g);padding:36px;
+  position:relative;overflow:hidden;
+}
+.spares-promo::before{content:'';position:absolute;top:-1px;left:0;right:0;height:2px;background:linear-gradient(to right,transparent,var(--gold),transparent)}
+.sp-title{font-family:var(--f-display);font-size:32px;font-weight:700;color:var(--t1);margin-bottom:8px;line-height:1.1}
+.sp-title em{color:var(--gold);font-style:normal}
+.sp-body{font-size:14px;line-height:1.7;color:var(--t2);margin-bottom:24px}
+.sp-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
+.sp-tag{background:rgba(201,168,76,.07);border:1px solid var(--border-g);padding:6px 14px;font-family:var(--f-mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-pale)}
+
+/* ════════════════════════════════════
+   GALLERY
+════════════════════════════════════ */
+.gallery{padding:100px 5%;background:var(--bg0);border-top:1px solid var(--border)}
+.gal-tabs{display:flex;gap:0;margin:40px 0;border-bottom:1px solid var(--border)}
+.gt{padding:12px 24px;background:none;border:none;cursor:none;font-family:var(--f-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--t3);border-bottom:2px solid transparent;margin-bottom:-1px;transition:all .2s}
+.gt.on{color:var(--gold);border-bottom-color:var(--gold)}
+.gal-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:240px 240px;gap:20px}
+.gal-cell{position:relative;overflow:hidden;background:linear-gradient(135deg, rgba(20,40,70,0.4), rgba(6,18,36,0.8));border:1px solid rgba(255,255,255,0.05);border-radius:16px;box-shadow:0 12px 30px rgba(0,0,0,0.3);}
+.gal-cell img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.9;transition:transform .6s var(--expo),opacity .4s}
+.gal-cell:hover img{transform:scale(1.06);opacity:1}
+.gal-cell::after{content:'';position:absolute;inset:0;background:linear-gradient(to top, rgba(6,12,24,0.9) 0%, transparent 50%); pointer-events:none;}
+.gal-cell.lg{grid-column:1/3}
+.gal-cell.md{grid-column:3/5}
+.gal-label{position:absolute;bottom:20px;left:24px;z-index:2;font-family:var(--f-mono);font-size:10px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,0.9);}
+.gal-placeholder{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;background:rgba(255,255,255,0.03);backdrop-filter:blur(10px);}
+.gp-i{font-size:36px;opacity:.8;color:var(--gold);text-shadow:0 0 20px rgba(212,175,55,0.4);}
+.gp-l{font-family:var(--f-mono);font-size:10px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:#fff;opacity:0.9;}
+
+/* ════════════════════════════════════
+   TESTIMONIALS
+════════════════════════════════════ */
+.testi{padding:100px 5%;background:var(--bg1);border-top:1px solid var(--border)}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);margin-top:56px}
+.tc{background:var(--bg1);padding:32px 28px;transition:background .25s}
+.tc:hover{background:var(--bg2)}
+.tc-mark{font-family:var(--f-display);font-size:56px;font-weight:700;color:rgba(201,168,76,.15);line-height:.75;display:block;margin-bottom:10px}
+.tc-stars{color:var(--gold);font-size:12px;letter-spacing:2px;margin-bottom:14px}
+.tc-text{font-size:15px;font-style:italic;line-height:1.7;color:var(--t2);margin-bottom:22px}
+.tc-author{display:flex;align-items:center;gap:12px}
+.tc-avatar{width:38px;height:38px;border-radius:50%;background:rgba(201,168,76,.12);border:1px solid var(--border-g);display:flex;align-items:center;justify-content:center;font-family:var(--f-display);font-size:14px;font-weight:600;color:var(--gold)}
+.tc-name{font-family:var(--f-head);font-size:13px;font-weight:700;color:var(--t1)}
+.tc-place{font-size:11px;color:var(--t3);margin-top:1px}
+
+/* ════════════════════════════════════
+   EMI / FINANCE
+════════════════════════════════════ */
+.finance{padding:100px 5%;background:var(--bg0);border-top:1px solid var(--border)}
+.finance-layout{display:grid;grid-template-columns:1fr 1fr;gap:80px;margin-top:60px;align-items:start}
+.finance-info{display:flex;flex-direction:column;gap:14px}
+.fi-card{background:var(--bg1);border:1px solid var(--border);padding:24px;transition:border-color .25s}
+.fi-card:hover{border-color:var(--border-g)}
+.fi-icon{font-size:24px;margin-bottom:10px;display:block}
+.fi-title{font-family:var(--f-head);font-size:15px;font-weight:700;color:var(--t1);margin-bottom:6px}
+.fi-desc{font-size:13px;line-height:1.65;color:var(--t2)}
+
+/* EMI CALCULATOR */
+.emi-calc{background:var(--bg1);border:1px solid var(--border-g);padding:36px;position:relative;overflow:hidden}
+.emi-calc::before{content:'';position:absolute;top:-1px;left:0;right:0;height:2px;background:linear-gradient(to right,transparent,var(--gold),transparent)}
+.ec-title{font-family:var(--f-display);font-size:22px;font-weight:700;color:var(--t1);margin-bottom:4px;letter-spacing:.02em}
+.ec-sub{font-family:var(--f-mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-dim);margin-bottom:28px}
+.ec-field{margin-bottom:20px}
+.ec-label{font-family:var(--f-mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--t3);margin-bottom:8px;display:flex;justify-content:space-between;align-items:center}
+.ec-label span{font-family:var(--f-head);font-size:16px;font-weight:700;color:var(--gold);font-variant-numeric:tabular-nums}
+.ec-slider{
+  -webkit-appearance:none;appearance:none;
+  width:100%;height:3px;background:var(--border);outline:none;border-radius:2px;cursor:none
+}
+.ec-slider::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;background:var(--gold);cursor:none;border:2px solid var(--bg0);box-shadow:0 0 0 3px rgba(201,168,76,.2)}
+.ec-result{
+  background:rgba(201,168,76,.07);border:1px solid var(--border-g);
+  padding:20px;margin-top:8px;
+  display:flex;justify-content:space-between;align-items:center
+}
+.ec-emi-num{font-family:var(--f-display);font-size:32px;font-weight:700;color:var(--gold);line-height:1}
+.ec-emi-label{font-family:var(--f-mono);font-size:8px;letter-spacing:.12em;text-transform:uppercase;color:var(--t3);margin-top:3px}
+.ec-disclaimer{font-size:11px;color:var(--t3);margin-top:12px;line-height:1.5}
+
+/* ════════════════════════════════════
+   CONTACT / BRANCH
+════════════════════════════════════ */
+.contact{padding:100px 5%;background:var(--bg1);border-top:1px solid var(--border)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;margin-top:60px;align-items:start}
+.contact-form{display:flex;flex-direction:column;gap:14px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.field{display:flex;flex-direction:column;gap:7px}
+.field-label{font-family:var(--f-mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--t3)}
+.field-input,.field-select,.field-textarea{background:rgba(255,255,255,.03);border:1px solid var(--border);padding:12px 16px;color:var(--t1);font-family:var(--f-body);font-size:14px;outline:none;border-radius:2px;transition:border-color .2s;width:100%}
+.field-input::placeholder,.field-textarea::placeholder{color:rgba(90,104,120,.5)}
+.field-input:focus,.field-select:focus,.field-textarea:focus{border-color:var(--border-g)}
+.field-select{cursor:none;color:rgba(90,104,120,.8)}
+.field-select option{background:var(--bg2);color:var(--t1)}
+.field-textarea{min-height:110px;resize:vertical}
+.btn-send{background:var(--gold);color:var(--bg0);border:none;padding:14px 32px;font-family:var(--f-head);font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;cursor:none;border-radius:2px;transition:all .25s;align-self:flex-start}
+.btn-send:hover{background:var(--gold-lt);transform:translateY(-2px)}
+.form-ok{display:none;padding:12px 16px;background:rgba(37,211,102,.07);border:1px solid rgba(37,211,102,.2);border-radius:2px;color:#6EDFA0;font-family:var(--f-mono);font-size:11px;letter-spacing:.06em}
+
+.contact-info{display:flex;flex-direction:column;gap:0}
+.ci-block{padding:22px 0;border-bottom:1px solid var(--border)}
+.ci-block:last-child{border-bottom:none}
+.ci-label{font-family:var(--f-mono);font-size:8px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-dim);margin-bottom:6px}
+.ci-val{font-family:var(--f-head);font-size:16px;font-weight:600;color:var(--t1);line-height:1.5}
+.ci-val a{color:var(--t1);text-decoration:none;transition:color .2s}
+.ci-val a:hover{color:var(--gold)}
+.ci-sub{font-size:12px;color:var(--t2);margin-top:2px}
+
+.wa-btn-big{display:inline-flex;align-items:center;gap:12px;background:#25D366;color:white;padding:14px 24px;border-radius:2px;font-family:var(--f-head);font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;transition:all .25s;margin-top:12px}
+.wa-btn-big:hover{background:#1ebe5d;transform:translateY(-2px)}
+
+/* ════════════════════════════════════
+   FOOTER
+════════════════════════════════════ */
+footer{background:#040608;border-top:1px solid var(--border);padding:56px 5% 28px}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr;gap:60px;margin-bottom:40px}
+.f-brand-name{font-family:var(--f-display);font-size:22px;font-weight:700;color:var(--gold);margin-bottom:3px;letter-spacing:.03em}
+.f-brand-tag{font-family:var(--f-mono);font-size:8px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-dim);margin-bottom:16px}
+.f-desc{font-size:13px;line-height:1.7;color:rgba(90,104,120,.6)}
+.f-parent{display:inline-flex;align-items:center;gap:8px;margin-top:16px;font-family:var(--f-mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-dim);text-decoration:none;border-bottom:1px solid rgba(201,168,76,.2);padding-bottom:1px;transition:color .2s}
+.f-parent:hover{color:var(--gold)}
+.f-col-title{font-family:var(--f-mono);font-size:8px;letter-spacing:.18em;text-transform:uppercase;color:rgba(201,168,76,.35);margin-bottom:16px}
+.f-links{list-style:none;display:flex;flex-direction:column;gap:10px}
+.f-links a{font-size:13px;color:rgba(90,104,120,.55);text-decoration:none;transition:color .2s}
+.f-links a:hover{color:var(--gold)}
+.footer-bottom{border-top:1px solid var(--border);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+.f-copy{font-family:var(--f-mono);font-size:9px;letter-spacing:.06em;color:rgba(90,104,120,.3)}
+.f-gstin{font-family:var(--f-mono);font-size:9px;color:rgba(90,104,120,.22);letter-spacing:.06em}
+
+/* FLOAT WA */
+.float-wa{position:fixed;bottom:28px;right:28px;z-index:500;width:52px;height:52px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 6px 28px rgba(37,211,102,.35);transition:transform .3s var(--back),box-shadow .3s}
+.float-wa:hover{transform:scale(1.1);box-shadow:0 10px 40px rgba(37,211,102,.5)}
+.float-wa svg{width:24px;height:24px;fill:white}
+
+/* ════════════════════════════════════
+   RESPONSIVE
+════════════════════════════════════ */
+@media(max-width:1024px){
+  .hero{padding:120px 5% 100px}
+  .hero-left{width:auto;min-width:0;margin:100px 5% 60px;padding:30px}
+  .hero-right{display:none}
+  .about{grid-template-columns:1fr;gap:48px}
+  .about-img-grid{display:grid; grid-template-columns:1fr; grid-template-rows:200px 200px 200px;}
+  .cat-grid{grid-template-columns:1fr 1fr}
+  .veh-grid{grid-template-columns:1fr 1fr}
+  .showcase-inner{grid-template-columns:1fr;gap:48px}
+  .why-grid{grid-template-columns:1fr 1fr}
+  .service-layout{grid-template-columns:1fr;gap:48px}
+  .spares-layout{grid-template-columns:1fr;gap:48px}
+  .finance-layout{grid-template-columns:1fr;gap:48px}
+  .contact-grid{grid-template-columns:1fr;gap:48px}
+  .footer-top{grid-template-columns:1fr 1fr;gap:36px}
+  .stats-inner{grid-template-columns:repeat(3,1fr)}
+  .gal-grid{grid-template-columns:1fr 1fr;grid-template-rows:auto}
+  .gal-cell.lg,.gal-cell.md{grid-column:auto}
+  .gal-cell{height:180px}
+  .testi-grid{grid-template-columns:1fr}
+  .h-ribbon{flex-wrap:wrap}
+  .rb-item{flex:0 0 50%;border-bottom:1px solid var(--border)}
+}
+@media(max-width:640px){
+  body{cursor:auto}
+  #c,#cr{display:none}
+  .nav-links{display:none}
+  .nav-ham{display:flex}
+  .cat-grid,.veh-grid{grid-template-columns:1fr}
+  .why-grid{grid-template-columns:1fr}
+  .stats-inner{grid-template-columns:1fr 1fr}
+  .parts-list{grid-template-columns:1fr}
+  .form-row{grid-template-columns:1fr}
+  .footer-top{grid-template-columns:1fr}
+  .rb-item{flex:0 0 100%}
+  .gal-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<div id="c"></div>
+<div id="cr"></div>
+
+<a class="float-wa" href="https://wa.me/919384009999?text=Hello%2C%20I%20am%20enquiring%20about%20a%20tractor%20from%20St.%20Michael%20Motors." target="_blank" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<!-- ════ NAV ════ -->
+<nav id="nav">
+  <a class="nav-brand" href="#">
+    <div class="nav-brand-mark">
+      <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg>
+    </div>
+    <div class="nav-brand-copy">
+      <span class="nav-brand-name">St. Michael Motors</span>
+      <span class="nav-brand-div">Agricultural & Automotive · Tirunelveli</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#categories">Vehicles</a></li>
+    <li><a href="#featured">Tractors</a></li>
+    <li><a href="#service">Service</a></li>
+    <li><a href="#spares">Spares</a></li>
+    <li><a href="#finance">Finance</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="/" class="nav-parent">↑ Group</a></li>
+  </ul>
+  <div class="nav-actions">
+    <a href="tel:9384009999" class="btn-call">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14z"/></svg>
+      93840 09999
+    </a>
+    <a href="#contact" class="btn-cta">Get Quote</a>
+  </div>
+  <button class="nav-ham" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- ════ HERO ════ -->
+<section class="hero" id="home">
+  
+  
+  
+  <div class="h-slice"></div>
+  <div class="h-scan"></div>
+  <div id="ptcls" style="position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0"></div>
+
+  <div class="hero-left">
+    <div class="h-eyebrow">
+      <span class="h-dot"></span>
+      Authorized Farmtrac · Escorts Dealer · Ponnakkudi
+    </div>
+
+    <h1 class="h-title">
+      <span class="sm">St. Michael Motors</span>
+      DRIVE<br>
+      <span class="g">YOUR</span><br>
+      <span class="b">HARVEST</span>
+    </h1>
+
+    <p class="h-sub">Authorized Agricultural &amp; Automotive Solutions Partner</p>
+    <p class="h-desc">
+      Tirunelveli's most trusted dealership for Farmtrac &amp; Escorts. 25 years of powering farms, delivering machinery, and standing by every farmer across South Tamil Nadu.
+    </p>
+
+    <div class="h-ctas">
+      <a href="#featured" class="btn-hero-p">
+        Explore Vehicles
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="#contact" class="btn-hero-s">Request Quote →</a>
+      <a href="#service" class="btn-hero-t">Book Test Drive</a>
+    </div>
+
+    <div class="h-trust">
+      <div class="h-trust-item">
+        <span class="h-trust-icon">🏅</span>
+        <div><div class="h-trust-label">Authorized</div><div class="h-trust-val">Farmtrac Dealer</div></div>
+      </div>
+      <div class="h-trust-item">
+        <span class="h-trust-icon">⚙️</span>
+        <div><div class="h-trust-label">Certified</div><div class="h-trust-val">Escorts Group</div></div>
+      </div>
+      <div class="h-trust-item">
+        <span class="h-trust-icon">📋</span>
+        <div><div class="h-trust-label">GSTIN</div><div class="h-trust-val">33AEZFS7707P1ZX</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="tractor-wrap"></div>
+  </div>
+
+  <div class="h-ribbon">
+    <div class="rb-item"><span class="rb-num" data-target="25">0</span><span class="rb-label">Years Established</span></div>
+    <div class="rb-item"><span class="rb-num" data-target="5000">0</span><span class="rb-label">Customers Served</span></div>
+    <div class="rb-item"><span class="rb-num" data-target="3000">0</span><span class="rb-label">Tractors Delivered</span></div>
+    <div class="rb-item"><span class="rb-num" data-target="100">0</span><span class="rb-label">% Genuine Parts</span></div>
+    <div class="rb-item"><span class="rb-num" data-target="24">0</span><span class="rb-label">Hour Support</span></div>
+  </div>
+</section>
+
+<!-- ════ ABOUT ════ -->
+<section class="about" id="about">
+  <div>
+    <div class="sec-label reveal">About Us</div>
+    <h2 class="sec-h2 reveal d1">More Than <em>A Dealer</em><br><span class="light">Your Agricultural Partner</span></h2>
+    <p class="about-body reveal d2">
+      <strong>St. Michael Motors</strong> is a proud division of <strong>St. Michael Group of Companies</strong>. For over 25 years, we have operated as the region's most reliable authorized dealership for <strong>Farmtrac tractors and Escorts agricultural machinery</strong> — serving farmers, contractors, and institutions across Tirunelveli, Thoothukudi, and beyond.
+    </p>
+    <p class="about-body reveal d3" style="margin-top:12px">
+      From our showroom at <strong>Ponnakkudi, N.H. Salai</strong> we provide sales, service, spare parts, and financial assistance — everything you need to keep your farm running.
+    </p>
+    <div class="about-cards reveal d4">
+      <div class="ac"><span class="ac-icon">🏅</span><div class="ac-title">Trusted Dealer</div><div class="ac-desc">25+ years of authorized Farmtrac & Escorts dealership in Tirunelveli district.</div></div>
+      <div class="ac"><span class="ac-icon">🛡</span><div class="ac-title">Genuine Parts</div><div class="ac-desc">100% manufacturer-sourced spare parts. No counterfeits. Warranty preserved.</div></div>
+      <div class="ac"><span class="ac-icon">🔧</span><div class="ac-title">Service Support</div><div class="ac-desc">Factory-trained technicians. On-field breakdown response within hours.</div></div>
+      <div class="ac"><span class="ac-icon">👨‍🌾</span><div class="ac-title">Farmer First</div><div class="ac-desc">Tamil-speaking staff. Field demos. Door delivery. EMI assistance available.</div></div>
+    </div>
+  </div>
+  <div class="about-img-grid reveal d3">
+    <div class="ai ai-wide">
+      <img src="../motors/Showroomfront.jpeg" alt="St. Michael Motors showroom"/>
+      <span class="ai-num">3000+</span>
+      <span class="ai-label">Tractors Delivered</span>
+    </div>
+    <div class="ai">
+      <img src="../motors/showroomright.jpeg" alt="Farmtrac fleet"/>
+      <span class="ai-num">50+</span>
+      <span class="ai-label">Models in Stock</span>
+    </div>
+    <div class="ai">
+      <img src="../motors/serviceworkshop.jpeg" alt="Service workshop"/>
+      <span class="ai-num">24/7</span>
+      <span class="ai-label">Service Support</span>
+    </div>
+  </div>
+</section>
+
+<!-- ════ VEHICLE CATEGORIES ════ -->
+<section class="categories" id="categories">
+  <div class="cat-header">
+    <div>
+      <div class="sec-label reveal">Our Range</div>
+      <h2 class="sec-h2 reveal d1">Vehicle <em>Categories</em></h2>
+    </div>
+    <a href="#contact" class="btn-hero-s reveal d2" style="height:fit-content">Request Brochure →</a>
+  </div>
+  <div class="cat-grid">
+    <div class="cat-card reveal">
+      <span class="cat-num">01</span>
+      <div class="cat-icon-wrap">
+        <svg viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="14" cy="38" r="12" stroke="#C9A84C" stroke-width="2"/><circle cx="14" cy="38" r="4" fill="#C9A84C"/>
+          <circle cx="44" cy="40" r="8" stroke="#C9A84C" stroke-width="2"/><circle cx="44" cy="40" r="2.5" fill="#C9A84C"/>
+          <path d="M14 26 L14 20 Q15 15 20 14 L36 14 Q42 14 44 20 L50 26 L50 38 L26 38 Z" stroke="#C9A84C" stroke-width="2" fill="rgba(201,168,76,.08)"/>
+          <path d="M16 26 L16 20 Q17 17 20 17 L28 17 L28 26 Z" fill="rgba(201,168,76,.1)"/>
+          <line x1="4" y1="38" x2="52" y2="38" stroke="#C9A84C" stroke-width="1.5" opacity=".4"/>
+        </svg>
+      </div>
+      <div class="cat-name">Agricultural<br>Tractors</div>
+      <div class="cat-sub">Farmtrac · Escorts Series</div>
+      <div class="cat-desc">Powerful, fuel-efficient tractors engineered for Indian agriculture. Built to handle every terrain, every crop, every season.</div>
+      <div class="cat-items">
+        <div class="ci">Farm Tractors (30–75 HP)</div>
+        <div class="ci">Utility Tractors</div>
+        <div class="ci">Heavy-Duty Commercial Tractors</div>
+        <div class="ci">4WD / 2WD Options</div>
+      </div>
+      <a href="#featured" class="cat-explore">View Tractors <span class="cat-arrow">→</span></a>
+    </div>
+    <div class="cat-card reveal d1">
+      <span class="cat-num">02</span>
+      <div class="cat-icon-wrap">
+        <svg viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="8" y="18" width="40" height="22" rx="2" stroke="#C9A84C" stroke-width="2" fill="rgba(201,168,76,.06)"/>
+          <circle cx="14" cy="44" r="6" stroke="#C9A84C" stroke-width="2"/><circle cx="42" cy="44" r="6" stroke="#C9A84C" stroke-width="2"/>
+          <path d="M10 18 L16 10 L40 10 L46 18" stroke="#C9A84C" stroke-width="2"/>
+          <line x1="8" y1="30" x2="48" y2="30" stroke="#C9A84C" stroke-width="1.5" opacity=".4"/>
+          <line x1="28" y1="10" x2="28" y2="18" stroke="#C9A84C" stroke-width="1.5" opacity=".4"/>
+        </svg>
+      </div>
+      <div class="cat-name">Farm<br>Equipment</div>
+      <div class="cat-sub">Implements · Attachments</div>
+      <div class="cat-desc">Complete range of tractor-mounted and standalone implements to maximize productivity across every farming operation.</div>
+      <div class="cat-items">
+        <div class="ci">Rotavators & Cultivators</div>
+        <div class="ci">Trailers (Blue Steel)</div>
+        <div class="ci">Ploughs & Disc Harrows</div>
+        <div class="ci">Seed Drills & Sprayers</div>
+      </div>
+      <a href="#contact" class="cat-explore">View Equipment <span class="cat-arrow">→</span></a>
+    </div>
+    <div class="cat-card reveal d2">
+      <span class="cat-num">03</span>
+      <div class="cat-icon-wrap">
+        <svg viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M6 34 L6 22 Q6 16 12 14 L40 14 Q46 14 50 20 L50 34 L50 42 L6 42 Z" stroke="#C9A84C" stroke-width="2" fill="rgba(201,168,76,.06)"/>
+          <circle cx="15" cy="44" r="6" stroke="#C9A84C" stroke-width="2"/><circle cx="41" cy="44" r="6" stroke="#C9A84C" stroke-width="2"/>
+          <path d="M38 14 L44 20 L50 20" stroke="#C9A84C" stroke-width="2"/>
+          <rect x="18" y="18" width="14" height="10" rx="2" stroke="#C9A84C" stroke-width="1.5" fill="rgba(201,168,76,.08)"/>
+          <line x1="6" y1="32" x2="50" y2="32" stroke="#C9A84C" stroke-width="1" opacity=".35"/>
+        </svg>
+      </div>
+      <div class="cat-name">Commercial<br>Vehicles</div>
+      <div class="cat-sub">Utility · Load Carriers</div>
+      <div class="cat-desc">Versatile utility vehicles and load carriers for agricultural logistics, farm transport, and commercial operations.</div>
+      <div class="cat-items">
+        <div class="ci">Agricultural Utility Vehicles</div>
+        <div class="ci">Load Carrier Vehicles</div>
+        <div class="ci">Multi-purpose Transport</div>
+        <div class="ci">Custom Fleet Solutions</div>
+      </div>
+      <a href="#contact" class="cat-explore">Enquire Now <span class="cat-arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ════ FEATURED VEHICLES ════ -->
+<section class="vehicles" id="featured">
+  <div class="veh-header">
+    <div>
+      <div class="sec-label reveal">Featured Models</div>
+      <h2 class="sec-h2 reveal d1">Farmtrac <em>Lineup</em></h2>
+    </div>
+    <a href="#contact" class="btn-hero-p reveal d2" style="height:fit-content">Request Price List</a>
+  </div>
+  <div class="veh-grid">
+    <!-- Tractor 1 -->
+    <div class="veh-card reveal">
+      <div class="vc-visual">
+        <div class="vc-glow"></div>
+        <span class="vc-num">01</span>
+        <span class="vc-badge">Best Seller</span>
+        <img src="../motors/FARMTRACK45.png" style="width:200px;position:relative;z-index:2;filter:drop-shadow(0 12px 36px rgba(26,111,232,.4));" alt="CHAMPION 45">
+      </div>
+      <div class="vc-body">
+        <div class="vc-model">Farmtrac Champion Series</div>
+        <div class="vc-name">CHAMPION 45</div>
+        <div class="vc-hp">45 <span>Horsepower</span></div>
+        <div class="vc-specs">
+          <div class="vs"><div class="vs-key">Engine</div><div class="vs-val">3-Cylinder</div></div>
+          <div class="vs"><div class="vs-key">Drive</div><div class="vs-val">2WD / 4WD</div></div>
+          <div class="vs"><div class="vs-key">Lift Cap.</div><div class="vs-val">1600 Kg</div></div>
+          <div class="vs"><div class="vs-key">Fuel</div><div class="vs-val">Diesel</div></div>
+        </div>
+        <div class="vc-apps"><strong>Applications:</strong> Paddy, Cotton, Sugarcane, Groundnut, Horticulture</div>
+        <div class="vc-actions">
+          <a href="#contact" class="btn-vc-p">Get Quote</a>
+          <a href="tel:9384009999" class="btn-vc-s">Call Us</a>
+        </div>
+      </div>
+    </div>
+    <!-- Tractor 2 -->
+    <div class="veh-card reveal d1">
+      <div class="vc-visual">
+        <div class="vc-glow"></div>
+        <span class="vc-num">02</span>
+        <span class="vc-badge">Most Powerful</span>
+        <img src="../motors/FARMTRAC60.png" style="width:200px;position:relative;z-index:2;filter:drop-shadow(0 12px 36px rgba(26,111,232,.4));" alt="ATOM 50">
+      </div>
+      <div class="vc-body">
+        <div class="vc-model">Farmtrac Atom Series</div>
+        <div class="vc-name">ATOM 50</div>
+        <div class="vc-hp">50 <span>Horsepower</span></div>
+        <div class="vc-specs">
+          <div class="vs"><div class="vs-key">Engine</div><div class="vs-val">3-Cylinder</div></div>
+          <div class="vs"><div class="vs-key">Drive</div><div class="vs-val">4WD</div></div>
+          <div class="vs"><div class="vs-key">Lift Cap.</div><div class="vs-val">2000 Kg</div></div>
+          <div class="vs"><div class="vs-key">PTO</div><div class="vs-val">540 / 1000</div></div>
+        </div>
+        <div class="vc-apps"><strong>Applications:</strong> Heavy cultivation, Orchard, Vineyard, Multi-crop, Construction</div>
+        <div class="vc-actions">
+          <a href="#contact" class="btn-vc-p">Get Quote</a>
+          <a href="tel:9384009999" class="btn-vc-s">Call Us</a>
+        </div>
+      </div>
+    </div>
+    <!-- Tractor 3 -->
+    <div class="veh-card reveal d2">
+      <div class="vc-visual">
+        <div class="vc-glow"></div>
+        <span class="vc-num">03</span>
+        <span class="vc-badge">Best Value</span>
+        <img src="../motors/FARMTRACK6505.png" style="width:200px;position:relative;z-index:2;filter:drop-shadow(0 12px 36px rgba(26,111,232,.4));" alt="CLASSIC 35">
+      </div>
+      <div class="vc-body">
+        <div class="vc-model">Farmtrac Classic Series</div>
+        <div class="vc-name">CLASSIC 35</div>
+        <div class="vc-hp">35 <span>Horsepower</span></div>
+        <div class="vc-specs">
+          <div class="vs"><div class="vs-key">Engine</div><div class="vs-val">3-Cylinder</div></div>
+          <div class="vs"><div class="vs-key">Drive</div><div class="vs-val">2WD</div></div>
+          <div class="vs"><div class="vs-key">Lift Cap.</div><div class="vs-val">1400 Kg</div></div>
+          <div class="vs"><div class="vs-key">Weight</div><div class="vs-val">1800 Kg</div></div>
+        </div>
+        <div class="vc-apps"><strong>Applications:</strong> Small farms, Horticulture, Nursery, Compact terrain</div>
+        <div class="vc-actions">
+          <a href="#contact" class="btn-vc-p">Get Quote</a>
+          <a href="tel:9384009999" class="btn-vc-s">Call Us</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ SHOWCASE ════ -->
+<section class="showcase" id="showcase">
+  <div class="sec-label reveal">In Focus</div>
+  <h2 class="sec-h2 reveal d1">Vehicle <em>Showcase</em></h2>
+  <div class="showcase-inner">
+    <div class="showcase-left reveal d2">
+      <div class="showcase-stage">
+        <img src="../motors/FARMTRACK45.png" alt="Farmtrac tractor fleet" id="mainShowImg"/>
+        <div class="ss-badge">
+          <span class="ss-badge-val">Farmtrac 50</span>
+          <span class="ss-badge-label">Featured Vehicle</span>
+        </div>
+      </div>
+      <div class="showcase-thumbs">
+        <div class="ss-thumb active" onclick="swapImg(this,'motors/FARMTRACK45.png')">
+          <img src="../motors/FARMTRACK45.png" alt=""/>
+        </div>
+        <div class="ss-thumb" onclick="swapImg(this,'motors/FARMTRACK6505.png')">
+          <img src="../motors/FARMTRACK6505.png" alt=""/>
+        </div>
+        <div class="ss-thumb" onclick="swapImg(this,'motors/FARMTRACK25.png')">
+          <img src="../motors/FARMTRACK25.png" alt=""/>
+        </div>
+      </div>
+    </div>
+    <div class="showcase-right reveal d3">
+      <div class="sec-label">Farmtrac Atom 50 · Specifications</div>
+      <div class="spec-table">
+        <div class="spec-row"><span class="spec-key">Engine Type</span><span class="spec-val">3-Cylinder, Water Cooled</span></div>
+        <div class="spec-row"><span class="spec-key">Horsepower</span><span class="spec-val gold">50 HP @ 2200 RPM</span></div>
+        <div class="spec-row"><span class="spec-key">Drive System</span><span class="spec-val">2WD Standard / 4WD Optional</span></div>
+        <div class="spec-row"><span class="spec-key">Gearbox</span><span class="spec-val">8 Forward + 2 Reverse</span></div>
+        <div class="spec-row"><span class="spec-key">PTO Speed</span><span class="spec-val">540 / 1000 RPM</span></div>
+        <div class="spec-row"><span class="spec-key">Hydraulic Lift</span><span class="spec-val gold">2000 Kg Capacity</span></div>
+        <div class="spec-row"><span class="spec-key">Fuel Tank</span><span class="spec-val">60 Litres</span></div>
+        <div class="spec-row"><span class="spec-key">Turning Radius</span><span class="spec-val">3.2 m</span></div>
+        <div class="spec-row"><span class="spec-key">Warranty</span><span class="spec-val">2 Years / 2000 Hours</span></div>
+      </div>
+      <div class="showcase-ctas">
+        <a href="#contact" class="btn-spec-p">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+          Request Quote
+        </a>
+        <a href="tel:9384009999" class="btn-spec-s">Download Brochure</a>
+        <a href="tel:9384009999" class="btn-spec-s">Book Test Drive</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ WHY US ════ -->
+<section class="why" id="why">
+  <div class="sec-label reveal">Why Choose Us</div>
+  <h2 class="sec-h2 reveal d1">Why Farmers <em>Trust</em><br>St. Michael Motors</h2>
+  <div class="why-grid">
+    <div class="why-item reveal" data-n="01"><span class="wi-icon">🏅</span><div class="wi-title">Authorized Dealership</div><div class="wi-desc">Officially authorized by Escorts Group for Farmtrac brand. Certified sales and service processes, manufacturer-backed support.</div><span class="wi-tag">25+ Years Authorized</span></div>
+    <div class="why-item reveal d1" data-n="02"><span class="wi-icon">🛡</span><div class="wi-title">100% Genuine Parts</div><div class="wi-desc">Every spare part we sell is sourced directly from Escorts manufacturing. No compromises that void your warranty.</div><span class="wi-tag">Factory Sourced</span></div>
+    <div class="why-item reveal d2" data-n="03"><span class="wi-icon">👨‍🔧</span><div class="wi-title">Expert Guidance</div><div class="wi-desc">Our Tamil-speaking team knows your land, your crop, and your needs. We recommend the right tractor, not the most expensive one.</div><span class="wi-tag">Farmer Focused</span></div>
+    <div class="why-item reveal d3" data-n="04"><span class="wi-icon">⚡</span><div class="wi-title">Fast Service Response</div><div class="wi-desc">Breakdown in the field? We dispatch a certified technician. Most issues resolved same day. We understand harvest time can't wait.</div><span class="wi-tag">Emergency Support</span></div>
+    <div class="why-item reveal d4" data-n="05"><span class="wi-icon">💰</span><div class="wi-title">Finance Assistance</div><div class="wi-desc">We guide you through every bank and NBFC loan option. Minimum documentation. Quick approvals. EMI planning support.</div><span class="wi-tag">Easy EMI</span></div>
+    <div class="why-item reveal d5" data-n="06"><span class="wi-icon">🚜</span><div class="wi-title">Field Support & Demos</div><div class="wi-desc">We bring the tractor to your field for live demonstrations. See real performance before you buy. Delivery to your door.</div><span class="wi-tag">Doorstep Delivery</span></div>
+  </div>
+</section>
+
+<!-- ════ STATS BAND ════ -->
+<div class="stats-band">
+  <div class="stats-inner">
+    <div class="si reveal"><span class="si-num" data-target="25">0</span><span class="si-label">Years of Trust</span></div>
+    <div class="si reveal d1"><span class="si-num" data-target="5000">0</span><span class="si-label">Happy Customers</span></div>
+    <div class="si reveal d2"><span class="si-num" data-target="3000">0</span><span class="si-label">Tractors Delivered</span></div>
+    <div class="si reveal d3"><span class="si-num" data-target="100">0</span><span class="si-label">% Genuine Parts</span></div>
+    <div class="si reveal d4"><span class="si-num" data-target="24">0</span><span class="si-label">Hour Support</span></div>
+  </div>
+</div>
+
+<!-- ════ SERVICE ════ -->
+<section class="service" id="service">
+  <div class="sec-label reveal">Service Center</div>
+  <h2 class="sec-h2 reveal d1">Expert <em>Service</em><br><span class="light">At Your Service</span></h2>
+  <div class="service-layout">
+    <div class="service-services">
+      <div class="srv reveal"><div class="srv-icon">🔧</div><div><div class="srv-title">Scheduled Maintenance</div><div class="srv-desc">Engine checks, oil & filter changes, belt inspection. Keep your tractor factory-fresh through every season.</div></div></div>
+      <div class="srv reveal d1"><div class="srv-icon">⚡</div><div><div class="srv-title">Emergency Breakdown</div><div class="srv-desc">On-call technicians for field breakdowns. We reach your farm. Fast diagnosis. Same-day resolution where possible.</div></div></div>
+      <div class="srv reveal d2"><div class="srv-icon">🏭</div><div><div class="srv-title">Factory-Trained Team</div><div class="srv-desc">All our mechanics are certified by Escorts Group. Deep knowledge of every Farmtrac model produced since 1998.</div></div></div>
+      <div class="srv reveal d3"><div class="srv-icon">🛡</div><div><div class="srv-title">Warranty Repairs</div><div class="srv-desc">All warranty work completed with genuine parts and proper documentation. Full manufacturer compliance guaranteed.</div></div></div>
+      <div class="srv reveal d4"><div class="srv-icon">⚙️</div><div><div class="srv-title">Engine Overhaul</div><div class="srv-desc">Major engine and transmission rebuilds by certified specialists. Complete overhaul with new genuine components.</div></div></div>
+    </div>
+    <div class="service-visual reveal d2">
+      <div class="sv-main">
+        <img src="../motors/SERVICECENTRE.png" alt="Service bay"/>
+        <div class="sv-main-label">Certified Workshop · Ponnakkudi</div>
+      </div>
+      <div class="sv-row" style="margin-top:3px">
+        <div class="sv-sub">
+          <img src="../motors/Showroomfront.jpeg" alt="Showroom"/>
+          <span class="sv-sub-label">Showroom</span>
+        </div>
+        <div class="sv-sub">
+          <img src="../motors/FARMTRAC60.png" alt="Farmtrac"/>
+          <span class="sv-sub-label">Parts Store</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ SPARE PARTS ════ -->
+<section class="spares" id="spares">
+  <div class="sec-label reveal">Parts Inventory</div>
+  <h2 class="sec-h2 reveal d1">Genuine <em>Spare Parts</em></h2>
+  <div class="spares-layout">
+    <div>
+      <p class="spares-text reveal d2">
+        We maintain a <strong>comprehensive genuine spare parts inventory</strong> for all Farmtrac and Escorts tractor models. Every component is factory-sourced — ensuring your warranty stays valid and your machine performs as designed.
+      </p>
+      <div class="parts-list reveal d3">
+        <div class="part-row"><span class="part-icon">🔩</span><div><div class="part-name">Engine Components</div><div class="part-note">Pistons, rings, bearings, gaskets</div></div></div>
+        <div class="part-row"><span class="part-icon">🔄</span><div><div class="part-name">Hydraulic Systems</div><div class="part-note">Pumps, cylinders, hoses, valves</div></div></div>
+        <div class="part-row"><span class="part-icon">⚙️</span><div><div class="part-name">Transmission & Gearbox</div><div class="part-note">Gears, clutch plates, shafts</div></div></div>
+        <div class="part-row"><span class="part-icon">💡</span><div><div class="part-name">Electrical Parts</div><div class="part-note">Alternators, starters, switches</div></div></div>
+        <div class="part-row"><span class="part-icon">🛞</span><div><div class="part-name">Tyres & Wheels</div><div class="part-note">Front, rear, industrial grades</div></div></div>
+        <div class="part-row"><span class="part-icon">🛢</span><div><div class="part-name">Filters & Lubricants</div><div class="part-note">Oil, air, fuel filters · genuine oils</div></div></div>
+        <div class="part-row"><span class="part-icon">🔗</span><div><div class="part-name">PTO & Implement Parts</div><div class="part-note">Shafts, adapters, couplings</div></div></div>
+        <div class="part-row"><span class="part-icon">🏗</span><div><div class="part-name">Body & Frame Parts</div><div class="part-note">Hood panels, steps, guards</div></div></div>
+      </div>
+    </div>
+    <div class="spares-promo reveal d3">
+      <div class="sp-title">Always <em>In Stock.</em><br>Always Genuine.</div>
+      <p class="sp-body">Our parts warehouse is stocked for immediate availability. Walk in, describe your tractor model and issue — we'll have the right part ready. We also take advance orders for rare components.</p>
+      <div class="sp-tags">
+        <span class="sp-tag">Same Day Availability</span>
+        <span class="sp-tag">All Farmtrac Models</span>
+        <span class="sp-tag">Manufacturer Sourced</span>
+        <span class="sp-tag">Warranty Valid</span>
+        <span class="sp-tag">No Counterfeits</span>
+      </div>
+      <a href="#contact" class="btn-spec-p" style="display:inline-flex">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+        Parts Enquiry
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ════ GALLERY ════ -->
+<section class="gallery" id="gallery">
+  <div class="sec-label reveal">Visual Tour</div>
+  <h2 class="sec-h2 reveal d1">Showroom &amp; <em>Delivery Gallery</em></h2>
+  <div class="gal-tabs reveal d2">
+    <button class="gt on" onclick="galTab(this,'all')">All Photos</button>
+    <button class="gt" onclick="galTab(this,'showroom')">Showroom</button>
+    <button class="gt" onclick="galTab(this,'tractors')">Tractors</button>
+    <button class="gt" onclick="galTab(this,'service')">Service</button>
+  </div>
+  <div class="gal-grid reveal d3">
+    <div class="gal-cell lg" style="height:220px"><img src="../motors/Showroomfront.jpeg" alt="Showroom"/><span class="gal-label">St. Michael Motors · Showroom Front</span></div>
+    <div class="gal-cell" style="height:220px"><img src="../motors/serviceworkshop.jpeg" alt="Workshop"/><span class="gal-label">Service Workshop Interior</span></div>
+    <div class="gal-cell" style="height:220px"><img src="../motors/showroomright.jpeg" alt="Fleet"/><span class="gal-label">Farmtrac Fleet Display</span></div>
+    <div class="gal-cell md" style="height:220px"><img src="../motors/FARMTRACK6505.png" alt="Banner"/><span class="gal-label">Authorized Farmtrac Dealer</span></div>
+    <div class="gal-cell" style="height:220px"><div class="gal-placeholder"><span class="gp-i">👨‍🌾</span><span class="gp-l">Customer Deliveries</span></div><span class="gal-label">Tractor Handover Events</span></div>
+    <div class="gal-cell" style="height:220px"><div class="gal-placeholder"><span class="gp-i">🚜</span><span class="gp-l">Field Demonstrations</span></div><span class="gal-label">Field Demo Events</span></div>
+  </div>
+</section>
+
+<!-- ════ TESTIMONIALS ════ -->
+<section class="testi">
+  <div class="sec-label reveal">Farmer Stories</div>
+  <h2 class="sec-h2 reveal d1">Trusted By <em>Thousands</em></h2>
+  <div class="testi-grid">
+    <div class="tc reveal"><span class="tc-mark">"</span><div class="tc-stars">★★★★★</div><p class="tc-text">Best tractor dealer in Tirunelveli without question. The team explained every feature, arranged my loan in 3 days, and delivered the tractor to my village. Exceptional service.</p><div class="tc-author"><div class="tc-avatar">MK</div><div><div class="tc-name">Muthu Kumar</div><div class="tc-place">Farmer · Nanguneri, Tirunelveli</div></div></div></div>
+    <div class="tc reveal d1"><span class="tc-mark">"</span><div class="tc-stars">★★★★★</div><p class="tc-text">My Farmtrac 50 had an issue during rice harvest. St. Michael sent a technician within 2 hours. Fixed on-site. I lost zero harvest time. That level of support is priceless.</p><div class="tc-author"><div class="tc-avatar">AR</div><div><div class="tc-name">Arumugam Raja</div><div class="tc-place">Paddy Farmer · Ponnakkudi</div></div></div></div>
+    <div class="tc reveal d2"><span class="tc-mark">"</span><div class="tc-stars">★★★★★</div><p class="tc-text">I have bought 3 tractors from here over 15 years. Every time — fair price, genuine parts, honest service. My entire village now comes to St. Michael Motors. That says everything.</p><div class="tc-author"><div class="tc-avatar">VS</div><div><div class="tc-name">Velu Selvam</div><div class="tc-place">Agriculture Contractor · Tirunelveli</div></div></div></div>
+  </div>
+</section>
+
+<!-- ════ FINANCE / EMI ════ -->
+<section class="finance" id="finance">
+  <div class="sec-label reveal">Finance Support</div>
+  <h2 class="sec-h2 reveal d1">Easy <em>Finance</em><br><span class="light">&amp; EMI Calculator</span></h2>
+  <div class="finance-layout">
+    <div class="finance-info">
+      <div class="fi-card reveal"><span class="fi-icon">🏦</span><div class="fi-title">Bank Loan Assistance</div><div class="fi-desc">We work with leading banks — SBI, Canara, Indian Bank, and NBFCs — to get your tractor loan approved fast with minimum documentation.</div></div>
+      <div class="fi-card reveal d1"><span class="fi-icon">📄</span><div class="fi-title">Minimal Documentation</div><div class="fi-desc">Aadhaar, land records, and income proof — that's usually all you need. We assist you through every step of the paperwork.</div></div>
+      <div class="fi-card reveal d2"><span class="fi-icon">⚡</span><div class="fi-title">Fast Approvals</div><div class="fi-desc">Loan approvals typically within 48–72 hours. We follow up with the bank on your behalf to speed up disbursement.</div></div>
+      <div class="fi-card reveal d3"><span class="fi-icon">📊</span><div class="fi-title">EMI Planning</div><div class="fi-desc">We help you choose the loan tenure that fits your harvest income cycle — ensuring comfortable monthly payments season after season.</div></div>
+    </div>
+    <div class="emi-calc reveal d2">
+      <div class="ec-title">EMI Calculator</div>
+      <div class="ec-sub">Estimate your monthly payment</div>
+      <div class="ec-field">
+        <div class="ec-label">Loan Amount <span id="loanAmt">₹5,00,000</span></div>
+        <input type="range" class="ec-slider" id="loanSlider" min="100000" max="2000000" step="50000" value="500000" oninput="calcEMI()"/>
+      </div>
+      <div class="ec-field">
+        <div class="ec-label">Interest Rate <span id="rateAmt">9%</span></div>
+        <input type="range" class="ec-slider" id="rateSlider" min="7" max="14" step="0.5" value="9" oninput="calcEMI()"/>
+      </div>
+      <div class="ec-field">
+        <div class="ec-label">Loan Tenure <span id="tenureAmt">3 Years</span></div>
+        <input type="range" class="ec-slider" id="tenureSlider" min="1" max="7" step="1" value="3" oninput="calcEMI()"/>
+      </div>
+      <div class="ec-result">
+        <div>
+          <div class="ec-emi-num" id="emiResult">₹15,900</div>
+          <div class="ec-emi-label">Estimated Monthly EMI</div>
+        </div>
+        <a href="#contact" class="btn-spec-p" style="display:inline-flex;white-space:nowrap">Apply Now →</a>
+      </div>
+      <div class="ec-disclaimer">* Indicative only. Actual EMI depends on bank terms, processing fees, and applicant profile. Our team will provide exact figures.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ CONTACT ════ -->
+<section class="contact" id="contact">
+  <div class="sec-label reveal">Get In Touch</div>
+  <h2 class="sec-h2 reveal d1">Book Your <em>Tractor</em></h2>
+  <div class="contact-grid">
+    <form class="contact-form reveal d2" id="cForm" onsubmit="return false">
+      <div class="form-row">
+        <div class="field"><label class="field-label">Full Name</label><input class="field-input" type="text" placeholder="Your name" required/></div>
+        <div class="field"><label class="field-label">Phone Number</label><input class="field-input" type="tel" placeholder="+91 93840 09999" required/></div>
+      </div>
+      <div class="form-row">
+        <div class="field"><label class="field-label">Village / Town</label><input class="field-input" type="text" placeholder="Your location"/></div>
+        <div class="field"><label class="field-label">Land Size (Acres)</label><input class="field-input" type="text" placeholder="e.g. 5 acres"/></div>
+      </div>
+      <div class="field"><label class="field-label">I Am Interested In</label>
+        <select class="field-select">
+          <option value="">Select...</option>
+          <option>Farmtrac 35 HP Tractor</option>
+          <option>Farmtrac 45 HP Tractor</option>
+          <option>Farmtrac 50 HP Tractor</option>
+          <option>Farmtrac 60+ HP Tractor</option>
+          <option>Farm Implements / Attachments</option>
+          <option>Service & Repair Booking</option>
+          <option>Spare Parts Enquiry</option>
+          <option>EMI / Loan Information</option>
+          <option>Test Drive Request</option>
+          <option>General Enquiry</option>
+        </select>
+      </div>
+      <div class="field"><label class="field-label">Message</label><textarea class="field-textarea" placeholder="Tell us your crop type, requirement, or any specific question..."></textarea></div>
+      <button type="submit" class="btn-send" onclick="sendForm()">Send Enquiry</button>
+      <div class="form-ok" id="formOk">✓ Received! Our team will call you within 2 hours.</div>
+    </form>
+    <div class="contact-info reveal d3">
+      <div class="ci-block"><div class="ci-label">Showroom Address</div><div class="ci-val">No. 3/620, Annai Nagaram<br>Annai Nagar, N.H. Salai<br>Ponnakkudi, Tirunelveli – 627151</div></div>
+      <div class="ci-block"><div class="ci-label">Call Us</div><div class="ci-val"><a href="tel:9384009999">93840 09999</a></div><div class="ci-sub"><a href="tel:7373088303" style="color:var(--t2);text-decoration:none">73730 88303</a></div></div>
+      <div class="ci-block"><div class="ci-label">Business Hours</div><div class="ci-val" style="font-size:14px">Mon – Sat &nbsp; 8:00 AM – 7:00 PM<br>Sunday &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 9:00 AM – 2:00 PM</div></div>
+      <div class="ci-block"><div class="ci-label">GSTIN</div><div class="ci-val" style="font-size:13px;font-family:var(--f-mono);letter-spacing:.06em">33AEZFS7707P1ZX</div></div>
+      <div class="ci-block">
+        <a href="https://wa.me/919384009999?text=Hello%2C%20I%20am%20interested%20in%20a%20Farmtrac%20tractor%20from%20St.%20Michael%20Motors." target="_blank" class="wa-btn-big">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Chat on WhatsApp · 93840 09999
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ FOOTER ════ -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="f-brand-name">St. Michael Motors</div>
+      <div class="f-brand-tag">Authorized Farmtrac · Escorts Dealer · Est. Tirunelveli</div>
+      <p class="f-desc">India's most trusted agricultural machinery — backed by St. Michael's 25 years of authorized dealership excellence. Sales · Service · Genuine Spare Parts.</p>
+      <a href="/" class="f-parent">↑ St. Michael Group of Companies</a>
+    </div>
+    <div>
+      <div class="f-col-title">Navigation</div>
+      <ul class="f-links">
+        <li><a href="#categories">Vehicle Categories</a></li>
+        <li><a href="#featured">Tractor Lineup</a></li>
+        <li><a href="#showcase">Vehicle Showcase</a></li>
+        <li><a href="#service">Service Center</a></li>
+        <li><a href="#spares">Spare Parts</a></li>
+        <li><a href="#finance">Finance & EMI</a></li>
+        <li><a href="#contact">Contact & Location</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="f-col-title">Contact</div>
+      <ul class="f-links">
+        <li><a href="tel:9384009999">93840 09999</a></li>
+        <li><a href="tel:7373088303">73730 88303</a></li>
+        <li><a href="#">Ponnakkudi, Tirunelveli</a></li>
+        <li><a href="https://wa.me/919384009999" target="_blank">WhatsApp Us</a></li>
+        <li><a href="#">Google Maps Directions</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="f-copy">© 2025 St. Michael Motors · A Division of St. Michael Group of Companies · All rights reserved</div>
+    <div class="f-gstin">GSTIN: 33AEZFS7707P1ZX · Authorized Farmtrac & Escorts Dealer</div>
+  </div>
+</footer>
+
+<script>
+/* CURSOR */
+const c=document.getElementById('c'),cr=document.getElementById('cr');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;c.style.left=mx+'px';c.style.top=my+'px';});
+(function tick(){rx+=(mx-rx)*.11;ry+=(my-ry)*.11;cr.style.left=rx+'px';cr.style.top=ry+'px';requestAnimationFrame(tick);})();
+
+/* PARTICLES */
+const pc=document.getElementById('ptcls');
+for(let i=0;i<18;i++){
+  const p=document.createElement('div');
+  Object.assign(p.style,{position:'absolute',width:'2px',height:'2px',borderRadius:'50%',background:'rgba(26,111,232,.7)',left:Math.random()*100+'%',animation:`pf ${7+Math.random()*10}s ${Math.random()*9}s ease-in infinite`});
+  pc.appendChild(p);
+}
+const st=document.createElement('style');
+st.textContent='@keyframes pf{0%{opacity:0;transform:translateY(100vh)}8%{opacity:.6}88%{opacity:.25}100%{opacity:0;transform:translateY(-20px)}}';
+document.head.appendChild(st);
+
+/* NAV */
+window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('on',window.scrollY>50));
+
+/* REVEAL */
+const obs=new IntersectionObserver(e=>e.forEach(n=>{if(n.isIntersecting)n.target.classList.add('up')}),{threshold:.08,rootMargin:'0px 0px -36px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+/* COUNTERS */
+function cu(el,t){
+  const dur=1800,s=performance.now();
+  (function run(n){
+    const p=Math.min((n-s)/dur,1),e=1-Math.pow(1-p,4),v=Math.round(e*t);
+    el.textContent=v>=1000?(v/1000).toFixed(0)+'K+':(v+(p>=1?(t===100?'%':'+'):''));
+    if(p<1)requestAnimationFrame(run);
+  })(s);
+}
+const co=new IntersectionObserver(e=>e.forEach(n=>{
+  if(n.isIntersecting&&!n.target.dataset.done){n.target.dataset.done='1';cu(n.target,parseInt(n.target.dataset.target));}
+}),{threshold:.5});
+document.querySelectorAll('[data-target]').forEach(el=>co.observe(el));
+
+/* EMI CALCULATOR */
+function calcEMI(){
+  const loan=parseInt(document.getElementById('loanSlider').value);
+  const rate=parseFloat(document.getElementById('rateSlider').value)/100/12;
+  const months=parseInt(document.getElementById('tenureSlider').value)*12;
+  const emi=rate===0?loan/months:loan*rate*Math.pow(1+rate,months)/(Math.pow(1+rate,months)-1);
+  document.getElementById('loanAmt').textContent='₹'+loan.toLocaleString('en-IN');
+  document.getElementById('rateAmt').textContent=parseFloat(document.getElementById('rateSlider').value)+'%';
+  document.getElementById('tenureAmt').textContent=document.getElementById('tenureSlider').value+' Year'+(document.getElementById('tenureSlider').value>1?'s':'');
+  document.getElementById('emiResult').textContent='₹'+Math.round(emi).toLocaleString('en-IN');
+}
+
+/* IMAGE SWAP */
+function swapImg(el,src){
+  document.getElementById('mainShowImg').src=src;
+  document.querySelectorAll('.ss-thumb').forEach(t=>t.classList.remove('active'));
+  el.classList.add('active');
+}
+
+/* GALLERY TABS */
+function galTab(btn,type){document.querySelectorAll('.gt').forEach(b=>b.classList.remove('on'));btn.classList.add('on');}
+
+/* FORM */
+function sendForm(){const o=document.getElementById('formOk');o.style.display='block';setTimeout(()=>o.style.display='none',5000);}
+
+/* SMOOTH SCROLL */
+document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'});}});});
+</script>
+
+<script>
+(async () => {
+  const API = '';
+  try {
+    const res = await fetch(`${API}/api/items?page=motors`);
+    if (!res.ok) return;
+    const { items } = await res.json();
+    if (!items.length) return;
+    const grid = document.querySelector('.veh-grid');
+    if (!grid) return;
+    const existing = grid.querySelectorAll('.veh-card').length;
+    items.forEach((item, i) => {
+      const num = String(existing + i + 1).padStart(2, '0');
+      const m = item.metadata || {};
+      const card = document.createElement('div');
+      card.className = 'veh-card reveal';
+      card.innerHTML = `
+        <div class="vc-visual" style="position:relative;overflow:hidden;min-height:220px;display:flex;align-items:center;justify-content:center;background:rgba(6,18,36,.8);">
+          <div class="vc-glow"></div>
+          <span class="vc-num">${num}</span>
+          ${item.image_url
+            ? `<img src="${item.image_url}" alt="${item.title||''}" loading="lazy" style="max-width:90%;max-height:200px;object-fit:contain;position:relative;z-index:1;"/>`
+            : `<div style="font-size:48px;opacity:.3;">🚜</div>`}
+        </div>
+        <div class="vc-body">
+          ${item.subtitle ? `<div class="vc-model">${item.subtitle}</div>` : ''}
+          <div class="vc-name">${item.title||'Model'}</div>
+          ${m.hp ? `<div class="vc-hp">${m.hp} <span>HP</span></div>` : ''}
+          <div class="vc-specs">
+            ${m.engine ? `<div class="vs"><div class="vs-key">Engine</div><div class="vs-val">${m.engine}</div></div>` : ''}
+            ${m.drive  ? `<div class="vs"><div class="vs-key">Drive</div><div class="vs-val">${m.drive}</div></div>` : ''}
+            ${m.lift   ? `<div class="vs"><div class="vs-key">Lift Cap.</div><div class="vs-val">${m.lift} Kg</div></div>` : ''}
+          </div>
+          ${item.description ? `<div class="vc-apps"><span style="color:var(--gold,#d4af37)">Applications:</span> <strong>${item.description}</strong></div>` : ''}
+          <div class="vc-actions">
+            <a href="#contact" class="btn-vc-p">Get Quote</a>
+            <a href="#contact" class="btn-vc-s">Enquire →</a>
+          </div>
+        </div>`;
+      grid.appendChild(card);
+    });
+    if (window._revealObserver) grid.querySelectorAll('.reveal:not(.up)').forEach(el => window._revealObserver.observe(el));
+    else grid.querySelectorAll('.reveal').forEach(el => el.classList.add('up'));
+  } catch(e) {}
+})();
+</script>
+
+<div style="text-align:center;padding:12px 0 18px;border-top:1px solid rgba(212,175,55,.08);margin-top:20px;">
+  <a href="/admin" style="font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(248,246,241,.2);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='rgba(212,175,55,.5)'" onmouseout="this.style.color='rgba(248,246,241,.2)'">
+    Admin
+  </a>
+</div>
+</body>
+</html>
