@@ -17,6 +17,8 @@
     { "source": "/chits", "destination": "/pages/chits.html" },
     { "source": "/construction", "destination": "/pages/construction.html" },
     { "source": "/realestate", "destination": "/pages/realestate.html" },
-    { "source": "/admin", "destination": "/pages/admin.html" }
+    { "source": "/admin", "destination": "/pages/admin.html" },
+    { "source": "/blog", "destination": "/pages/blog/index.html" },
+    { "source": "/blog/:slug", "destination": "/pages/blog/:slug.html" }
   ]
 }
