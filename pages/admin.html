@@ -1023,20 +1023,14 @@ document.querySelectorAll('.item-form').forEach(form => {
 
       let image_url = null;
       if (file) {
-        // 1. Get presigned URL
         status.textContent = 'Uploading image…';
-        const upRes = await fetch(`${API}/api/upload-url`, {
+        const upRes = await fetch(`${API}/api/upload`, {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${jwt}` },
-          body: JSON.stringify({ filename: file.name, contentType: file.type }),
+          headers: { 'Content-Type': file.type, 'Authorization': `Bearer ${jwt}`, 'x-filename': file.name },
+          body: file,
         });
-        if (!upRes.ok) { const e = await upRes.json().catch(()=>({})); throw new Error(e.error || 'Could not get upload URL'); }
-        const { uploadUrl, imageUrl } = await upRes.json();
-
-        // 2. PUT image directly to Supabase
-        const putRes = await fetch(uploadUrl, { method: 'PUT', headers: { 'Content-Type': file.type }, body: file });
-        if (!putRes.ok) throw new Error('Image upload failed: ' + await putRes.text().catch(()=>'unknown'));
-        image_url = imageUrl;
+        if (!upRes.ok) { const e = await upRes.json().catch(()=>({})); throw new Error(e.error || 'Upload failed'); }
+        ({ imageUrl: image_url } = await upRes.json());
       }
 
       // 3. Collect metadata fields
@@ -1299,16 +1293,13 @@ document.getElementById('edit-form').addEventListener('submit', async (e) => {
     const file = document.getElementById('edit-image-file').files[0];
     if (file) {
       status.textContent = 'Uploading image…';
-      const upRes = await fetch(`${API}/api/upload-url`, {
+      const upRes = await fetch(`${API}/api/upload`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${jwt}` },
-        body: JSON.stringify({ filename: file.name, contentType: file.type }),
+        headers: { 'Content-Type': file.type, 'Authorization': `Bearer ${jwt}`, 'x-filename': file.name },
+        body: file,
       });
-      if (!upRes.ok) { const e = await upRes.json().catch(()=>({})); throw new Error(e.error || 'Could not get upload URL'); }
-      const { uploadUrl, imageUrl } = await upRes.json();
-      const putRes = await fetch(uploadUrl, { method: 'PUT', headers: { 'Content-Type': file.type }, body: file });
-      if (!putRes.ok) throw new Error('Image upload failed: ' + await putRes.text().catch(()=>'unknown'));
-      image_url = imageUrl;
+      if (!upRes.ok) { const e = await upRes.json().catch(()=>({})); throw new Error(e.error || 'Upload failed'); }
+      ({ imageUrl: image_url } = await upRes.json());
     }
 
     const res = await fetch(`${API}/api/items/${id}`, {
