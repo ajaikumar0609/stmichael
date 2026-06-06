@@ -207,7 +207,7 @@ nav.scrolled {
 .nav-menu-btn.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
 .nav-menu-btn.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-/* Mobile drawer */
+/* Mobile drawer — display toggled by JS to avoid iOS fixed-element overflow bug */
 .mob-drawer {
   display: none;
   position: fixed;
@@ -224,7 +224,7 @@ nav.scrolled {
   transform: translateX(100%);
   transition: transform .35s cubic-bezier(.4,0,.2,1);
 }
-.mob-drawer.open { transform: translateX(0); }
+.mob-drawer.open { display: flex; transform: translateX(0); }
 .mob-drawer ul { list-style: none; display: flex; flex-direction: column; gap: 0; }
 .mob-drawer ul li { border-bottom: 1px solid rgba(200,169,110,0.08); }
 .mob-drawer ul li a {
@@ -263,11 +263,7 @@ nav.scrolled {
   opacity: 0;
   transition: opacity .35s;
 }
-.mob-overlay.open { opacity: 1; }
-@media (max-width: 960px) {
-  .mob-drawer { display: flex; }
-  .mob-overlay { display: block; }
-}
+.mob-overlay.open { display: block; opacity: 1; }
 
 /* ─── HERO ─── */
 .hero {
@@ -5318,11 +5314,16 @@ window.addEventListener('scroll',()=>{
   const drawer = document.getElementById('mobDrawer');
   const overlay = document.getElementById('mobOverlay');
   function openMenu(){
-    btn.classList.add('open');
-    drawer.classList.add('open');
-    overlay.classList.add('open');
-    btn.setAttribute('aria-expanded','true');
-    document.body.style.overflow='hidden';
+    // Show elements first, then animate in next frame so CSS transition fires
+    drawer.style.display = 'flex';
+    overlay.style.display = 'block';
+    requestAnimationFrame(function(){
+      btn.classList.add('open');
+      drawer.classList.add('open');
+      overlay.classList.add('open');
+      btn.setAttribute('aria-expanded','true');
+      document.body.style.overflow='hidden';
+    });
   }
   function closeMenu(){
     btn.classList.remove('open');
@@ -5330,6 +5331,12 @@ window.addEventListener('scroll',()=>{
     overlay.classList.remove('open');
     btn.setAttribute('aria-expanded','false');
     document.body.style.overflow='';
+    // Hide after slide-out transition completes
+    drawer.addEventListener('transitionend', function hide(){
+      drawer.style.display = 'none';
+      overlay.style.display = 'none';
+      drawer.removeEventListener('transitionend', hide);
+    });
   }
   btn.addEventListener('click', ()=> btn.classList.contains('open') ? closeMenu() : openMenu());
   overlay.addEventListener('click', closeMenu);
