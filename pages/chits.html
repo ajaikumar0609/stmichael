@@ -1122,9 +1122,9 @@ function sendWhatsApp(e, page){
   }).filter(Boolean);
 
   const pageNames={chits:'St. Michael Chits',motors:'St. Michael Motors',fisheries:'Fisheries & Farms',main:'St. Michael Group'};
-  const phones={chits:'919894918030',motors:'919384009999',fisheries:'919384009999',main:'919384009999'};
+  const phones={chits:'919894918030',motors:'919894918030',fisheries:'919894918030',main:'919894918030'};
   const msg=`*New Enquiry — ${pageNames[page]||'St. Michael Group'}*\n\n${lines.join('\n')}\n\n_Sent from website_`;
-  window.open(`https://wa.me/${phones[page]||'919384009999'}?text=${encodeURIComponent(msg)}`,'_blank');
+  window.open(`https://wa.me/${phones[page]||'919894918030'}?text=${encodeURIComponent(msg)}`,'_blank');
   const btn=f.querySelector('button[type=submit]');
   const orig=btn.innerHTML;
   btn.innerHTML='✓ Opening WhatsApp...';
