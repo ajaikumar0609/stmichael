@@ -197,7 +197,7 @@ nav.on { background: rgba(6,18,36,.95); backdrop-filter: blur(16px); border-bott
 .proj-photo-icon { width: 40px; height: 40px; border-radius: 50%; background: rgba(212,175,55,.08); border: 1px solid rgba(212,175,55,.2); display: flex; align-items: center; justify-content: center; position: relative; z-index: 1; }
 .proj-photo-icon svg { width: 18px; height: 18px; color: var(--gold); opacity: .6; }
 .proj-photo-lbl { font-family: var(--f-mono); font-size: 9px; letter-spacing: 2.5px; text-transform: uppercase; color: rgba(212,175,55,.38); position: relative; z-index: 1; }
-.proj-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center; transition: transform .5s ease; position: relative; z-index: 1; }
+.proj-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; transition: transform .5s ease; z-index: 1; }
 .proj-card:hover .proj-photo img { transform: scale(1.04); }
 
 .proj-body { padding: 20px 22px 24px; }
@@ -417,7 +417,7 @@ footer { background: #030608; border-top: 1px solid var(--border); padding: 56px
 
     <div class="proj-card reveal">
       <div class="proj-photo">
-        <img src="../construction-and-realestate/amala-arts-college.jpeg" alt="Amala Arts & Science College" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;"/>
+        <img src="../construction-and-realestate/amala-arts-college.jpeg" alt="Amala Arts & Science College" loading="lazy" style="display:block;"/>
       </div>
       <div class="proj-body">
         <div class="proj-num">01 · Educational</div>
@@ -429,7 +429,7 @@ footer { background: #030608; border-top: 1px solid var(--border); padding: 56px
 
     <div class="proj-card reveal d1">
       <div class="proj-photo">
-        <img src="../construction-and-realestate/nurses-sisters-college.jpeg" alt="Nurses & Sisters College" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;"/>
+        <img src="../construction-and-realestate/nurses-sisters-college.jpeg" alt="Nurses & Sisters College" loading="lazy" style="display:block;"/>
       </div>
       <div class="proj-body">
         <div class="proj-num">02 · Educational</div>
@@ -441,7 +441,7 @@ footer { background: #030608; border-top: 1px solid var(--border); padding: 56px
 
     <div class="proj-card reveal d2">
       <div class="proj-photo">
-        <img src="../construction-and-realestate/xaviersclg.jpeg" alt="Thiru Irudhaya Sagotharargal Polytechnic" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;"/>
+        <img src="../construction-and-realestate/xaviersclg.jpeg" alt="Thiru Irudhaya Sagotharargal Polytechnic" loading="lazy" style="display:block;"/>
       </div>
       <div class="proj-body">
         <div class="proj-num">03 · Educational</div>
@@ -453,7 +453,7 @@ footer { background: #030608; border-top: 1px solid var(--border); padding: 56px
 
     <div class="proj-card reveal">
       <div class="proj-photo">
-        <img src="../construction-and-realestate/kulasai-sebastian-college.webp" alt="St. Sebastian College, Kulasekarapatinam" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;"/>
+        <img src="../construction-and-realestate/kulasai-sebastian-college.webp" alt="St. Sebastian College, Kulasekarapatinam" loading="lazy" style="display:block;"/>
       </div>
       <div class="proj-body">
         <div class="proj-num">04 · Educational</div>
@@ -465,7 +465,7 @@ footer { background: #030608; border-top: 1px solid var(--border); padding: 56px
 
     <div class="proj-card reveal d1">
       <div class="proj-photo">
-        <img src="../construction-and-realestate/marine-college.jpeg" alt="Joseph College, Pallapatti" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;"/>
+        <img src="../construction-and-realestate/marine-college.jpeg" alt="Joseph College, Pallapatti" loading="lazy" style="display:block;"/>
       </div>
       <div class="proj-body">
         <div class="proj-num">05 · Educational</div>
@@ -477,7 +477,7 @@ footer { background: #030608; border-top: 1px solid var(--border); padding: 56px
 
     <div class="proj-card reveal d2">
       <div class="proj-photo">
-        <img src="../construction-and-realestate/child-jesus.jpeg" alt="Holy Angels CBSE School" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;"/>
+        <img src="../construction-and-realestate/child-jesus.jpeg" alt="Holy Angels CBSE School" loading="lazy" style="display:block;"/>
       </div>
       <div class="proj-body">
         <div class="proj-num">06 · Educational</div>
@@ -489,7 +489,7 @@ footer { background: #030608; border-top: 1px solid var(--border); padding: 56px
 
     <div class="proj-card reveal">
       <div class="proj-photo">
-        <img src="../construction-and-realestate/uvari-st-antony.jpg" alt="St. Antony's CBSE School, Uvari" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;"/>
+        <img src="../construction-and-realestate/uvari-st-antony.jpg" alt="St. Antony's CBSE School, Uvari" loading="lazy" style="display:block;"/>
       </div>
       <div class="proj-body">
         <div class="proj-num">07 · Educational</div>
@@ -515,7 +515,7 @@ footer { background: #030608; border-top: 1px solid var(--border); padding: 56px
 
     <div class="proj-card reveal">
       <div class="proj-photo">
-        <img src="../construction-and-realestate/velakani.jpg" alt="Uvari Main Church" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;"/>
+        <img src="../construction-and-realestate/velakani.jpg" alt="Uvari Main Church" loading="lazy" style="display:block;"/>
       </div>
       <div class="proj-body">
         <div class="proj-num">08 · Religious</div>
@@ -527,7 +527,7 @@ footer { background: #030608; border-top: 1px solid var(--border); padding: 56px
 
     <div class="proj-card reveal d1">
       <div class="proj-photo">
-        <img src="../assets/construction/udangudi-father-house.png" alt="Udangudi Father House" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;"/>
+        <img src="../assets/construction/udangudi-father-house.png" alt="Udangudi Father House" loading="lazy" style="display:block;"/>
       </div>
       <div class="proj-body">
         <div class="proj-num">09 · Religious</div>
@@ -539,7 +539,7 @@ footer { background: #030608; border-top: 1px solid var(--border); padding: 56px
 
     <div class="proj-card reveal d2">
       <div class="proj-photo">
-        <img src="../assets/construction/kanitha-sebastian-shrine.png" alt="Kanitha Sebastian Shrine" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;"/>
+        <img src="../assets/construction/kanitha-sebastian-shrine.png" alt="Kanitha Sebastian Shrine" loading="lazy" style="display:block;"/>
       </div>
       <div class="proj-body">
         <div class="proj-num">10 · Religious</div>
@@ -565,7 +565,7 @@ footer { background: #030608; border-top: 1px solid var(--border); padding: 56px
 
     <div class="proj-card reveal">
       <div class="proj-photo">
-        <img src="../assets/construction/kayathar-bridge-region.png" alt="Kayathar – Melailanthaikulam Bridge Region" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;"/>
+        <img src="../assets/construction/kayathar-bridge-region.png" alt="Kayathar – Melailanthaikulam Bridge Region" loading="lazy" style="display:block;"/>
       </div>
       <div class="proj-body">
         <div class="proj-num">11 · Infrastructure</div>
@@ -577,7 +577,7 @@ footer { background: #030608; border-top: 1px solid var(--border); padding: 56px
 
     <div class="proj-card reveal d1">
       <div class="proj-photo">
-        <img src="../assets/construction/kallikulam-community-development.png" alt="Kallikulam Community Development" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;"/>
+        <img src="../assets/construction/kallikulam-community-development.png" alt="Kallikulam Community Development" loading="lazy" style="display:block;"/>
       </div>
       <div class="proj-body">
         <div class="proj-num">12 · Infrastructure</div>
@@ -721,7 +721,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click'
       card.innerHTML = `
         <div class="proj-photo" style="position:relative;overflow:hidden;">
           ${item.image_url
-            ? `<img src="${item.image_url}" alt="${item.title||''}" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;"/>`
+            ? `<img src="${item.image_url}" alt="${item.title||''}" loading="lazy" style="display:block;"/>`
             : `<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:rgba(248,246,241,.2);font-size:32px;">📷</div>`}
         </div>
         <div class="proj-body">
