@@ -1,0 +1,20 @@
+{
+  "rewrites": [
+    { "source": "/",                  "destination": "/pages/index.html" },
+    { "source": "/index.html",        "destination": "/pages/index.html" },
+    { "source": "/motors",            "destination": "/pages/motors.html" },
+    { "source": "/motors.html",       "destination": "/pages/motors.html" },
+    { "source": "/chits",             "destination": "/pages/chits.html" },
+    { "source": "/chits.html",        "destination": "/pages/chits.html" },
+    { "source": "/fisheries",         "destination": "/pages/fisheries.html" },
+    { "source": "/fisheries.html",    "destination": "/pages/fisheries.html" },
+    { "source": "/timber",            "destination": "/pages/timber.html" },
+    { "source": "/timber.html",       "destination": "/pages/timber.html" },
+    { "source": "/construction",      "destination": "/pages/construction.html" },
+    { "source": "/construction.html", "destination": "/pages/construction.html" },
+    { "source": "/realestate",        "destination": "/pages/realestate.html" },
+    { "source": "/realestate.html",   "destination": "/pages/realestate.html" },
+    { "source": "/admin",             "destination": "/pages/admin.html" },
+    { "source": "/admin.html",        "destination": "/pages/admin.html" }
+  ]
+}
